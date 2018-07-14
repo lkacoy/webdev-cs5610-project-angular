@@ -6,13 +6,15 @@ import {routing} from './app.routing';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BlogSearchComponent } from './blog-search/blog-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    BlogSearchComponent
   ],
   imports: [
     BrowserModule,
