@@ -1,9 +1,9 @@
 <form>
   <div class="form-group row">
     <label for="topic" class="col-sm-2 col-form-label">Topic Search</label>
-    <input [(ngModel)]="keyword" name="topic" type="text" class="form-control col-sm-5 mr-4" id="topic" aria-describedby="topic" placeholder="Search for something that interests you!">
+    <input [(ngModel)]="keyword" name="topic" type="text" class="form-control col-sm-5" id="topic" aria-describedby="topic" placeholder="Search for something that interests you!">
     <label for="numResults" class="col-sm-2 col-form-label">Number Of Results</label>
-    <select [(ngModel)]="limit" id="numResults" name="numResults" defaultValue="20">
+    <select [(ngModel)]="limit" id="numResults" name="numResults" class="form-control col-sm-1 mr-2">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -28,9 +28,9 @@
     <button type="submit" (click)="searchPostsByTag(keyword, limit)" class="btn btn-primary">Search</button>
   </div>
 </form>
-<h2>Results ({{blogs.length}})</h2>
+<h3>Blog Results ({{blogs.length}})</h3>
 <table>
   <tr *ngFor="let blog of blogs">
-    <td>Blog test</td>
+    <td>{{blog.blog_name}}</td>
   </tr>
 </table>
