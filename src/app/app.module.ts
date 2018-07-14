@@ -10,6 +10,7 @@ import { BlogSearchComponent } from './blog-search/blog-search.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import {BloggerApiServiceClient} from "./services/bloggerApi.service.client";
 import {FormsModule} from "@angular/forms";
+import { BlogInfoComponent } from './blog-info/blog-info.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     RegisterComponent,
     ProfileComponent,
     BlogSearchComponent,
-    BlogListComponent
+    BlogListComponent,
+    BlogInfoComponent
   ],
   imports: [
     BrowserModule,
