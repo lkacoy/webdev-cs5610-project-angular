@@ -39,7 +39,7 @@
   </tr>
   </thead>
   <tr *ngFor="let blog of blogs">
-    <td><button class="btn btn-info">View Blog Info</button></td>
+    <td><button class="btn btn-info" (click)="viewBlogInfo(blog.blog_name)">View Blog Info</button></td>
     <td>{{blog.blog_name}}</td>
     <td>{{blog.summary}}</td>
     <td><a href="{{blog.post_url}}">{{blog.post_url}}</a></td>

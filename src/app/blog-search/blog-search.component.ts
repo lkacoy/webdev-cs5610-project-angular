@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BloggerApiServiceClient} from "../services/bloggerApi.service.client";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-blog-search',
@@ -12,7 +13,8 @@ export class BlogSearchComponent implements OnInit {
   blogs = [];
   limit;
 
-  constructor(private blogService:BloggerApiServiceClient) { }
+  constructor(private blogService:BloggerApiServiceClient,
+              private router:Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +22,10 @@ export class BlogSearchComponent implements OnInit {
   searchPostsByTag(keyword, limit) {
       this.blogService.findPostsBySearchCriteria(keyword, limit)
         .then(response => this.blogs = response.response);
+  }
+
+  viewBlogInfo(blogName) {
+    this.router.navigateByUrl('/blog-info', blogName);
   }
 
 }
