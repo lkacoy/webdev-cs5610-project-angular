@@ -9,7 +9,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { BlogSearchComponent } from './blog-search/blog-search.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import {BloggerApiServiceClient} from "./services/bloggerApi.service.client";
-import { BlogResultsComponent } from './blog-results/blog-results.component';
 import {FormsModule} from "@angular/forms";
 
 @NgModule({
@@ -19,8 +18,7 @@ import {FormsModule} from "@angular/forms";
     RegisterComponent,
     ProfileComponent,
     BlogSearchComponent,
-    BlogListComponent,
-    BlogResultsComponent
+    BlogListComponent
   ],
   imports: [
     BrowserModule,
