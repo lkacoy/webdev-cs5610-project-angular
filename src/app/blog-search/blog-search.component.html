@@ -1,3 +1,7 @@
-<p>
-  blog-search works!
-</p>
+<form>
+  <div class="form-group row">
+    <label for="topic" class="col-sm-2 col-form-label">Topic Search</label>
+    <input [(ngModel)]="keyword" name="topic" type="text" class="form-control col-sm-5 mr-4" id="topic" aria-describedby="topic" placeholder="Search for something that interests you!">
+    <button type="submit" (click)="searchPostsByTag(keyword)" class="btn btn-primary">Search</button>
+  </div>
+</form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BloggerApiServiceClient} from "../services/bloggerApi.service.client";
 
 @Component({
   selector: 'app-blog-search',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogSearchComponent implements OnInit {
 
-  constructor() { }
+  keyword;
+  blogs;
+
+  constructor(private blogService:BloggerApiServiceClient) { }
 
   ngOnInit() {
+  }
+
+  searchPostsByTag(keyword) {
+      this.blogService.findPostsBySearchCriteria(keyword)
+        .then(blogs => this.blogs = blogs.response);
+      console.log(this.blogs);
   }
 
 }

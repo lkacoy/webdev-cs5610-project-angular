@@ -8,6 +8,9 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BlogSearchComponent } from './blog-search/blog-search.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
+import {BloggerApiServiceClient} from "./services/bloggerApi.service.client";
+import { BlogResultsComponent } from './blog-results/blog-results.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,13 +19,15 @@ import { BlogListComponent } from './blog-list/blog-list.component';
     RegisterComponent,
     ProfileComponent,
     BlogSearchComponent,
-    BlogListComponent
+    BlogListComponent,
+    BlogResultsComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routing
   ],
-  providers: [],
+  providers: [BloggerApiServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
