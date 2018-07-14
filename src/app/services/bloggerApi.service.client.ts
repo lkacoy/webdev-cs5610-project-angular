@@ -1,5 +1,5 @@
 export class BloggerApiServiceClient {
-  FIND_BY_TAG = 'https://api.tumblr.com/v2/tagged?tag=gif&api_key=fe1SEpCDiutEE7EDxpcnSo3RhfLoUjUNq0d7mk2xbnW2q1uesn';
+  FIND_BY_TAG = 'https://api.tumblr.com/v2/tagged?tag=KEYWORD&api_key=fe1SEpCDiutEE7EDxpcnSo3RhfLoUjUNq0d7mk2xbnW2q1uesn';
 
 
   findPostsBySearchCriteria(keyword)  {

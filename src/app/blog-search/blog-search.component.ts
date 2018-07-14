@@ -9,7 +9,7 @@ import {BloggerApiServiceClient} from "../services/bloggerApi.service.client";
 export class BlogSearchComponent implements OnInit {
 
   keyword;
-  blogs;
+  blogs = [];
 
   constructor(private blogService:BloggerApiServiceClient) { }
 
