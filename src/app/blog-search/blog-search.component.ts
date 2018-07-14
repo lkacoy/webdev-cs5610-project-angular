@@ -10,16 +10,16 @@ export class BlogSearchComponent implements OnInit {
 
   keyword;
   blogs = [];
+  limit;
 
   constructor(private blogService:BloggerApiServiceClient) { }
 
   ngOnInit() {
   }
 
-  searchPostsByTag(keyword) {
-      this.blogService.findPostsBySearchCriteria(keyword)
-        .then(blogs => this.blogs = blogs.response);
-      console.log(this.blogs);
+  searchPostsByTag(keyword, limit) {
+      this.blogService.findPostsBySearchCriteria(keyword, limit)
+        .then(response => this.blogs = response.response);
   }
 
 }
