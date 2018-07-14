@@ -32,12 +32,14 @@
 <table class="table table-striped">
   <thead>
   <tr>
+    <th scope="col"></th>
     <th scope="col">Blog Name</th>
     <th scope="col">Summary</th>
     <th scope="col">Link to Tumblr</th>
   </tr>
   </thead>
   <tr *ngFor="let blog of blogs">
+    <td><button class="btn btn-info">View Blog Info</button></td>
     <td>{{blog.blog_name}}</td>
     <td>{{blog.summary}}</td>
     <td><a href="{{blog.post_url}}">{{blog.post_url}}</a></td>
