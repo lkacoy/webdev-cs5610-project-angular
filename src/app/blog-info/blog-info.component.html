@@ -1,3 +1,10 @@
-<p>
-  {{info}}
-</p>
+<div class="container">
+  <h1>About {{info.title}}</h1>
+  Written by: {{info.name}} <br/>
+  Description: {{info.description}} <br/>
+  Post Count: {{info.posts}} <br/>
+  Allows Questions?: {{info.ask}} <br/>
+  Allows Anonymous Questions?: {{info.ask_anon}} <br/>
+  Link to the Blog: <a href="{{info.url}}">{{info.url}}</a><br/>
+  <button class="btn btn-info" (click)="goBack()">Go Back</button>
+</div>

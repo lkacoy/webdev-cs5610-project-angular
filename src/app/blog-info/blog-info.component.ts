@@ -21,7 +21,10 @@ export class BlogInfoComponent implements OnInit {
 
   getBlogInfo(id) {
     this.blogService.findBlogInfo(id)
-      .then(info => this.info = info);
+      .then(info => this.info = info.response.blog);
   }
 
+  goBack() {
+    parent.history.go(-1);
+  }
 }
