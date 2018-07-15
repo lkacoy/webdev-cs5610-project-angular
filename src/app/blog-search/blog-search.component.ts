@@ -25,7 +25,7 @@ export class BlogSearchComponent implements OnInit {
   }
 
   viewBlogInfo(blogName) {
-    this.router.navigateByUrl('/blog-info', blogName);
+    this.router.navigateByUrl('/blog-info/'+blogName);
   }
 
 }
