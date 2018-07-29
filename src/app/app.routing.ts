@@ -5,8 +5,9 @@ import {ProfileComponent} from "./profile/profile.component";
 import {BlogSearchComponent} from "./blog-search/blog-search.component";
 import {BlogListComponent} from "./blog-list/blog-list.component";
 import {BlogInfoComponent} from "./blog-info/blog-info.component";
+import {HomeComponent} from "./home/home.component";
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'blog-list', pathMatch: 'full'},
+  {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'blog-list', component: BlogListComponent},
   {path: 'blog-search', component: BlogSearchComponent},
   {path: 'login', component: LoginComponent},
