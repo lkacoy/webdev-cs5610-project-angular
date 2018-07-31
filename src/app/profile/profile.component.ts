@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from "../services/user.service.client";
 import {User} from "../../../../webdev-summer2018-angular/src/app/models/user.model.client";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +18,8 @@ export class ProfileComponent implements OnInit {
   lastName;
   isAdmin:boolean = false;
 
-  constructor(private service: UserServiceClient) { }
+  constructor(private service: UserServiceClient,
+              private router:Router) { }
 
   ngOnInit() {
 
@@ -30,6 +32,30 @@ export class ProfileComponent implements OnInit {
         this.lastName = user.lastName;
         if (user.role === 'admin') this.isAdmin = true;
       });
+  }
+
+/*
+
+  update() {
+    this.user.username = this.username;
+    this.user.password = this.password;
+    this.user.email = this.email;
+    this.user.firstName = this.firstName;
+    this.user.lastName = this.lastName;
+    this.service.updateUser(this.user)
+      .then(user => {
+        this.user = user;
+        this.router.navigateByUrl('/profile');
+      });
+  }
+*/
+
+  logout() {
+    this.service
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+
   }
 
 }
