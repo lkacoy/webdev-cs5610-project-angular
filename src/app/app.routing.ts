@@ -6,8 +6,10 @@ import {BlogSearchComponent} from "./blog-search/blog-search.component";
 import {BlogListComponent} from "./blog-list/blog-list.component";
 import {BlogInfoComponent} from "./blog-info/blog-info.component";
 import {HomeComponent} from "./home/home.component";
+import {ProjectHomeComponent} from "./project-home/project-home.component";
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
+  {path: 'home', component: ProjectHomeComponent},
   {path: 'blog-list', component: BlogListComponent},
   {path: 'blog-search', component: BlogSearchComponent},
   {path: 'login', component: LoginComponent},
