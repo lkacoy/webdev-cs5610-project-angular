@@ -68,7 +68,6 @@ export class UserServiceClient {
 
   deleteUser(username) {
     return fetch('http://localhost:3000/api/profile', {
-      body: JSON.stringify(username),
       credentials: 'include',
       method: 'delete',
       headers:{
