@@ -36,7 +36,6 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-/*
 
   update() {
     this.user.username = this.username;
@@ -44,13 +43,13 @@ export class ProfileComponent implements OnInit {
     this.user.email = this.email;
     this.user.firstName = this.firstName;
     this.user.lastName = this.lastName;
+    this.user.role = this.role;
     this.service.updateUser(this.user)
       .then(user => {
         this.user = user;
         this.router.navigateByUrl('/profile');
       });
   }
-*/
 
   logout() {
     this.service

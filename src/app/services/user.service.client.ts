@@ -53,4 +53,17 @@ export class UserServiceClient {
     });
   }
 
+  updateUser(user) {
+    return fetch('http://localhost:3000/api/profile', {
+      body: JSON.stringify(user),
+      credentials: 'include',
+      method: 'put',
+      headers:{
+        'content-type': 'application/json'
+      }
+    }).then(response => {
+      return response.json();
+    });
+  }
+
 }
