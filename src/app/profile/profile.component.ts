@@ -66,4 +66,12 @@ export class ProfileComponent implements OnInit {
       );
     }
   }
+
+  checkRole() {
+    if (this.role !== 'blogWriter') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
