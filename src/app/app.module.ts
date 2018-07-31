@@ -13,6 +13,7 @@ import {FormsModule} from "@angular/forms";
 import { BlogInfoComponent } from './blog-info/blog-info.component';
 import { HomeComponent } from './home/home.component';
 import {UserServiceClient} from "./services/user.service.client";
+import { ProjectHomeComponent } from './project-home/project-home.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {UserServiceClient} from "./services/user.service.client";
     BlogSearchComponent,
     BlogListComponent,
     BlogInfoComponent,
-    HomeComponent
+    HomeComponent,
+    ProjectHomeComponent
   ],
   imports: [
     BrowserModule,
