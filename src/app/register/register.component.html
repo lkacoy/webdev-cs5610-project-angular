@@ -3,35 +3,46 @@
   <form class="needs-validation" novalidate>
     <div class="form-group row">
       <label for="usernameInput">Username</label>
-      <input type="text" [(ngModel)]="username" required class="form-control" id="usernameInput" aria-describedby="usernameInput" placeholder="Enter username">
+      <input type="text" [(ngModel)]="username" required class="form-control" id="usernameInput" name="username" aria-describedby="usernameInput" placeholder="Enter username">
       <small id="usernameRequired" class="text-danger">
         Username is required.
       </small>
     </div>
     <div class="form-group row">
       <label for="password">Password</label>
-      <input type="password" [(ngModel)]="password" required class="form-control" id="password" placeholder="Password">
+      <input type="password" [(ngModel)]="password" (ngModelChange)="verifyPasswordMatch()" required class="form-control"
+             id="password" name="password" placeholder="Password">
       <small id="passwordHelp" class="text-danger">
         Password is required.
       </small>
     </div>
     <div class="form-group row">
+      <input [(ngModel)]="password2" required name="password2"
+             type="password"
+             placeholder="verify password"
+             (ngModelChange)="verifyPasswordMatch()"
+             class="form-control mb-2"/>
+      <small id="passwordMatch" class="text-danger" [hidden]="!this.passwordNotMatch">
+        Passwords do not match.
+      </small>
+    </div>
+    <div class="form-group row">
       <label for="firstName">First Name</label>
-      <input [(ngModel)]="firstName" type="text" required class="form-control" id="firstName" placeHolder="First Name">
+      <input [(ngModel)]="firstName" type="text" required class="form-control" id="firstName" name="firstName" placeHolder="First Name">
       <small id="firstNameRequired" class="text-danger">
         First Name is required.
       </small>
     </div>
     <div class="form-group row">
       <label for="lastName">Last Name</label>
-      <input type="text" [(ngModel)]="lastName" required class="form-control" id="lastName" placeholder="Last Name">
+      <input type="text" [(ngModel)]="lastName" required class="form-control" id="lastName" name="lastName" placeholder="Last Name">
       <small id="lastNameRequired" class="text-danger">
         Last Name is required.
       </small>
     </div>
     <div class="form-group row">
       <label for="email">Email</label>
-      <input type="email" [(ngModel)]="email" required class="form-control" id="email" placeholder="Email Address">
+      <input type="email" [(ngModel)]="email" required class="form-control" id="email" name="email" placeholder="Email Address">
       <small id="emailRequired" class="text-danger">
         Email address is required.
       </small>

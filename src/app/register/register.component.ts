@@ -9,10 +9,12 @@ export class RegisterComponent implements OnInit {
 
   username;
   password;
+  password2;
   email;
   firstName;
   lastName;
   role;
+  passwordNotMatch = false;
 
   roleOptions = [
     {value:'blogFollower', name: 'Blog Follower'},
@@ -22,6 +24,15 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  verifyPasswordMatch() {
+    if (this.password && this.password !== this.password2) {
+      this.passwordNotMatch = true;
+    } else {
+      this.passwordNotMatch = false;
+    }
+    console.log(this.passwordNotMatch);
   }
 
 }
