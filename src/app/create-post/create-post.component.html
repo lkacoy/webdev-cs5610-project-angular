@@ -1,14 +1,39 @@
 <div class="container-fluid">
   <h1>Create a New Blog Post</h1>
 
+  <div class="form-group">
+    <label class="form-control-sm">
+      Title
+    </label>
+    <input type="text" [(ngModel)]="post.postTitle" class="form-control-sm"/>
+  </div>
 
-  <button class="btn btn-danger mr-2" (click)="deleteDraft()">
-    Discard
-  </button>
-  <button class="btn btn-success mr-2" (click)="saveDraft()">
-    Save
-  </button>
-  <button class="btn btn-success" (click)="publishPost()">
-    Publish
-  </button>
+  <div class="form-group">
+    <label class="form-control-sm">
+      Topic
+    </label>
+    <select [(ngModel)]="post.topic" name="topic" id="topic" class="form-control-sm">
+      <option *ngFor="let topic of topicList" [ngValue]="topic">{{topic}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-control-sm">
+      Write your content below:
+    </label>
+    <textarea class="form-control" [(ngModel)]="post.postContent" rows="15" cols="50"></textarea>
+  </div>
+
+
+  <div class="row mt-4">
+    <button class="btn btn-danger mr-2" (click)="deleteDraft()">
+      Discard
+    </button>
+    <button class="btn btn-success mr-2" (click)="saveDraft()">
+      Save
+    </button>
+    <button class="btn btn-success" (click)="publishPost()">
+      Publish
+    </button>
+  </div>
 </div>
