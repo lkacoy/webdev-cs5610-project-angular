@@ -53,6 +53,9 @@
         <option *ngFor="let r of roleOptions" [ngValue]="r.value">{{r.name}}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary">Create New Account</button>
+    <small id="usernameTaken" class="text-danger" [hidden]="!this.usernameTakenError">
+      Username has already been taken. Please try a new username.
+    </small>
+    <button (click)="register(username, password)" type="submit" class="btn btn-primary">Create New Account</button>
   </form>
 </div>

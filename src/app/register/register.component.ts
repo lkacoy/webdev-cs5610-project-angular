@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserServiceClient} from "../services/user.service.client";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -15,13 +17,15 @@ export class RegisterComponent implements OnInit {
   lastName;
   role;
   passwordNotMatch = false;
+  usernameTakenError = false;
 
   roleOptions = [
     {value:'blogFollower', name: 'Blog Follower'},
     {value: 'blogWriter', name: 'Blog Writer'}
   ];
 
-  constructor() { }
+  constructor(private service:UserServiceClient,
+              private router:Router) { }
 
   ngOnInit() {
   }
@@ -33,6 +37,20 @@ export class RegisterComponent implements OnInit {
       this.passwordNotMatch = false;
     }
     console.log(this.passwordNotMatch);
+  }
+
+  register(username, password) {
+    this.service
+      .createUser(username, password)
+      .then((response) => {
+        if (response && response.error) {
+          this.usernameTakenError = true;
+        } else {
+          this.usernameTakenError = false;
+          this.router.navigate(['profile']);
+        }
+      });
+
   }
 
 }
