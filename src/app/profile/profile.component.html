@@ -13,6 +13,7 @@
   <input [(ngModel)]="email"
          placeholder="email"
          class="form-control"/>
+  <input [(ngModel)]="role" class="form-control" readonly="{{role==='admin'}}"/>
   <button (click)="update()"
           class="btn btn-primary btn-block">
     Update
