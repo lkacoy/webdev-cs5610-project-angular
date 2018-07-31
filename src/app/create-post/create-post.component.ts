@@ -12,4 +12,20 @@ export class CreatePostComponent implements OnInit {
   ngOnInit() {
   }
 
+  deleteDraft() {
+    if(confirm('Continuing will delete your draft and you will be unable to return to make edits. Continue?')) {
+
+    }
+  }
+
+  saveDraft() {
+
+  }
+
+  publishPost() {
+    if(confirm('Continuing will make your content viewable to others. Continue?')) {
+      
+    }
+  }
+
 }

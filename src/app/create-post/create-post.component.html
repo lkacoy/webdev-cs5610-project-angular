@@ -1,3 +1,14 @@
-<p>
-  create-post works!
-</p>
+<div class="container-fluid">
+  <h1>Create a New Blog Post</h1>
+
+
+  <button class="btn btn-danger mr-2" (click)="deleteDraft()">
+    Discard
+  </button>
+  <button class="btn btn-success mr-2" (click)="saveDraft()">
+    Save
+  </button>
+  <button class="btn btn-success" (click)="publishPost()">
+    Publish
+  </button>
+</div>
