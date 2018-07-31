@@ -5,7 +5,7 @@ export class UserServiceClient {
       username: username,
       password: password
     };
-    return fetch('https://node-lexikacoyannakis.herokuapp.com/api/login', {
+    return fetch('http://localhost:3000/api/login', {
       method: 'post',
       body: JSON.stringify(credentials),
       credentials: 'include',
@@ -22,10 +22,18 @@ export class UserServiceClient {
   }
 
   logout() {
-    return fetch('https://node-lexikacoyannakis.herokuapp.com/api/logout', {
+    return fetch('http://localhost:3000/api/logout', {
       method: 'post',
       credentials: 'include'
     });
+  }
+
+  profile() {
+    return fetch('http://localhost:3000/api/profile',
+      {
+        credentials: 'include', // include, same-origin, *omit
+      })
+      .then(response => response.json());
   }
 
 }

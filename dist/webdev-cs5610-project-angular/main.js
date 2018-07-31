@@ -1,5 +1,25 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "../webdev-summer2018-angular/src/app/models/user.model.client.ts":
+/*!************************************************************************!*\
+  !*** ../webdev-summer2018-angular/src/app/models/user.model.client.ts ***!
+  \************************************************************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User() {
+    }
+    return User;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -104,12 +124,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _blog_info_blog_info_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blog-info/blog-info.component */ "./src/app/blog-info/blog-info.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/user.service.client */ "./src/app/services/user.service.client.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -143,7 +165,8 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
                 _app_routing__WEBPACK_IMPORTED_MODULE_3__["routing"]
             ],
-            providers: [_services_bloggerApi_service_client__WEBPACK_IMPORTED_MODULE_9__["BloggerApiServiceClient"]],
+            providers: [_services_bloggerApi_service_client__WEBPACK_IMPORTED_MODULE_9__["BloggerApiServiceClient"],
+                _services_user_service_client__WEBPACK_IMPORTED_MODULE_13__["UserServiceClient"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
     ], AppModule);
@@ -436,7 +459,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Welcome to Lexi's CS5610 Home Page!</h1>\n  <p>Below you will find all of the work I did for CS 5610 at Northeastern University. </p>\n  <p>\n    To proceed directly to my course project, which creates a blogging website, please click\n    <a routerLink=\"/blog-list\">here</a>.\n  </p>\n\n  <div class=\"row\">\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          <a>Github Repositories</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer-2018-java-server-akacoyannakis\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>React Native</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          <a>Heroku Instances</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a>Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Welcome to Lexi's CS5610 Home Page!</h1>\n  <p>Below you will find all of the work I did for CS 5610 at Northeastern University. </p>\n  <p>\n    To proceed directly to my course project, which creates a blogging website, please click\n    <a routerLink=\"/blog-list\">here</a>.\n  </p>\n\n  <div class=\"row\">\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Github Repositories\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer-2018-java-server-akacoyannakis\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-client-react-akacoyannakis\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/cs5610-react-native\">React Native</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-angular\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-node\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project-angular\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Heroku Instances\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-lexikacoyannakis.herokuapp.com/\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-react-lexikacoyannakis.herokuapp.com/\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://angular-lexikacoyannakis.herokuapp.com/\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://node-lexikacoyannakis.herokuapp.com/\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-angular-lexi.herokuapp.com/\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-node-lexi.herokuapp.com/\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -499,7 +522,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Login</h1>\n  <form>\n    <div class=\"form-group\">\n      <label for=\"usernameInput\">Username</label>\n      <input type=\"text\" class=\"form-control\" id=\"usernameInput\" aria-describedby=\"usernameInput\" placeholder=\"Enter username\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"password\">Password</label>\n      <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\">\n      <small id=\"forgotPassword\" class=\"form-text text-muted\">Forgot Password?</small>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\">Login</button>\n    <small id=\"register\" class=\"form-text text-muted\">Don't have an account?\n      <a routerLink=\"/register\">Register New User</a></small>\n  </form>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Login</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control mb-2 mt-4\"/>\n  <input [(ngModel)]=\"password\"\n         placeholder=\"password\"\n         type=\"password\"\n         class=\"form-control mb-2\"/>\n  <small id=\"forgotPassword\" class=\"form-text text-muted\">Forgot Password?</small>\n  <small id=\"loginError\" class=\"text-danger\" [hidden]=\"!this.loginError\">\n    Login was unsuccessful. Please try again.\n  </small>\n  <button (click)=\"login(username, password)\"\n          class=\"btn btn-primary btn-block mt-4\">\n    Login\n  </button>\n\n  <small id=\"register\" class=\"form-text text-muted\">\n    Don't have an account? <a routerLink=\"/register\">Register New User</a>\n  </small>\n</div>\n"
 
 /***/ }),
 
@@ -514,6 +537,8 @@ module.exports = "<div class=\"container-fluid\">\n  <h1>Login</h1>\n  <form>\n 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -524,9 +549,29 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(router, service) {
+        this.router = router;
+        this.service = service;
+        this.loginError = false;
     }
+    LoginComponent.prototype.login = function (username, password) {
+        var _this = this;
+        console.log([username, password]);
+        this.service
+            .login(username, password)
+            .then(function (response) {
+            if (response && response.error) {
+                _this.loginError = true;
+            }
+            else {
+                _this.loginError = false;
+                _this.router.navigate(['profile']);
+            }
+        });
+    };
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent = __decorate([
@@ -535,7 +580,8 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _services_user_service_client__WEBPACK_IMPORTED_MODULE_2__["UserServiceClient"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -562,7 +608,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  profile works!\n</p>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Profile</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"firstName\"\n         placeholder=\"first name\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"lastName\"\n         placeholder=\"lastName\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"email\"\n         placeholder=\"email\"\n         class=\"form-control\"/>\n  <button (click)=\"update()\"\n          class=\"btn btn-primary btn-block\">\n    Update\n  </button>\n\n  <a (click)=\"logout()\">Logout</a>\n  <a routerLink=\"/home\" class=\"ml-2\">Home</a>\n  <a routerLink=\"/admin\" class=\"ml-2\" [hidden]=\"!this.isAdmin\">Admin</a>\n\n</div>\n"
 
 /***/ }),
 
@@ -577,6 +623,8 @@ module.exports = "<p>\n  profile works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
+/* harmony import */ var _webdev_summer2018_angular_src_app_models_user_model_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../webdev-summer2018-angular/src/app/models/user.model.client */ "../webdev-summer2018-angular/src/app/models/user.model.client.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -587,10 +635,26 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent() {
+    function ProfileComponent(service) {
+        this.service = service;
+        this.user = new _webdev_summer2018_angular_src_app_models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]();
+        this.isAdmin = false;
     }
     ProfileComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.service
+            .profile()
+            .then(function (user) {
+            _this.username = user.username;
+            _this.email = user.email;
+            _this.firstName = user.firstName;
+            _this.lastName = user.lastName;
+            if (user.role === 'admin')
+                _this.isAdmin = true;
+        });
     };
     ProfileComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -598,7 +662,7 @@ var ProfileComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./profile.component.html */ "./src/app/profile/profile.component.html"),
             styles: [__webpack_require__(/*! ./profile.component.css */ "./src/app/profile/profile.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_1__["UserServiceClient"]])
     ], ProfileComponent);
     return ProfileComponent;
 }());
@@ -696,6 +760,59 @@ var BloggerApiServiceClient = /** @class */ (function () {
             .then(function (response) { return response.json(); });
     };
     return BloggerApiServiceClient;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/user.service.client.ts":
+/*!*************************************************!*\
+  !*** ./src/app/services/user.service.client.ts ***!
+  \*************************************************/
+/*! exports provided: UserServiceClient */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserServiceClient", function() { return UserServiceClient; });
+var UserServiceClient = /** @class */ (function () {
+    function UserServiceClient() {
+    }
+    UserServiceClient.prototype.login = function (username, password) {
+        var credentials = {
+            username: username,
+            password: password
+        };
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/login', {
+            method: 'post',
+            body: JSON.stringify(credentials),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) {
+            if (response != null) {
+                return response.json();
+            }
+            else {
+                return;
+            }
+        });
+    };
+    UserServiceClient.prototype.logout = function () {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/logout', {
+            method: 'post',
+            credentials: 'include'
+        });
+    };
+    UserServiceClient.prototype.profile = function () {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
+            credentials: 'include',
+        })
+            .then(function (response) { return response.json(); });
+    };
+    return UserServiceClient;
 }());
 
 
