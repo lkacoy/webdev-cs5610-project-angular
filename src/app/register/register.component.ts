@@ -40,8 +40,10 @@ export class RegisterComponent implements OnInit {
   }
 
   register(username, password) {
+    var user = {username: this.username, password: this.password, firstName: this.firstName, lastName: this.lastName, email: this.email,
+    role: this.role};
     this.service
-      .createUser(username, password)
+      .createUser(user)
       .then((response) => {
         if (response && response.error) {
           this.usernameTakenError = true;
