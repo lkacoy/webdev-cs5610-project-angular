@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PostServiceClient} from "../services/post.service.client";
 
 @Component({
   selector: 'app-create-post',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:PostServiceClient) { }
 
   ngOnInit() {
   }
@@ -24,7 +25,7 @@ export class CreatePostComponent implements OnInit {
 
   publishPost() {
     if(confirm('Continuing will make your content viewable to others. Continue?')) {
-      
+
     }
   }
 

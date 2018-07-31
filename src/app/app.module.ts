@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import {UserServiceClient} from "./services/user.service.client";
 import { ProjectHomeComponent } from './project-home/project-home.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import {PostServiceClient} from "./services/post.service.client";
 
 @NgModule({
   declarations: [
@@ -34,8 +35,11 @@ import { CreatePostComponent } from './create-post/create-post.component';
     FormsModule,
     routing
   ],
-  providers: [BloggerApiServiceClient,
-  UserServiceClient],
+  providers: [
+    BloggerApiServiceClient,
+    UserServiceClient,
+    PostServiceClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
