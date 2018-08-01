@@ -26,4 +26,9 @@ export class PostServiceClient {
     return fetch('http://localhost:3000/api/post/'+postId)
       .then(response => response.json());
   }
+
+  findPostsForUser(username) {
+    return fetch('http://localhost:3000/api/post/user/' + username)
+      .then(response => response.json());
+  }
 }
