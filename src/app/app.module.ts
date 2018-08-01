@@ -16,6 +16,7 @@ import {UserServiceClient} from "./services/user.service.client";
 import { ProjectHomeComponent } from './project-home/project-home.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import {PostServiceClient} from "./services/post.service.client";
+import { PostViewComponent } from './post-view/post-view.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {PostServiceClient} from "./services/post.service.client";
     BlogInfoComponent,
     HomeComponent,
     ProjectHomeComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    PostViewComponent
   ],
   imports: [
     BrowserModule,
