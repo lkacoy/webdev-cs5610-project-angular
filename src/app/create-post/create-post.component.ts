@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostServiceClient} from "../services/post.service.client";
 import {Post} from "../models/post.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-post',
@@ -21,7 +22,8 @@ export class CreatePostComponent implements OnInit {
     'Recipes',
     'Travel',
   ];
-  constructor(private service:PostServiceClient) { }
+  constructor(private service:PostServiceClient,
+              private router:Router) { }
 
   ngOnInit() {
   }
@@ -53,8 +55,10 @@ export class CreatePostComponent implements OnInit {
     if(confirm('Continuing will make your content viewable to others. Continue?')) {
       this.post.published = true;
       this.service.createPost(this.post)
-        .then(() => {
+        .then((response) => {
+          console.log(response);
           alert('Your post has been published!');
+          this.router.navigateByUrl('/viewPost/'+response._id);
         })
     }
   }
