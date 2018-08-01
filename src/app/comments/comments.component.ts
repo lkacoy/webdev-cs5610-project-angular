@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Comment} from '../models/comment.model';
+import {CommentServiceClient} from "../services/comment.service.client";
 
 @Component({
   selector: 'app-comments',
@@ -10,7 +11,7 @@ export class CommentsComponent implements OnInit {
 
   comment = new Comment();
 
-  constructor() { }
+  constructor(private service:CommentServiceClient) { }
 
   ngOnInit() {
   }
@@ -20,7 +21,8 @@ export class CommentsComponent implements OnInit {
   }
 
   addComment() {
-
+    this.service.createComment(this.comment)
+      .then(() => this.clearComment());
   }
 
 }

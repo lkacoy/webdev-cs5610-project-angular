@@ -19,6 +19,7 @@ import {PostServiceClient} from "./services/post.service.client";
 import { PostViewComponent } from './post-view/post-view.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
+import {CommentServiceClient} from "./services/comment.service.client";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CommentsListComponent } from './comments-list/comments-list.component';
   providers: [
     BloggerApiServiceClient,
     UserServiceClient,
-    PostServiceClient
+    PostServiceClient,
+    CommentServiceClient
   ],
   bootstrap: [AppComponent]
 })
