@@ -20,6 +20,7 @@ import { PostViewComponent } from './post-view/post-view.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentsListComponent } from './comments-list/comments-list.component';
 import {CommentServiceClient} from "./services/comment.service.client";
+import { PostListComponent } from './post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {CommentServiceClient} from "./services/comment.service.client";
     CreatePostComponent,
     PostViewComponent,
     CommentsComponent,
-    CommentsListComponent
+    CommentsListComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,

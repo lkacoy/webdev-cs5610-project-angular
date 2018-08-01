@@ -9,6 +9,7 @@ import {HomeComponent} from "./home/home.component";
 import {ProjectHomeComponent} from "./project-home/project-home.component";
 import {CreatePostComponent} from "./create-post/create-post.component";
 import {PostViewComponent} from "./post-view/post-view.component";
+import {PostListComponent} from "./post-list/post-list.component";
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'home', component: ProjectHomeComponent},
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'blog-info/:id', component: BlogInfoComponent}
+  {path: 'blog-info/:id', component: BlogInfoComponent},
+  {path: 'viewMyPosts', component: PostListComponent}
 ];
 export const routing = RouterModule.forRoot(appRoutes);
