@@ -22,16 +22,23 @@ export class CommentsListComponent implements OnInit {
 
   setParams(params) {
     this.postId = params['id'];
-    this.service.findCommentsByPost(this.postId)
-      .then((comments) => {
-        this.comments = comments;
-        console.log(this.comments);
-      });
+    this.findCommentsByPostId();
   }
 
   deleteComment(comment) {
     this.service.deleteComment(comment)
-      .then(() => this.service.findCommentsByPost(this.postId));
+      .then((response) => {
+        if (response.error) {
+          console.log(response.error);
+        }
+        this.findCommentsByPostId();
+      });
+  }
+
+  findCommentsByPostId() {
+    this.service.findCommentsByPost(this.postId)
+      .then((comments) => this.comments = comments);
+
   }
 
 }

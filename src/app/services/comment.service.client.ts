@@ -21,6 +21,7 @@ export class CommentServiceClient {
     return fetch('http://localhost:3000/api/comment', {
       method: 'delete',
       body: JSON.stringify(comment),
+      credentials: 'include',
       headers: {
         'content-type': 'application/json'
       }
