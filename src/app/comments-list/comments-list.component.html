@@ -9,6 +9,10 @@
     <tr class="text-center" *ngFor="let comment of comments">
       <td>
         {{comment.username}}
+        <span>
+          <i class="fa fa-edit mr-2 ml-2"></i>
+          <i class="fa fa-trash"></i>
+        </span>
       </td>
       <td>
         {{comment.comment}}
