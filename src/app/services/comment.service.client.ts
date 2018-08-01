@@ -16,4 +16,14 @@ export class CommentServiceClient {
     return fetch('http://localhost:3000/api/comment/post/' + postId)
       .then(response => response.json());
   }
+
+  deleteComment(comment) {
+    return fetch('http://localhost:3000/api/comment', {
+      method: 'comment',
+      body: JSON.stringify(comment),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
 }
