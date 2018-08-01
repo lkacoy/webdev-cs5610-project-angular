@@ -1,10 +1,13 @@
 export class PostServiceClient {
 
-  profile() {
-    return fetch('http://localhost:3000/api/profile',
-      {
-        credentials: 'include', // include, same-origin, *omit
-      })
-      .then(response => response.json());
+  createPost(post) {
+    return fetch('http://localhost:3000/api/post', {
+      method: 'post',
+      body: JSON.stringify(post),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
   }
 }
