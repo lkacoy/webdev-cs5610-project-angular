@@ -30,7 +30,10 @@ export class CreatePostComponent implements OnInit {
 
   deleteDraft() {
     if(confirm('Continuing will delete your draft and you will be unable to return to make edits. Continue?')) {
-
+      if (this.post._id) {
+        this.service.deletePost(this.post)
+      }
+      this.router.navigateByUrl('/home');
     }
   }
 
