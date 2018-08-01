@@ -1,3 +1,6 @@
-<div class="container-fluid">
-
+<div class="container-fluid mt-6" *ngIf="comments.length > 0; else noComment">
+  Total Comments: {{comments.length}}
 </div>
+<ng-template #noComment class="container-fluid mt-6">
+  There are no comments on this post. Be the first to make one!
+</ng-template>

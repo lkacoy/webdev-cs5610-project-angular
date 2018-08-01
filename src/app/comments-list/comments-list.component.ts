@@ -8,6 +8,8 @@ import {CommentServiceClient} from "../services/comment.service.client";
 })
 export class CommentsListComponent implements OnInit {
 
+  comments = [];
+
   constructor(private service:CommentServiceClient) { }
 
   ngOnInit() {
