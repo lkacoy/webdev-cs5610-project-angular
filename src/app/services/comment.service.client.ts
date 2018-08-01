@@ -11,4 +11,9 @@ export class CommentServiceClient {
       }
     }).then(response => response.json());
   }
+
+  findCommentsByPost(postId) {
+    return fetch('http://localhost:3000/api/comment/post/' + postId)
+      .then(response => response.json());
+  }
 }

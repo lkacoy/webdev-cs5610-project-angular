@@ -3,5 +3,5 @@ export class Comment {
   comment: string;
   postId: number;
   username: string;
-  dateCreated: string;
+  dateCreate: string;
 }

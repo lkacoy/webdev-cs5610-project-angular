@@ -1,5 +1,23 @@
 <div class="container-fluid mt-6" *ngIf="comments.length > 0; else noComment">
-  Total Comments: {{comments.length}}
+  <span class="font-weight-bold mb-2">Total Comments: {{comments.length}}</span>
+  <table class="table table-borderless table-striped">
+    <tr class="text-center">
+      <th>Name</th>
+      <th></th>
+      <th>Date</th>
+    </tr>
+    <tr class="text-center" *ngFor="let comment of comments">
+      <td>
+        {{comment.username}}
+      </td>
+      <td>
+        {{comment.comment}}
+      </td>
+      <td>
+        {{comment.dateCreate | date:'medium'}}
+      </td>
+    </tr>
+  </table>
 </div>
 <ng-template #noComment class="container-fluid mt-6">
   There are no comments on this post. Be the first to make one!
