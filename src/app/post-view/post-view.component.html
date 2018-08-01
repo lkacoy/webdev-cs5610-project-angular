@@ -1,3 +1,9 @@
-<p>
-  post-view works!
-</p>
+<div class="container-fluid">
+  <h1>{{post.postTitle}}</h1>
+  <h4>Written by: {{post.username}}</h4>
+
+  <span>Published On: {{post.datePublished | date: 'medium'}}</span>
+  <p class="mt-4">{{post.postContent}}</p>
+
+  <p>Topic: {{post.topic}}</p>
+</div>

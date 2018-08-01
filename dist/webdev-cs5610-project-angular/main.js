@@ -125,12 +125,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blog_info_blog_info_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blog-info/blog-info.component */ "./src/app/blog-info/blog-info.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/user.service.client */ "./src/app/services/user.service.client.ts");
+/* harmony import */ var _project_home_project_home_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./project-home/project-home.component */ "./src/app/project-home/project-home.component.ts");
+/* harmony import */ var _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./create-post/create-post.component */ "./src/app/create-post/create-post.component.ts");
+/* harmony import */ var _services_post_service_client__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/post.service.client */ "./src/app/services/post.service.client.ts");
+/* harmony import */ var _post_view_post_view_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./post-view/post-view.component */ "./src/app/post-view/post-view.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -158,15 +166,21 @@ var AppModule = /** @class */ (function () {
                 _blog_search_blog_search_component__WEBPACK_IMPORTED_MODULE_7__["BlogSearchComponent"],
                 _blog_list_blog_list_component__WEBPACK_IMPORTED_MODULE_8__["BlogListComponent"],
                 _blog_info_blog_info_component__WEBPACK_IMPORTED_MODULE_11__["BlogInfoComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"]
+                _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"],
+                _project_home_project_home_component__WEBPACK_IMPORTED_MODULE_14__["ProjectHomeComponent"],
+                _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_15__["CreatePostComponent"],
+                _post_view_post_view_component__WEBPACK_IMPORTED_MODULE_17__["PostViewComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"],
                 _app_routing__WEBPACK_IMPORTED_MODULE_3__["routing"]
             ],
-            providers: [_services_bloggerApi_service_client__WEBPACK_IMPORTED_MODULE_9__["BloggerApiServiceClient"],
-                _services_user_service_client__WEBPACK_IMPORTED_MODULE_13__["UserServiceClient"]],
+            providers: [
+                _services_bloggerApi_service_client__WEBPACK_IMPORTED_MODULE_9__["BloggerApiServiceClient"],
+                _services_user_service_client__WEBPACK_IMPORTED_MODULE_13__["UserServiceClient"],
+                _services_post_service_client__WEBPACK_IMPORTED_MODULE_16__["PostServiceClient"]
+            ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
     ], AppModule);
@@ -195,6 +209,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blog_list_blog_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blog-list/blog-list.component */ "./src/app/blog-list/blog-list.component.ts");
 /* harmony import */ var _blog_info_blog_info_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blog-info/blog-info.component */ "./src/app/blog-info/blog-info.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _project_home_project_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./project-home/project-home.component */ "./src/app/project-home/project-home.component.ts");
+/* harmony import */ var _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./create-post/create-post.component */ "./src/app/create-post/create-post.component.ts");
+/* harmony import */ var _post_view_post_view_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./post-view/post-view.component */ "./src/app/post-view/post-view.component.ts");
+
+
+
 
 
 
@@ -205,8 +225,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var appRoutes = [
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"], pathMatch: 'full' },
+    { path: 'home', component: _project_home_project_home_component__WEBPACK_IMPORTED_MODULE_8__["ProjectHomeComponent"] },
     { path: 'blog-list', component: _blog_list_blog_list_component__WEBPACK_IMPORTED_MODULE_5__["BlogListComponent"] },
     { path: 'blog-search', component: _blog_search_blog_search_component__WEBPACK_IMPORTED_MODULE_4__["BlogSearchComponent"] },
+    { path: 'createPost', component: _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_9__["CreatePostComponent"] },
+    { path: 'viewPost/:id', component: _post_view_post_view_component__WEBPACK_IMPORTED_MODULE_10__["PostViewComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"] },
     { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_2__["RegisterComponent"] },
     { path: 'profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_3__["ProfileComponent"] },
@@ -317,7 +340,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <app-blog-search></app-blog-search>\n  <a routerLink=\"/\">Course Home Page</a>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <app-blog-search></app-blog-search>\n</div>\n"
 
 /***/ }),
 
@@ -441,6 +464,124 @@ var BlogSearchComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/create-post/create-post.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/create-post/create-post.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/create-post/create-post.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/create-post/create-post.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <h1>Create a New Blog Post</h1>\n\n  <div class=\"form-group\">\n    <label class=\"form-control-sm\">\n      Title\n    </label>\n    <input type=\"text\" [(ngModel)]=\"post.postTitle\" class=\"form-control-sm\"/>\n  </div>\n\n  <div class=\"form-group\">\n    <label class=\"form-control-sm\">\n      Topic\n    </label>\n    <select [(ngModel)]=\"post.topic\" name=\"topic\" id=\"topic\" class=\"form-control-sm\">\n      <option *ngFor=\"let topic of topicList\" [ngValue]=\"topic\">{{topic}}</option>\n    </select>\n  </div>\n\n  <div class=\"form-group\">\n    <label class=\"form-control-sm\">\n      Write your content below:\n    </label>\n    <textarea class=\"form-control\" [(ngModel)]=\"post.postContent\" rows=\"15\" cols=\"50\"></textarea>\n  </div>\n\n\n  <div class=\"row mt-4\">\n    <button class=\"btn btn-danger mr-2\" (click)=\"deleteDraft()\">\n      Discard\n    </button>\n    <button class=\"btn btn-success mr-2\" (click)=\"saveDraft()\">\n      Save\n    </button>\n    <button class=\"btn btn-success\" (click)=\"publishPost()\">\n      Publish\n    </button>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/create-post/create-post.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/create-post/create-post.component.ts ***!
+  \******************************************************/
+/*! exports provided: CreatePostComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreatePostComponent", function() { return CreatePostComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_post_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/post.service.client */ "./src/app/services/post.service.client.ts");
+/* harmony import */ var _models_post_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/post.model */ "./src/app/models/post.model.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var CreatePostComponent = /** @class */ (function () {
+    function CreatePostComponent(service, router) {
+        this.service = service;
+        this.router = router;
+        this.post = new _models_post_model__WEBPACK_IMPORTED_MODULE_2__["Post"]();
+        //list of acceptable topics
+        this.topicList = [
+            'Science',
+            'Sports',
+            'Politics',
+            'Nature',
+            'Shopping',
+            'Recipes',
+            'Travel',
+        ];
+    }
+    CreatePostComponent.prototype.ngOnInit = function () {
+    };
+    CreatePostComponent.prototype.deleteDraft = function () {
+        if (confirm('Continuing will delete your draft and you will be unable to return to make edits. Continue?')) {
+            if (this.post._id) {
+                this.service.deletePost(this.post);
+            }
+            this.router.navigateByUrl('/home');
+        }
+    };
+    CreatePostComponent.prototype.saveDraft = function () {
+        this.post.published = false;
+        //if an id exists, the post already exists in the database
+        //this means an update should be done rather than post
+        if (this.post._id) {
+            //update
+        }
+        else {
+            this.service.createPost(this.post)
+                .then(function (response) {
+                console.log(response);
+                alert('Your draft has been saved!');
+            });
+        }
+    };
+    CreatePostComponent.prototype.publishPost = function () {
+        var _this = this;
+        if (confirm('Continuing will make your content viewable to others. Continue?')) {
+            this.post.published = true;
+            this.service.createPost(this.post)
+                .then(function (response) {
+                console.log(response);
+                alert('Your post has been published!');
+                _this.router.navigateByUrl('/viewPost/' + response._id);
+            });
+        }
+    };
+    CreatePostComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-create-post',
+            template: __webpack_require__(/*! ./create-post.component.html */ "./src/app/create-post/create-post.component.html"),
+            styles: [__webpack_require__(/*! ./create-post.component.css */ "./src/app/create-post/create-post.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_post_service_client__WEBPACK_IMPORTED_MODULE_1__["PostServiceClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    ], CreatePostComponent);
+    return CreatePostComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/home/home.component.css":
 /*!*****************************************!*\
   !*** ./src/app/home/home.component.css ***!
@@ -459,7 +600,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Welcome to Lexi's CS5610 Home Page!</h1>\n  <p>Below you will find all of the work I did for CS 5610 at Northeastern University. </p>\n  <p>\n    To proceed directly to my course project, which creates a blogging website, please click\n    <a routerLink=\"/blog-list\">here</a>.\n  </p>\n\n  <div class=\"row\">\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Github Repositories\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer-2018-java-server-akacoyannakis\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-client-react-akacoyannakis\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/cs5610-react-native\">React Native</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-angular\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-node\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project-angular\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Heroku Instances\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-lexikacoyannakis.herokuapp.com/\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-react-lexikacoyannakis.herokuapp.com/\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://angular-lexikacoyannakis.herokuapp.com/\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://node-lexikacoyannakis.herokuapp.com/\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-angular-lexi.herokuapp.com/\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-node-lexi.herokuapp.com/\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Welcome to Lexi's CS5610 Home Page!</h1>\n  <p>Below you will find all of the work I did for CS 5610 at Northeastern University. </p>\n  <p>\n    To proceed directly to my course project, which creates a blogging website, please click\n    <a routerLink=\"/home\">here</a>.\n  </p>\n\n  <div class=\"row\">\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Github Repositories\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer-2018-java-server-akacoyannakis\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-client-react-akacoyannakis\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/cs5610-react-native\">React Native</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-angular\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-node\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project-angular\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Heroku Instances\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-lexikacoyannakis.herokuapp.com/\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-react-lexikacoyannakis.herokuapp.com/\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://angular-lexikacoyannakis.herokuapp.com/\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://node-lexikacoyannakis.herokuapp.com/\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-angular-lexi.herokuapp.com/\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-node-lexi.herokuapp.com/\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -590,6 +731,108 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/models/post.model.ts":
+/*!**************************************!*\
+  !*** ./src/app/models/post.model.ts ***!
+  \**************************************/
+/*! exports provided: Post */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Post", function() { return Post; });
+var Post = /** @class */ (function () {
+    function Post() {
+    }
+    return Post;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/post-view/post-view.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/post-view/post-view.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/post-view/post-view.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/post-view/post-view.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <h1>{{post.postTitle}}</h1>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/post-view/post-view.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/post-view/post-view.component.ts ***!
+  \**************************************************/
+/*! exports provided: PostViewComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostViewComponent", function() { return PostViewComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_post_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/post.service.client */ "./src/app/services/post.service.client.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _models_post_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/post.model */ "./src/app/models/post.model.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var PostViewComponent = /** @class */ (function () {
+    function PostViewComponent(service, activatedRoute) {
+        var _this = this;
+        this.service = service;
+        this.activatedRoute = activatedRoute;
+        this.post = new _models_post_model__WEBPACK_IMPORTED_MODULE_3__["Post"]();
+        this.activatedRoute.params.subscribe(function (params) { return _this.setParams(params); });
+    }
+    PostViewComponent.prototype.ngOnInit = function () {
+    };
+    PostViewComponent.prototype.setParams = function (params) {
+        var _this = this;
+        this.postId = params['id'];
+        console.log(this.postId);
+        this.service.findPostById(this.postId)
+            .then(function (post) { return _this.post = post; });
+    };
+    PostViewComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-post-view',
+            template: __webpack_require__(/*! ./post-view.component.html */ "./src/app/post-view/post-view.component.html"),
+            styles: [__webpack_require__(/*! ./post-view.component.css */ "./src/app/post-view/post-view.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_post_service_client__WEBPACK_IMPORTED_MODULE_1__["PostServiceClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+    ], PostViewComponent);
+    return PostViewComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/profile/profile.component.css":
 /*!***********************************************!*\
   !*** ./src/app/profile/profile.component.css ***!
@@ -608,7 +851,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Profile</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"firstName\"\n         placeholder=\"first name\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"lastName\"\n         placeholder=\"lastName\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"email\"\n         placeholder=\"email\"\n         class=\"form-control\"/>\n  <button (click)=\"update()\"\n          class=\"btn btn-primary btn-block\">\n    Update\n  </button>\n\n  <a (click)=\"logout()\">Logout</a>\n  <a routerLink=\"/home\" class=\"ml-2\">Home</a>\n  <a routerLink=\"/admin\" class=\"ml-2\" [hidden]=\"!this.isAdmin\">Admin</a>\n\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Profile</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"firstName\"\n         placeholder=\"first name\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"lastName\"\n         placeholder=\"lastName\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"email\"\n         placeholder=\"email\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"role\" class=\"form-control\" readonly=\"{{role==='admin'}}\"/>\n  <button (click)=\"update()\"\n          class=\"btn btn-primary btn-block\">\n    Update\n  </button>\n  <button (click)=\"delete()\"\n          class=\"btn btn-block btn-danger\">\n    Delete Account\n  </button>\n\n  <a (click)=\"logout()\">Logout</a>\n  <a routerLink=\"/home\" class=\"ml-2\">Home</a>\n  <a routerLink=\"/admin\" class=\"ml-2\" [hidden]=\"!this.isAdmin\">Admin</a>\n  <a routerLink=\"/createPost\" class=\"ml-2\" [hidden]=\"checkRole()\">Create Post</a>\n\n</div>\n"
 
 /***/ }),
 
@@ -625,6 +868,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
 /* harmony import */ var _webdev_summer2018_angular_src_app_models_user_model_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../webdev-summer2018-angular/src/app/models/user.model.client */ "../webdev-summer2018-angular/src/app/models/user.model.client.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -637,9 +881,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ProfileComponent = /** @class */ (function () {
-    function ProfileComponent(service) {
+    function ProfileComponent(service, router) {
         this.service = service;
+        this.router = router;
         this.user = new _webdev_summer2018_angular_src_app_models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]();
         this.isAdmin = false;
     }
@@ -652,9 +898,48 @@ var ProfileComponent = /** @class */ (function () {
             _this.email = user.email;
             _this.firstName = user.firstName;
             _this.lastName = user.lastName;
+            _this.role = user.role;
             if (user.role === 'admin')
                 _this.isAdmin = true;
         });
+    };
+    ProfileComponent.prototype.update = function () {
+        var _this = this;
+        this.user.username = this.username;
+        this.user.password = this.password;
+        this.user.email = this.email;
+        this.user.firstName = this.firstName;
+        this.user.lastName = this.lastName;
+        this.user.role = this.role;
+        this.service.updateUser(this.user)
+            .then(function (user) {
+            _this.user = user;
+            _this.router.navigateByUrl('/profile');
+        });
+    };
+    ProfileComponent.prototype.logout = function () {
+        var _this = this;
+        this.service
+            .logout()
+            .then(function () {
+            return _this.router.navigate(['login']);
+        });
+    };
+    ProfileComponent.prototype.delete = function () {
+        var _this = this;
+        if (confirm('Continuing will delete your account permanently. Are you sure you wish to continue?')) {
+            this.service.deleteUser(this.username).then(function () {
+                return _this.router.navigateByUrl('/login');
+            });
+        }
+    };
+    ProfileComponent.prototype.checkRole = function () {
+        if (this.role !== 'blogWriter') {
+            return true;
+        }
+        else {
+            return false;
+        }
     };
     ProfileComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -662,9 +947,73 @@ var ProfileComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./profile.component.html */ "./src/app/profile/profile.component.html"),
             styles: [__webpack_require__(/*! ./profile.component.css */ "./src/app/profile/profile.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_1__["UserServiceClient"]])
+        __metadata("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_1__["UserServiceClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], ProfileComponent);
     return ProfileComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/project-home/project-home.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/project-home/project-home.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/project-home/project-home.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/project-home/project-home.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid text-center\">\n  <h1>Welcome to Blogger Central!</h1>\n  <h3>Find and create blogs!</h3>\n\n  <p>Interested in finding some inspiration before creating your own? <a routerLink=\"/blog-list\">Search some blogs from Tumblr here!</a></p>\n\n  <span class=\"mr-4\"><a routerLink=\"/login\">Login</a></span>\n  <span class=\"mr-4\"><a routerLink=\"/register\">Create New Account</a></span>\n  <span><a routerLink=\"/\">Course Home Page</a></span>\n\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/project-home/project-home.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/project-home/project-home.component.ts ***!
+  \********************************************************/
+/*! exports provided: ProjectHomeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectHomeComponent", function() { return ProjectHomeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ProjectHomeComponent = /** @class */ (function () {
+    function ProjectHomeComponent() {
+    }
+    ProjectHomeComponent.prototype.ngOnInit = function () {
+    };
+    ProjectHomeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-project-home',
+            template: __webpack_require__(/*! ./project-home.component.html */ "./src/app/project-home/project-home.component.html"),
+            styles: [__webpack_require__(/*! ./project-home.component.css */ "./src/app/project-home/project-home.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProjectHomeComponent);
+    return ProjectHomeComponent;
 }());
 
 
@@ -689,7 +1038,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h1>Create New Account</h1>\n  <form class=\"needs-validation\" novalidate>\n    <div class=\"form-group row\">\n      <label for=\"usernameInput\">Username</label>\n      <input type=\"text\" required class=\"form-control\" id=\"usernameInput\" aria-describedby=\"usernameInput\" placeholder=\"Enter username\">\n      <small id=\"usernameRequired\" class=\"text-danger\">\n        Username is required.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <label for=\"password\">Password</label>\n      <input type=\"password\" required class=\"form-control\" id=\"password\" placeholder=\"Password\">\n      <small id=\"passwordHelp\" class=\"text-danger\">\n        Password is required.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <label for=\"firstName\">First Name</label>\n      <input type=\"text\" required class=\"form-control\" id=\"firstName\" placeHolder=\"First Name\">\n      <small id=\"firstNameRequired\" class=\"text-danger\">\n        First Name is required.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <label for=\"lastName\">Last Name</label>\n      <input type=\"text\" required class=\"form-control\" id=\"lastName\" placeholder=\"Last Name\">\n      <small id=\"lastNameRequired\" class=\"text-danger\">\n        Last Name is required.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <label for=\"email\">Email</label>\n      <input type=\"email\" required class=\"form-control\" id=\"email\" placeholder=\"Email Address\">\n      <small id=\"emailRequired\" class=\"text-danger\">\n        Email address is required.\n      </small>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\">Create New Account</button>\n  </form>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <h1>Create New Account</h1>\n  <form class=\"needs-validation\" novalidate>\n    <div class=\"form-group row\">\n      <label for=\"usernameInput\">Username</label>\n      <input type=\"text\" [(ngModel)]=\"username\" required class=\"form-control\" id=\"usernameInput\" name=\"username\" aria-describedby=\"usernameInput\" placeholder=\"Enter username\">\n      <small id=\"usernameRequired\" class=\"text-danger\">\n        Username is required.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <label for=\"password\">Password</label>\n      <input type=\"password\" [(ngModel)]=\"password\" (ngModelChange)=\"verifyPasswordMatch()\" required class=\"form-control\"\n             id=\"password\" name=\"password\" placeholder=\"Password\">\n      <small id=\"passwordHelp\" class=\"text-danger\">\n        Password is required.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <input [(ngModel)]=\"password2\" required name=\"password2\"\n             type=\"password\"\n             placeholder=\"verify password\"\n             (ngModelChange)=\"verifyPasswordMatch()\"\n             class=\"form-control mb-2\"/>\n      <small id=\"passwordMatch\" class=\"text-danger\" [hidden]=\"!this.passwordNotMatch\">\n        Passwords do not match.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <label for=\"firstName\">First Name</label>\n      <input [(ngModel)]=\"firstName\" type=\"text\" required class=\"form-control\" id=\"firstName\" name=\"firstName\" placeHolder=\"First Name\">\n      <small id=\"firstNameRequired\" class=\"text-danger\">\n        First Name is required.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <label for=\"lastName\">Last Name</label>\n      <input type=\"text\" [(ngModel)]=\"lastName\" required class=\"form-control\" id=\"lastName\" name=\"lastName\" placeholder=\"Last Name\">\n      <small id=\"lastNameRequired\" class=\"text-danger\">\n        Last Name is required.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <label for=\"email\">Email</label>\n      <input type=\"email\" [(ngModel)]=\"email\" required class=\"form-control\" id=\"email\" name=\"email\" placeholder=\"Email Address\">\n      <small id=\"emailRequired\" class=\"text-danger\">\n        Email address is required.\n      </small>\n    </div>\n    <div class=\"form-group row\">\n      <label for=\"role\">User Role</label>\n      <select [(ngModel)]=\"role\" name=\"role\" id=\"role\">\n        <option *ngFor=\"let r of roleOptions\" [ngValue]=\"r.value\">{{r.name}}</option>\n      </select>\n    </div>\n    <small id=\"usernameTaken\" class=\"text-danger\" [hidden]=\"!this.usernameTakenError\">\n      Username has already been taken. Please try a new username.\n    </small>\n    <button (click)=\"register(username, password)\" type=\"submit\" class=\"btn btn-primary\">Create New Account</button>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -704,6 +1053,8 @@ module.exports = "<div class=\"container\">\n  <h1>Create New Account</h1>\n  <f
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -714,10 +1065,45 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var RegisterComponent = /** @class */ (function () {
-    function RegisterComponent() {
+    function RegisterComponent(service, router) {
+        this.service = service;
+        this.router = router;
+        this.passwordNotMatch = false;
+        this.usernameTakenError = false;
+        this.roleOptions = [
+            { value: 'blogFollower', name: 'Blog Follower' },
+            { value: 'blogWriter', name: 'Blog Writer' }
+        ];
     }
     RegisterComponent.prototype.ngOnInit = function () {
+    };
+    RegisterComponent.prototype.verifyPasswordMatch = function () {
+        if (this.password && this.password !== this.password2) {
+            this.passwordNotMatch = true;
+        }
+        else {
+            this.passwordNotMatch = false;
+        }
+        console.log(this.passwordNotMatch);
+    };
+    RegisterComponent.prototype.register = function (username, password) {
+        var _this = this;
+        var user = { username: this.username, password: this.password, firstName: this.firstName, lastName: this.lastName, email: this.email,
+            role: this.role };
+        this.service
+            .createUser(user)
+            .then(function (response) {
+            if (response && response.error) {
+                _this.usernameTakenError = true;
+            }
+            else {
+                _this.usernameTakenError = false;
+                _this.router.navigate(['profile']);
+            }
+        });
     };
     RegisterComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -725,7 +1111,8 @@ var RegisterComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./register.component.html */ "./src/app/register/register.component.html"),
             styles: [__webpack_require__(/*! ./register.component.css */ "./src/app/register/register.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_1__["UserServiceClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], RegisterComponent);
     return RegisterComponent;
 }());
@@ -766,6 +1153,50 @@ var BloggerApiServiceClient = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/post.service.client.ts":
+/*!*************************************************!*\
+  !*** ./src/app/services/post.service.client.ts ***!
+  \*************************************************/
+/*! exports provided: PostServiceClient */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostServiceClient", function() { return PostServiceClient; });
+var PostServiceClient = /** @class */ (function () {
+    function PostServiceClient() {
+    }
+    PostServiceClient.prototype.createPost = function (post) {
+        return fetch('http://localhost:3000/api/post', {
+            method: 'post',
+            body: JSON.stringify(post),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) { return response.json(); });
+    };
+    PostServiceClient.prototype.deletePost = function (post) {
+        return fetch('http://localhost:3000/api/post', {
+            method: 'delete',
+            body: JSON.stringify(post),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+    };
+    PostServiceClient.prototype.findPostById = function (postId) {
+        return fetch('http://localhost:3000/api/post/' + postId)
+            .then(function (response) { return response.json(); });
+    };
+    return PostServiceClient;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/user.service.client.ts":
 /*!*************************************************!*\
   !*** ./src/app/services/user.service.client.ts ***!
@@ -784,7 +1215,7 @@ var UserServiceClient = /** @class */ (function () {
             username: username,
             password: password
         };
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/login', {
+        return fetch('http://localhost:3000/api/login', {
             method: 'post',
             body: JSON.stringify(credentials),
             credentials: 'include',
@@ -801,16 +1232,56 @@ var UserServiceClient = /** @class */ (function () {
         });
     };
     UserServiceClient.prototype.logout = function () {
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/logout', {
+        return fetch('http://localhost:3000/api/logout', {
             method: 'post',
             credentials: 'include'
         });
     };
     UserServiceClient.prototype.profile = function () {
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
+        return fetch('http://localhost:3000/api/profile', {
             credentials: 'include',
         })
             .then(function (response) { return response.json(); });
+    };
+    UserServiceClient.prototype.createUser = function (user) {
+        return fetch('http://localhost:3000/api/register', {
+            body: JSON.stringify(user),
+            credentials: 'include',
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) {
+            if (response != null) {
+                return response.json();
+            }
+            else {
+                return;
+            }
+        });
+    };
+    UserServiceClient.prototype.updateUser = function (user) {
+        return fetch('http://localhost:3000/api/profile', {
+            body: JSON.stringify(user),
+            credentials: 'include',
+            method: 'put',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) {
+            return response.json();
+        });
+    };
+    UserServiceClient.prototype.deleteUser = function (username) {
+        return fetch('http://localhost:3000/api/profile', {
+            credentials: 'include',
+            method: 'delete',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) {
+            return response.json();
+        });
     };
     return UserServiceClient;
 }());

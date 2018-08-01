@@ -21,4 +21,9 @@ export class PostServiceClient {
       }
     });
   }
+
+  findPostById(postId) {
+    return fetch('http://localhost:3000/api/post/'+postId)
+      .then(response => response.json());
+  }
 }
