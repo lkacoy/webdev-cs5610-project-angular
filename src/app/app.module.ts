@@ -18,6 +18,7 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import {PostServiceClient} from "./services/post.service.client";
 import { PostViewComponent } from './post-view/post-view.component';
 import { CommentsComponent } from './comments/comments.component';
+import { CommentsListComponent } from './comments-list/comments-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CommentsComponent } from './comments/comments.component';
     ProjectHomeComponent,
     CreatePostComponent,
     PostViewComponent,
-    CommentsComponent
+    CommentsComponent,
+    CommentsListComponent
   ],
   imports: [
     BrowserModule,
