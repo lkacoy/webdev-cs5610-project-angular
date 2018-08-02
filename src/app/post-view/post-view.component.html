@@ -2,7 +2,12 @@
   <h1>{{post.postTitle}}</h1>
   <h4>Written by: {{post.username}}</h4>
 
+
   <span>Published On: {{post.datePublished | date: 'medium'}}</span>
+  <span class="pull-right">
+    <i class="fa fa-edit mr-2 ml-2 btn btn-primary" (click)="editPost()"></i>
+    <i class="fa fa-trash btn btn-danger" (click)="deletePost()"></i>
+  </span>
   <p class="mt-4">{{post.postContent}}</p>
 
   <p>Topic: {{post.topic}}</p>

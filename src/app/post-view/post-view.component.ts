@@ -27,4 +27,14 @@ export class PostViewComponent implements OnInit {
      .then(post => this.post = post[0]);
   }
 
+  editPost() {
+
+  }
+
+  deletePost() {
+    if (confirm('Are you sure you wish to delete this post?')) {
+      
+    }
+  }
+
 }
