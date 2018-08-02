@@ -2,16 +2,16 @@
   <h1>Search Blog Posts</h1>
 
   <div class="form-group row">
-    <label for="topic" class="">Topic Search: </label>
-    <select [(ngModel)]="topic" name="topic" id="topic" class="">
+    <label for="topic" class="ml-2">Topic Search: </label>
+    <select [(ngModel)]="topic" name="topic" id="topic" class="ml-2 mr-2">
       <option [ngValue]="''">Select One</option>
       <option *ngFor="let topic of topicList" [ngValue]="topic">{{topic}}</option>
     </select>
-    <label for="title" class="">Name of Post: </label>
-    <input [(ngModel)]="title" name="title" type="text" class="" id="title" aria-describedby="title" placeholder="Post title">
-    <label for="title" class="">Blogger: </label>
-    <input [(ngModel)]="username" name="username" type="text" class="" id="username" aria-describedby="title" placeholder="User">
-    <button class="btn btn-primary"(click)="executeSearch()">Search</button>
+    <label for="title" class="ml-2">Name of Post: </label>
+    <input [(ngModel)]="title" name="title" type="text" class="ml-2 mr-2" id="title" aria-describedby="title" placeholder="Post title">
+    <label for="title" class="ml-2">Blogger: </label>
+    <input [(ngModel)]="username" name="username" type="text" class="ml-2" id="username" aria-describedby="title" placeholder="User">
+    <button class="btn btn-primary ml-4"(click)="executeSearch()">Search</button>
   </div>
 
   <table class="table table-bordered table-striped" *ngIf="posts.length > 0; else noResults">
