@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PostServiceClient} from "../services/post.service.client";
 
 @Component({
   selector: 'app-search',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   topic = '';
+  title = '';
+  username = '';
   //list of acceptable topics
   topicList = [
     'Science',
@@ -18,10 +21,16 @@ export class SearchComponent implements OnInit {
     'Recipes',
     'Travel',
   ];
+  posts = [];
 
-  constructor() { }
+  constructor(private service:PostServiceClient) { }
 
   ngOnInit() {
+  }
+
+  executeSearch() {
+    this.service.findAllPosts()
+      .then(posts => this.posts = posts);
   }
 
 }

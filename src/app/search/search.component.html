@@ -1,11 +1,24 @@
 <div class="container-fluid">
   <h1>Search Blog Posts</h1>
 
-  <div class="form-group">
-    <label for="topic" class="col-sm-2 col-form-label">Topic Search</label>
-    <select [(ngModel)]="topic" name="topic" id="topic" class="form-control-sm">
+  <div class="form-group row">
+    <label for="topic" class="">Topic Search: </label>
+    <select [(ngModel)]="topic" name="topic" id="topic" class="">
       <option [ngValue]="''">Select One</option>
       <option *ngFor="let topic of topicList" [ngValue]="topic">{{topic}}</option>
     </select>
+    <label for="title" class="">Name of Post: </label>
+    <input [(ngModel)]="title" name="title" type="text" class="" id="title" aria-describedby="title" placeholder="Post title">
+    <label for="title" class="">Blogger: </label>
+    <input [(ngModel)]="username" name="username" type="text" class="" id="username" aria-describedby="title" placeholder="User">
+    <button class="btn btn-primary"(click)="executeSearch()">Search</button>
   </div>
+
+  <table class="table table-bordered table-striped">
+    <tr *ngFor="let post of posts">
+      <td>
+        {{post.postTitle}}
+      </td>
+    </tr>
+  </table>
 </div>
