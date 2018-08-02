@@ -3,19 +3,22 @@
   <table class="table table-borderless table-striped">
     <tr class="text-center">
       <th>Name</th>
-      <th></th>
+      <th>Comment</th>
       <th>Date</th>
     </tr>
     <tr class="text-center" *ngFor="let comment of comments">
       <td>
         {{comment.username}}
         <span>
-          <i class="fa fa-edit mr-2 ml-2"></i>
+          <i class="fa fa-edit mr-2 ml-2" (click)="editComment(comment)"></i>
           <i class="fa fa-trash" (click)="deleteComment(comment)"></i>
         </span>
       </td>
       <td>
-        {{comment.comment}}
+        <span [hidden]="this.edit">{{comment.comment}}</span>
+        <span [hidden]="!this.edit"><input [(ngModel)]="comment.comment" class="form-control-sm mr-2"/>
+          <i class="fa fa-save" (click)="updateComment(comment)"></i>
+        </span>
       </td>
       <td>
         {{comment.dateCreate | date:'medium'}}

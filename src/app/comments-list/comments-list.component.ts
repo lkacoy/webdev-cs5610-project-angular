@@ -11,6 +11,7 @@ export class CommentsListComponent implements OnInit {
 
   comments = [];
   postId = '';
+  edit = false;
 
   constructor(private service:CommentServiceClient,
               private activatedRoute:ActivatedRoute) {
@@ -35,6 +36,22 @@ export class CommentsListComponent implements OnInit {
         this.findCommentsByPostId();
         window.location.reload();
       });
+  }
+
+  editComment(comment) {
+    this.edit = true;
+  }
+
+  updateComment(comment) {
+    this.service.editComment(comment)
+      .then((response) => {
+        if (response.error) {
+          console.log(response.error);
+        }
+        this.findCommentsByPostId();
+        window.location.reload();
+      })
+
   }
 
   findCommentsByPostId() {
