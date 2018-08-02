@@ -28,10 +28,12 @@ export class CommentsListComponent implements OnInit {
   deleteComment(comment) {
     this.service.deleteComment(comment)
       .then((response) => {
+        console.log(response);
         if (response.error) {
           console.log(response.error);
         }
         this.findCommentsByPostId();
+        window.location.reload();
       });
   }
 
