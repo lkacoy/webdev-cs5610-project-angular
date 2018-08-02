@@ -22,6 +22,7 @@ import { CommentsListComponent } from './comments-list/comments-list.component';
 import {CommentServiceClient} from "./services/comment.service.client";
 import { PostListComponent } from './post-list/post-list.component';
 import { SearchComponent } from './search/search.component';
+import {NoSanitizePipe} from "../noSanitize.pipe";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SearchComponent } from './search/search.component';
     CommentsComponent,
     CommentsListComponent,
     PostListComponent,
-    SearchComponent
+    SearchComponent,
+    NoSanitizePipe
   ],
   imports: [
     BrowserModule,
