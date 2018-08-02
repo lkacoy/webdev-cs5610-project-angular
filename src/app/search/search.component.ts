@@ -7,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  topic = '';
+  //list of acceptable topics
+  topicList = [
+    'Science',
+    'Sports',
+    'Politics',
+    'Nature',
+    'Shopping',
+    'Recipes',
+    'Travel',
+  ];
+
   constructor() { }
 
   ngOnInit() {

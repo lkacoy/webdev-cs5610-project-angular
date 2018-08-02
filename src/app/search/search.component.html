@@ -1,3 +1,11 @@
-<p>
-  search works!
-</p>
+<div class="container-fluid">
+  <h1>Search Blog Posts</h1>
+
+  <div class="form-group">
+    <label for="topic" class="col-sm-2 col-form-label">Topic Search</label>
+    <select [(ngModel)]="topic" name="topic" id="topic" class="form-control-sm">
+      <option [ngValue]="''">Select One</option>
+      <option *ngFor="let topic of topicList" [ngValue]="topic">{{topic}}</option>
+    </select>
+  </div>
+</div>
