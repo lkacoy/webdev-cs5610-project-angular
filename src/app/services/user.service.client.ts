@@ -78,4 +78,9 @@ export class UserServiceClient {
     });
   }
 
+  findBlogWriters() {
+    return fetch('http://localhost:3000/api/blogWriter')
+      .then(response => response.json());
+  }
+
 }

@@ -31,4 +31,9 @@ export class PostServiceClient {
     return fetch('http://localhost:3000/api/post/user/' + username)
       .then(response => response.json());
   }
+
+  findAllPosts() {
+    return fetch('http://localhost:3000/api/post')
+      .then(response => response.json());
+  }
 }

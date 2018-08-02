@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserServiceClient} from "../services/user.service.client";
+import {PostServiceClient} from "../services/post.service.client";
 
 @Component({
   selector: 'app-project-home',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectHomeComponent implements OnInit {
 
-  constructor() { }
+  blogWriters = [];
+  posts = [];
+
+  constructor(private userService: UserServiceClient,
+              private postService: PostServiceClient) {
+    this.userService.findBlogWriters()
+      .then(blogWriters => this.blogWriters = blogWriters);
+    this.postService.findAllPosts()
+      .then(posts => this.posts = posts);
+  }
 
   ngOnInit() {
   }

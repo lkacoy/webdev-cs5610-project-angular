@@ -4,6 +4,30 @@
 
   <p>Interested in finding some inspiration before creating your own? <a routerLink="/blog-list">Search some blogs from Tumblr here!</a></p>
 
+  <div class="row mb-3">
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item active">
+          Blog Writers
+        </li>
+        <li class="list-group-item" *ngFor="let writer of blogWriters">
+          <a routerLink="/viewPosts/{{writer._id}}">{{writer.username}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item active">
+          Recent Posts
+        </li>
+        <li class="list-group-item" *ngFor="let post of posts">
+          <a routerLink="/viewPost/{{post._id}}">{{post.postTitle}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <span class="mr-4"><a routerLink="/login">Login</a></span>
   <span class="mr-4"><a routerLink="/register">Create New Account</a></span>
   <span><a routerLink="/">Course Home Page</a></span>
