@@ -29,7 +29,8 @@ export class SearchComponent implements OnInit {
   }
 
   executeSearch() {
-    this.service.findAllPosts()
+    let query = {title: this.title, topic: this.topic, username: this.username};
+    this.service.searchPosts(query)
       .then(posts => this.posts = posts);
   }
 

@@ -36,4 +36,14 @@ export class PostServiceClient {
     return fetch('http://localhost:3000/api/post')
       .then(response => response.json());
   }
+
+  searchPosts(query) {
+    return fetch('http://localhost:3000/api/post/search', {
+      method: 'post',
+      body: JSON.stringify(query),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
 }
