@@ -10,3 +10,6 @@ Run `npm run devStart` for a dev server. Navigate to `http://localhost:4200/`. T
 
 ## Deployment instance
 The code is deployed on Heroku using `npm start` which contains a script to start a Node.js server. 
+
+## Wiki
+A wiki detailing additional information about this project is located in the Node.js repository [here](https://github.com/lkacoy/webdev-cs5610-project/wiki).
