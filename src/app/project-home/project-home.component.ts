@@ -17,7 +17,15 @@ export class ProjectHomeComponent implements OnInit {
     this.userService.findBlogWriters()
       .then(blogWriters => this.blogWriters = blogWriters);
     this.postService.findAllPosts()
-      .then(posts => this.posts = posts);
+      .then(posts => {
+        if (posts.length > 0) {
+          posts.forEach( (post) => {
+            if (post.published == true) {
+              this.posts.push(post);
+            }
+          })
+        }
+      });
   }
 
   ngOnInit() {

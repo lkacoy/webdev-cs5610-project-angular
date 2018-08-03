@@ -37,6 +37,11 @@ export class PostServiceClient {
       .then(response => response.json());
   }
 
+  findAllPublishedPosts() {
+    return fetch('http://loalhost:3000/api/post/publish')
+      .then(response => response.json());
+  }
+
   searchPosts(query) {
     return fetch('http://localhost:3000/api/post/search', {
       method: 'post',
