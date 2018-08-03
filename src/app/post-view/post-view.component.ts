@@ -3,6 +3,7 @@ import {PostServiceClient} from "../services/post.service.client";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Post} from "../models/post.model";
 import {UserServiceClient} from "../services/user.service.client";
+import {User} from "../models/user.model";
 
 @Component({
   selector: 'app-post-view',
@@ -15,6 +16,7 @@ export class PostViewComponent implements OnInit {
   post = new Post();
   isPostWriter = false;
   isLoggedIn = false;
+  user:User = new User();
 
   constructor(private service:PostServiceClient,
               private activatedRoute:ActivatedRoute,
@@ -56,6 +58,7 @@ export class PostViewComponent implements OnInit {
 
         if (response.username) {
           this.isLoggedIn = true;
+          this.user = response;
         } else {
           this.isLoggedIn = false;
         }
