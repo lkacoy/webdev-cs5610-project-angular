@@ -36,6 +36,7 @@ export class PostViewComponent implements OnInit {
   }
 
   editPost() {
+    this.router.navigateByUrl('/editPost/' + this.postId);
   }
 
   deletePost() {
