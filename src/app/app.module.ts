@@ -24,6 +24,7 @@ import { PostListComponent } from './post-list/post-list.component';
 import { SearchComponent } from './search/search.component';
 import {NoSanitizePipe} from "../noSanitize.pipe";
 import { PostEditComponent } from './post-edit/post-edit.component';
+import {ShareServiceClient} from "./services/share.service.client";
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { PostEditComponent } from './post-edit/post-edit.component';
     BloggerApiServiceClient,
     UserServiceClient,
     PostServiceClient,
-    CommentServiceClient
+    CommentServiceClient,
+    ShareServiceClient
   ],
   bootstrap: [AppComponent]
 })

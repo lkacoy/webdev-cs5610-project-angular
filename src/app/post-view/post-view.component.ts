@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Post} from "../models/post.model";
 import {UserServiceClient} from "../services/user.service.client";
 import {User} from "../models/user.model";
+import {ShareServiceClient} from "../services/share.service.client";
 
 @Component({
   selector: 'app-post-view',
@@ -21,6 +22,7 @@ export class PostViewComponent implements OnInit {
   constructor(private service:PostServiceClient,
               private activatedRoute:ActivatedRoute,
               private userService:UserServiceClient,
+              private shareService:ShareServiceClient,
               private router:Router) {
     this.activatedRoute.params.subscribe((params) => this.setParams(params));
   }
