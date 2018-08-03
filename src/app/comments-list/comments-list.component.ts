@@ -34,7 +34,6 @@ export class CommentsListComponent implements OnInit {
   deleteComment(comment) {
     this.service.deleteComment(comment)
       .then((response) => {
-        console.log(response);
         if (response.error) {
           console.log(response.error);
         }
@@ -75,6 +74,16 @@ export class CommentsListComponent implements OnInit {
   //if user created the comment, the user can edit it
   viewEdit(comment) {
     if (comment.username === this.user.username) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  //if user created the comment or is an admin,
+  //the user can delete the comment
+  viewDelete(comment) {
+    if (comment.username == this.user.username || this.user.role === 'admin') {
       return false;
     } else {
       return true;
