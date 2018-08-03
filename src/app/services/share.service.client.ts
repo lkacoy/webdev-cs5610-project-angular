@@ -16,4 +16,9 @@ export class ShareServiceClient {
       .then(response => response.json());
 
   }
+
+  findSharesForUser(username) {
+    return fetch('http://localhost:3000/api/share/user/' + username)
+      .then(response => response.json());
+  }
 }

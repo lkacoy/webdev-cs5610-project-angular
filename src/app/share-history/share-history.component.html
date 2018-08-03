@@ -1,3 +1,20 @@
-<p>
-  share-history works!
-</p>
+<div class="container-fluid">
+  <h1>{{username}}'s Favorite Posts</h1>
+
+  <table class="table table-striped" *ngIf="shares.length > 0; else noShares">
+    <tr *ngFor="let share of shares">
+      <td>
+
+      </td>
+      <td>
+        {{share.author}}
+      </td>
+      <td>
+        {{share.dateShared | date: 'medium'}}
+      </td>
+    </tr>
+  </table>
+  <ng-template #noShares>
+    {{username}} has not shared any posts yet.
+  </ng-template>
+</div>
