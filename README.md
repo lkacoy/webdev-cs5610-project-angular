@@ -1,27 +1,12 @@
 # WebdevCs5610ProjectAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. It contains the front-end code for the final CS 5610 Web Development course project. The project contains the ability to submit, edit, view, and delete blog posts created by users of the site. You can also view Tumblr posts using the Tumblr API. 
+
+To view the back-end code related to this repository, please visit [https://github.com/lkacoy/webdev-cs5610-project](https://github.com/lkacoy/webdev-cs5610-project).
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run devStart` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Deployment instance
+The code is deployed on Heroku using `npm start` which contains a script to start a Node.js server. 
