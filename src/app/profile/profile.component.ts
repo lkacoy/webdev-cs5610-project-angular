@@ -74,4 +74,12 @@ export class ProfileComponent implements OnInit {
       return false;
     }
   }
+
+  canSharePost() {
+    if (this.role !== 'blogWriter' && this.role !== 'blogFollower') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
