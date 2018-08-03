@@ -129,12 +129,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./create-post/create-post.component */ "./src/app/create-post/create-post.component.ts");
 /* harmony import */ var _services_post_service_client__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/post.service.client */ "./src/app/services/post.service.client.ts");
 /* harmony import */ var _post_view_post_view_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./post-view/post-view.component */ "./src/app/post-view/post-view.component.ts");
+/* harmony import */ var _comments_comments_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./comments/comments.component */ "./src/app/comments/comments.component.ts");
+/* harmony import */ var _comments_list_comments_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./comments-list/comments-list.component */ "./src/app/comments-list/comments-list.component.ts");
+/* harmony import */ var _services_comment_service_client__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./services/comment.service.client */ "./src/app/services/comment.service.client.ts");
+/* harmony import */ var _post_list_post_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./post-list/post-list.component */ "./src/app/post-list/post-list.component.ts");
+/* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
+/* harmony import */ var _noSanitize_pipe__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../noSanitize.pipe */ "./src/noSanitize.pipe.ts");
+/* harmony import */ var _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./post-edit/post-edit.component */ "./src/app/post-edit/post-edit.component.ts");
+/* harmony import */ var _services_share_service_client__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/share.service.client */ "./src/app/services/share.service.client.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
+
+
+
 
 
 
@@ -169,7 +185,13 @@ var AppModule = /** @class */ (function () {
                 _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"],
                 _project_home_project_home_component__WEBPACK_IMPORTED_MODULE_14__["ProjectHomeComponent"],
                 _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_15__["CreatePostComponent"],
-                _post_view_post_view_component__WEBPACK_IMPORTED_MODULE_17__["PostViewComponent"]
+                _post_view_post_view_component__WEBPACK_IMPORTED_MODULE_17__["PostViewComponent"],
+                _comments_comments_component__WEBPACK_IMPORTED_MODULE_18__["CommentsComponent"],
+                _comments_list_comments_list_component__WEBPACK_IMPORTED_MODULE_19__["CommentsListComponent"],
+                _post_list_post_list_component__WEBPACK_IMPORTED_MODULE_21__["PostListComponent"],
+                _search_search_component__WEBPACK_IMPORTED_MODULE_22__["SearchComponent"],
+                _noSanitize_pipe__WEBPACK_IMPORTED_MODULE_23__["NoSanitizePipe"],
+                _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_24__["PostEditComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -179,7 +201,9 @@ var AppModule = /** @class */ (function () {
             providers: [
                 _services_bloggerApi_service_client__WEBPACK_IMPORTED_MODULE_9__["BloggerApiServiceClient"],
                 _services_user_service_client__WEBPACK_IMPORTED_MODULE_13__["UserServiceClient"],
-                _services_post_service_client__WEBPACK_IMPORTED_MODULE_16__["PostServiceClient"]
+                _services_post_service_client__WEBPACK_IMPORTED_MODULE_16__["PostServiceClient"],
+                _services_comment_service_client__WEBPACK_IMPORTED_MODULE_20__["CommentServiceClient"],
+                _services_share_service_client__WEBPACK_IMPORTED_MODULE_25__["ShareServiceClient"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]]
         })
@@ -212,6 +236,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _project_home_project_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./project-home/project-home.component */ "./src/app/project-home/project-home.component.ts");
 /* harmony import */ var _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./create-post/create-post.component */ "./src/app/create-post/create-post.component.ts");
 /* harmony import */ var _post_view_post_view_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./post-view/post-view.component */ "./src/app/post-view/post-view.component.ts");
+/* harmony import */ var _post_list_post_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./post-list/post-list.component */ "./src/app/post-list/post-list.component.ts");
+/* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
+/* harmony import */ var _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./post-edit/post-edit.component */ "./src/app/post-edit/post-edit.component.ts");
+
+
+
 
 
 
@@ -229,11 +259,14 @@ var appRoutes = [
     { path: 'blog-list', component: _blog_list_blog_list_component__WEBPACK_IMPORTED_MODULE_5__["BlogListComponent"] },
     { path: 'blog-search', component: _blog_search_blog_search_component__WEBPACK_IMPORTED_MODULE_4__["BlogSearchComponent"] },
     { path: 'createPost', component: _create_post_create_post_component__WEBPACK_IMPORTED_MODULE_9__["CreatePostComponent"] },
+    { path: 'editPost/:id', component: _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_13__["PostEditComponent"] },
     { path: 'viewPost/:id', component: _post_view_post_view_component__WEBPACK_IMPORTED_MODULE_10__["PostViewComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"] },
     { path: 'register', component: _register_register_component__WEBPACK_IMPORTED_MODULE_2__["RegisterComponent"] },
     { path: 'profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_3__["ProfileComponent"] },
-    { path: 'blog-info/:id', component: _blog_info_blog_info_component__WEBPACK_IMPORTED_MODULE_6__["BlogInfoComponent"] }
+    { path: 'blog-info/:id', component: _blog_info_blog_info_component__WEBPACK_IMPORTED_MODULE_6__["BlogInfoComponent"] },
+    { path: 'viewPosts/:id', component: _post_list_post_list_component__WEBPACK_IMPORTED_MODULE_11__["PostListComponent"] },
+    { path: 'search', component: _search_search_component__WEBPACK_IMPORTED_MODULE_12__["SearchComponent"] }
 ];
 var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(appRoutes);
 
@@ -464,6 +497,252 @@ var BlogSearchComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/comments-list/comments-list.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/comments-list/comments-list.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/comments-list/comments-list.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/comments-list/comments-list.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid mt-6\" *ngIf=\"comments.length > 0; else noComment\">\n  <span class=\"font-weight-bold mb-2\">Total Comments: {{comments.length}}</span>\n  <table class=\"table table-borderless table-striped\">\n    <tr class=\"text-center\">\n      <th>Name</th>\n      <th>Comment</th>\n      <th>Date</th>\n    </tr>\n    <tr class=\"text-center\" *ngFor=\"let comment of comments\">\n      <td>\n        {{comment.username}}\n        <span>\n          <i class=\"fa fa-edit mr-2 ml-2\" (click)=\"editComment(comment)\" [hidden]=\"viewEdit(comment)\"></i>\n          <i class=\"fa fa-trash\" (click)=\"deleteComment(comment)\" [hidden]=\"viewDelete(comment)\"></i>\n        </span>\n      </td>\n      <td>\n        <span [hidden]=\"this.edit\">{{comment.comment}}</span>\n        <span [hidden]=\"!this.edit\"><input [(ngModel)]=\"comment.comment\" class=\"form-control-sm mr-2\"/>\n          <i class=\"fa fa-save\" (click)=\"updateComment(comment)\"></i>\n        </span>\n      </td>\n      <td>\n        {{comment.dateCreate | date:'medium'}}\n      </td>\n    </tr>\n  </table>\n</div>\n<ng-template #noComment class=\"container-fluid mt-6\">\n  There are no comments on this post. Be the first to make one!\n</ng-template>\n"
+
+/***/ }),
+
+/***/ "./src/app/comments-list/comments-list.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/comments-list/comments-list.component.ts ***!
+  \**********************************************************/
+/*! exports provided: CommentsListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentsListComponent", function() { return CommentsListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_comment_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/comment.service.client */ "./src/app/services/comment.service.client.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
+/* harmony import */ var _models_user_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/user.model */ "./src/app/models/user.model.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CommentsListComponent = /** @class */ (function () {
+    function CommentsListComponent(service, activatedRoute, userService) {
+        var _this = this;
+        this.service = service;
+        this.activatedRoute = activatedRoute;
+        this.userService = userService;
+        this.comments = [];
+        this.postId = '';
+        this.edit = false;
+        this.user = new _models_user_model__WEBPACK_IMPORTED_MODULE_4__["User"]();
+        this.activatedRoute.params.subscribe(function (params) { return _this.setParams(params); });
+    }
+    CommentsListComponent.prototype.ngOnInit = function () {
+    };
+    CommentsListComponent.prototype.setParams = function (params) {
+        this.postId = params['id'];
+        this.findCommentsByPostId();
+        this.getUserFromSession();
+    };
+    CommentsListComponent.prototype.deleteComment = function (comment) {
+        var _this = this;
+        this.service.deleteComment(comment)
+            .then(function (response) {
+            if (response.error) {
+                console.log(response.error);
+            }
+            _this.findCommentsByPostId();
+            window.location.reload();
+        });
+    };
+    CommentsListComponent.prototype.editComment = function (comment) {
+        this.edit = true;
+    };
+    CommentsListComponent.prototype.updateComment = function (comment) {
+        var _this = this;
+        this.service.editComment(comment)
+            .then(function (response) {
+            if (response.error) {
+                console.log(response.error);
+            }
+            _this.findCommentsByPostId();
+            window.location.reload();
+        });
+    };
+    CommentsListComponent.prototype.findCommentsByPostId = function () {
+        var _this = this;
+        this.service.findCommentsByPost(this.postId)
+            .then(function (comments) { return _this.comments = comments; });
+    };
+    CommentsListComponent.prototype.getUserFromSession = function () {
+        var _this = this;
+        this.userService.getCurrentUserSession()
+            .then(function (user) {
+            _this.user = user;
+        });
+    };
+    //if user created the comment, the user can edit it
+    CommentsListComponent.prototype.viewEdit = function (comment) {
+        if (comment.username === this.user.username) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    //if user created the comment or is an admin,
+    //the user can delete the comment
+    CommentsListComponent.prototype.viewDelete = function (comment) {
+        if (comment.username == this.user.username || this.user.role === 'admin') {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    CommentsListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-comments-list',
+            template: __webpack_require__(/*! ./comments-list.component.html */ "./src/app/comments-list/comments-list.component.html"),
+            styles: [__webpack_require__(/*! ./comments-list.component.css */ "./src/app/comments-list/comments-list.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_comment_service_client__WEBPACK_IMPORTED_MODULE_1__["CommentServiceClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _services_user_service_client__WEBPACK_IMPORTED_MODULE_3__["UserServiceClient"]])
+    ], CommentsListComponent);
+    return CommentsListComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/comments/comments.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/comments/comments.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/comments/comments.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/comments/comments.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"mt-4\">\n  <span class=\"label-warning\">Enter your comment here. Please note your comment may be removed for moderation purposes.</span>\n  <textarea [disabled]=\"!isLoggedIn\" class=\"form-control\" rows=\"5\" cols=\"50\" [(ngModel)]=\"comment.comment\"></textarea>\n  <span class=\"row pull-right mt-3 mb-3\">\n    <button class=\"btn btn-danger mr-2\" (click)=\"clearComment()\" [disabled]=\"!isLoggedIn\"><i class=\"fa fa-ban\"></i></button>\n    <button class=\"btn btn-success mr-2\" (click)=\"addComment()\" [disabled]=\"!isLoggedIn\"><i class=\"fa fa-plus-circle\"></i></button>\n  </span><br/><br/>\n  <app-comments-list></app-comments-list>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/comments/comments.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/comments/comments.component.ts ***!
+  \************************************************/
+/*! exports provided: CommentsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentsComponent", function() { return CommentsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_comment_model__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../models/comment.model */ "./src/app/models/comment.model.ts");
+/* harmony import */ var _services_comment_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/comment.service.client */ "./src/app/services/comment.service.client.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CommentsComponent = /** @class */ (function () {
+    function CommentsComponent(service, router, activatedRoute, userService) {
+        var _this = this;
+        this.service = service;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.userService = userService;
+        this.comment = new _models_comment_model__WEBPACK_IMPORTED_MODULE_1__["Comment"]();
+        this.isLoggedIn = false;
+        this.activatedRoute.params.subscribe(function (params) { return _this.setPostId(params); });
+    }
+    CommentsComponent.prototype.ngOnInit = function () {
+    };
+    CommentsComponent.prototype.setPostId = function (params) {
+        var _this = this;
+        this.comment.postId = params['id'];
+        this.userService.getCurrentUserSession()
+            .then(function (user) {
+            if (user.username) {
+                _this.isLoggedIn = true;
+            }
+        });
+    };
+    CommentsComponent.prototype.clearComment = function () {
+        this.comment.comment = '';
+    };
+    CommentsComponent.prototype.addComment = function () {
+        var _this = this;
+        this.service.createComment(this.comment)
+            .then(function () {
+            _this.clearComment();
+            window.location.reload();
+        });
+    };
+    CommentsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-comments',
+            template: __webpack_require__(/*! ./comments.component.html */ "./src/app/comments/comments.component.html"),
+            styles: [__webpack_require__(/*! ./comments.component.css */ "./src/app/comments/comments.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_comment_service_client__WEBPACK_IMPORTED_MODULE_2__["CommentServiceClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"],
+            _services_user_service_client__WEBPACK_IMPORTED_MODULE_4__["UserServiceClient"]])
+    ], CommentsComponent);
+    return CommentsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/create-post/create-post.component.css":
 /*!*******************************************************!*\
   !*** ./src/app/create-post/create-post.component.css ***!
@@ -600,7 +879,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Welcome to Lexi's CS5610 Home Page!</h1>\n  <p>Below you will find all of the work I did for CS 5610 at Northeastern University. </p>\n  <p>\n    To proceed directly to my course project, which creates a blogging website, please click\n    <a routerLink=\"/home\">here</a>.\n  </p>\n\n  <div class=\"row\">\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Github Repositories\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer-2018-java-server-akacoyannakis\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-client-react-akacoyannakis\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/cs5610-react-native\">React Native</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-angular\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-node\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project-angular\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Heroku Instances\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-lexikacoyannakis.herokuapp.com/\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-react-lexikacoyannakis.herokuapp.com/\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://angular-lexikacoyannakis.herokuapp.com/\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://node-lexikacoyannakis.herokuapp.com/\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-angular-lexi.herokuapp.com/\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-node-lexi.herokuapp.com/\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid text-center\">\n  <h1>Welcome to Lexi's CS5610 Home Page!</h1>\n  <p>Below you will find all of the work I did for CS 5610 (Web Development) at Northeastern University. </p>\n\n  <img src=\"assets/picture.jpg\" class=\"center-block mb-4\"/>\n\n  <h3>Project</h3>\n  <p>\n    To proceed directly to my course project, which creates a blogging website, please click\n    <a routerLink=\"/home\">here</a>. In this project, you can create an account and find or write your own posts. Watch the video to see\n    a demo of the project.\n  </p>\n\n  <iframe [src]=\"safeUrl\" frameborder=\"0\" allowfullscreen></iframe>\n\n\n  <div class=\"row mb-4\">\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Github Repositories\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer-2018-java-server-akacoyannakis\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-client-react-akacoyannakis\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/cs5610-react-native\">React Native</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-angular\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-summer2018-node\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project-angular\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://github.com/lkacoy/webdev-cs5610-project\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Heroku Instances\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-lexikacoyannakis.herokuapp.com/\">Java Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://web2018-react-lexikacoyannakis.herokuapp.com/\">React Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://angular-lexikacoyannakis.herokuapp.com/\">Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://node-lexikacoyannakis.herokuapp.com/\">Node Server</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-angular-lexi.herokuapp.com/\">Project - Angular Client</a>\n        </li>\n        <li class=\"list-group-item\">\n          <a href=\"https://cs5610project-node-lexi.herokuapp.com/\">Project - Node Server</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -615,6 +894,7 @@ module.exports = "<div class=\"container-fluid\">\n  <h1>Welcome to Lexi's CS561
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -625,8 +905,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(_sanitizer) {
+        this._sanitizer = _sanitizer;
+        var url = 'https://www.youtube.com/embed/DV_3qx-oBms';
+        this.safeUrl = this._sanitizer.bypassSecurityTrustResourceUrl(url);
     }
     HomeComponent.prototype.ngOnInit = function () {
     };
@@ -636,7 +920,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -731,6 +1015,26 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/models/comment.model.ts":
+/*!*****************************************!*\
+  !*** ./src/app/models/comment.model.ts ***!
+  \*****************************************/
+/*! exports provided: Comment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Comment", function() { return Comment; });
+var Comment = /** @class */ (function () {
+    function Comment() {
+    }
+    return Comment;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/models/post.model.ts":
 /*!**************************************!*\
   !*** ./src/app/models/post.model.ts ***!
@@ -745,6 +1049,234 @@ var Post = /** @class */ (function () {
     function Post() {
     }
     return Post;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/share.model.ts":
+/*!***************************************!*\
+  !*** ./src/app/models/share.model.ts ***!
+  \***************************************/
+/*! exports provided: Share */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Share", function() { return Share; });
+var Share = /** @class */ (function () {
+    function Share() {
+    }
+    return Share;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/user.model.ts":
+/*!**************************************!*\
+  !*** ./src/app/models/user.model.ts ***!
+  \**************************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User() {
+    }
+    return User;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/post-edit/post-edit.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/post-edit/post-edit.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/post-edit/post-edit.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/post-edit/post-edit.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <h1>Edit Post</h1>\n\n  <div class=\"form-group\">\n    <label class=\"form-control-sm\">\n      Title\n    </label>\n    <input type=\"text\" [(ngModel)]=\"post.postTitle\" class=\"form-control-sm\"/>\n  </div>\n\n  <div class=\"form-group\">\n    <label class=\"form-control-sm\">\n      Topic\n    </label>\n    <select [(ngModel)]=\"post.topic\" name=\"topic\" id=\"topic\" class=\"form-control-sm\">\n      <option *ngFor=\"let topic of topicList\" [ngValue]=\"topic\">{{topic}}</option>\n    </select>\n  </div>\n\n  <div class=\"form-group\">\n    <label class=\"form-control-sm\">\n      Write your content below:\n    </label>\n    <textarea class=\"form-control\" [(ngModel)]=\"post.postContent\" rows=\"15\" cols=\"50\"></textarea>\n  </div>\n\n\n  <div class=\"row mt-4\">\n    <button class=\"btn btn-danger mr-2\" (click)=\"deleteDraft()\">\n      Discard\n    </button>\n    <button class=\"btn btn-success mr-2\" (click)=\"updatePost()\">\n      Update Post\n    </button>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/post-edit/post-edit.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/post-edit/post-edit.component.ts ***!
+  \**************************************************/
+/*! exports provided: PostEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostEditComponent", function() { return PostEditComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_post_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/post.service.client */ "./src/app/services/post.service.client.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _models_post_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/post.model */ "./src/app/models/post.model.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var PostEditComponent = /** @class */ (function () {
+    function PostEditComponent(service, activatedRoute, router) {
+        var _this = this;
+        this.service = service;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
+        this.post = new _models_post_model__WEBPACK_IMPORTED_MODULE_3__["Post"]();
+        //list of acceptable topics
+        this.topicList = [
+            'Science',
+            'Sports',
+            'Politics',
+            'Nature',
+            'Shopping',
+            'Recipes',
+            'Travel',
+        ];
+        this.activatedRoute.params.subscribe(function (params) { return _this.setParams(params); });
+    }
+    PostEditComponent.prototype.ngOnInit = function () {
+    };
+    PostEditComponent.prototype.setParams = function (params) {
+        var _this = this;
+        this.postId = params['id'];
+        this.service.findPostById(this.postId)
+            .then(function (post) {
+            return _this.post = post[0];
+        });
+    };
+    PostEditComponent.prototype.deleteDraft = function () {
+        if (confirm('Continuing will delete your draft and your post will not be updated. Continue?')) {
+            this.router.navigateByUrl('/home');
+        }
+    };
+    PostEditComponent.prototype.updatePost = function () {
+        var _this = this;
+        if (confirm('Are you sure you want to update your post?')) {
+            this.service.updatePost(this.post)
+                .then(function () {
+                _this.router.navigateByUrl('/viewPost/' + _this.postId);
+            });
+        }
+    };
+    PostEditComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-post-edit',
+            template: __webpack_require__(/*! ./post-edit.component.html */ "./src/app/post-edit/post-edit.component.html"),
+            styles: [__webpack_require__(/*! ./post-edit.component.css */ "./src/app/post-edit/post-edit.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_post_service_client__WEBPACK_IMPORTED_MODULE_1__["PostServiceClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], PostEditComponent);
+    return PostEditComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/post-list/post-list.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/post-list/post-list.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/post-list/post-list.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/post-list/post-list.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <h1>Posts By {{username}}</h1>\n\n  <p>Total Posts Created: {{posts.length}}</p>\n\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">Posts</li>\n    <li *ngFor=\"let post of posts\" class=\"list-group-item wbdv\">\n      <a routerLink=\"/viewPost/{{post._id}}\">\n        {{post.postTitle}}</a>\n      <span class=\"pull-right\">Published: {{post.datePublished | date: 'short'}}</span>\n    </li>\n  </ul>\n\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/post-list/post-list.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/post-list/post-list.component.ts ***!
+  \**************************************************/
+/*! exports provided: PostListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostListComponent", function() { return PostListComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_post_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/post.service.client */ "./src/app/services/post.service.client.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PostListComponent = /** @class */ (function () {
+    function PostListComponent(activatedRoute, service) {
+        var _this = this;
+        this.activatedRoute = activatedRoute;
+        this.service = service;
+        this.posts = [];
+        this.activatedRoute.params.subscribe(function (params) { return _this.setParams(params); });
+    }
+    PostListComponent.prototype.ngOnInit = function () {
+    };
+    PostListComponent.prototype.setParams = function (params) {
+        var _this = this;
+        this.username = params['id'];
+        this.service.findPostsForUser(this.username)
+            .then(function (posts) { return _this.posts = posts; });
+    };
+    PostListComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-post-list',
+            template: __webpack_require__(/*! ./post-list.component.html */ "./src/app/post-list/post-list.component.html"),
+            styles: [__webpack_require__(/*! ./post-list.component.css */ "./src/app/post-list/post-list.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _services_post_service_client__WEBPACK_IMPORTED_MODULE_2__["PostServiceClient"]])
+    ], PostListComponent);
+    return PostListComponent;
 }());
 
 
@@ -769,7 +1301,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>{{post.postTitle}}</h1>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>{{post.postTitle}}</h1>\n  <h4>Written by: {{post.username}}</h4>\n\n\n  <span>Published On: {{post.datePublished | date: 'medium'}}</span>\n  <i class=\"fa fa-share-square-o btn btn-primary ml-4\" (click)=\"sharePost()\"></i>\n  <span class=\"pull-right\" [hidden]=\"!isPostWriter\">\n    <i class=\"fa fa-edit mr-2 ml-2 btn btn-primary\" (click)=\"editPost()\"></i>\n    <i class=\"fa fa-trash btn btn-danger\" (click)=\"deletePost()\"></i>\n  </span>\n  <p class=\"mt-4\">{{post.postContent}}</p>\n\n  <p>Topic: {{post.topic}}</p>\n  <app-comments></app-comments>\n</div>\n"
 
 /***/ }),
 
@@ -787,6 +1319,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_post_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/post.service.client */ "./src/app/services/post.service.client.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _models_post_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/post.model */ "./src/app/models/post.model.ts");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
+/* harmony import */ var _models_user_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../models/user.model */ "./src/app/models/user.model.ts");
+/* harmony import */ var _services_share_service_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/share.service.client */ "./src/app/services/share.service.client.ts");
+/* harmony import */ var _models_share_model__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../models/share.model */ "./src/app/models/share.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -800,12 +1336,23 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 var PostViewComponent = /** @class */ (function () {
-    function PostViewComponent(service, activatedRoute) {
+    function PostViewComponent(service, activatedRoute, userService, shareService, router) {
         var _this = this;
         this.service = service;
         this.activatedRoute = activatedRoute;
+        this.userService = userService;
+        this.shareService = shareService;
+        this.router = router;
         this.post = new _models_post_model__WEBPACK_IMPORTED_MODULE_3__["Post"]();
+        this.isPostWriter = false;
+        this.isLoggedIn = false;
+        this.user = new _models_user_model__WEBPACK_IMPORTED_MODULE_5__["User"]();
+        this.share = new _models_share_model__WEBPACK_IMPORTED_MODULE_7__["Share"]();
         this.activatedRoute.params.subscribe(function (params) { return _this.setParams(params); });
     }
     PostViewComponent.prototype.ngOnInit = function () {
@@ -813,9 +1360,50 @@ var PostViewComponent = /** @class */ (function () {
     PostViewComponent.prototype.setParams = function (params) {
         var _this = this;
         this.postId = params['id'];
-        console.log(this.postId);
         this.service.findPostById(this.postId)
-            .then(function (post) { return _this.post = post; });
+            .then(function (post) {
+            _this.post = post[0];
+            _this.verifyRole();
+        });
+    };
+    PostViewComponent.prototype.editPost = function () {
+        this.router.navigateByUrl('/editPost/' + this.postId);
+    };
+    PostViewComponent.prototype.deletePost = function () {
+        var _this = this;
+        if (confirm('Are you sure you wish to delete this post?')) {
+            this.service.deletePost(this.post)
+                .then(function (response) {
+                _this.router.navigateByUrl('/home');
+            });
+        }
+    };
+    // post can only be edited and deleted by the writer
+    PostViewComponent.prototype.verifyRole = function () {
+        var _this = this;
+        this.userService.getCurrentUserSession()
+            .then(function (response) {
+            if (response.username) {
+                _this.isLoggedIn = true;
+                _this.user = response;
+            }
+            else {
+                _this.isLoggedIn = false;
+            }
+            if (response.username === _this.post.username) {
+                _this.isPostWriter = true;
+            }
+            else {
+                _this.isPostWriter = false;
+            }
+        });
+    };
+    PostViewComponent.prototype.sharePost = function () {
+        this.share.username = this.user.username;
+        this.share.postId = this.postId;
+        this.share.author = this.post.username;
+        this.shareService.createShare(this.share)
+            .then(function (share) { return alert("You\'ve shared this post!"); });
     };
     PostViewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -824,7 +1412,10 @@ var PostViewComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./post-view.component.css */ "./src/app/post-view/post-view.component.css")]
         }),
         __metadata("design:paramtypes", [_services_post_service_client__WEBPACK_IMPORTED_MODULE_1__["PostServiceClient"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _services_user_service_client__WEBPACK_IMPORTED_MODULE_4__["UserServiceClient"],
+            _services_share_service_client__WEBPACK_IMPORTED_MODULE_6__["ShareServiceClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], PostViewComponent);
     return PostViewComponent;
 }());
@@ -851,7 +1442,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Profile</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"firstName\"\n         placeholder=\"first name\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"lastName\"\n         placeholder=\"lastName\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"email\"\n         placeholder=\"email\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"role\" class=\"form-control\" readonly=\"{{role==='admin'}}\"/>\n  <button (click)=\"update()\"\n          class=\"btn btn-primary btn-block\">\n    Update\n  </button>\n  <button (click)=\"delete()\"\n          class=\"btn btn-block btn-danger\">\n    Delete Account\n  </button>\n\n  <a (click)=\"logout()\">Logout</a>\n  <a routerLink=\"/home\" class=\"ml-2\">Home</a>\n  <a routerLink=\"/admin\" class=\"ml-2\" [hidden]=\"!this.isAdmin\">Admin</a>\n  <a routerLink=\"/createPost\" class=\"ml-2\" [hidden]=\"checkRole()\">Create Post</a>\n\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Profile</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"firstName\"\n         placeholder=\"first name\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"lastName\"\n         placeholder=\"lastName\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"email\"\n         placeholder=\"email\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"role\" class=\"form-control\" readonly=\"{{role==='admin'}}\"/>\n  <button (click)=\"update()\"\n          class=\"btn btn-primary btn-block\">\n    Update\n  </button>\n  <button (click)=\"delete()\"\n          class=\"btn btn-block btn-danger\">\n    Delete Account\n  </button>\n\n  <a (click)=\"logout()\">Logout</a>\n  <a routerLink=\"/home\" class=\"ml-2\">Home</a>\n  <a routerLink=\"/admin\" class=\"ml-2\" [hidden]=\"!this.isAdmin\">Admin</a>\n  <a routerLink=\"/createPost\" class=\"ml-2\" [hidden]=\"checkRole()\">Create Post</a>\n  <a routerLink=\"/viewPosts/{{username}}\" class=\"ml-2\" [hidden]=\"checkRole()\">View My Posts</a>\n\n</div>\n"
 
 /***/ }),
 
@@ -975,7 +1566,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid text-center\">\n  <h1>Welcome to Blogger Central!</h1>\n  <h3>Find and create blogs!</h3>\n\n  <p>Interested in finding some inspiration before creating your own? <a routerLink=\"/blog-list\">Search some blogs from Tumblr here!</a></p>\n\n  <span class=\"mr-4\"><a routerLink=\"/login\">Login</a></span>\n  <span class=\"mr-4\"><a routerLink=\"/register\">Create New Account</a></span>\n  <span><a routerLink=\"/\">Course Home Page</a></span>\n\n</div>\n"
+module.exports = "<div class=\"container-fluid text-center\">\n  <h1>Welcome to Blogger Central!</h1>\n  <h3>Find and create blogs!</h3>\n\n  <p>Interested in finding some inspiration before creating your own? <a routerLink=\"/blog-list\">Search some blogs from Tumblr here!</a></p>\n\n  <a class=\"btn btn-info mb-4\" routerLink=\"/search\">Search For Posts</a> <br/>\n\n  <div class=\"row mb-3\">\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Blog Writers\n        </li>\n        <li class=\"list-group-item\" *ngFor=\"let writer of blogWriters\">\n          <a routerLink=\"/viewPosts/{{writer.username}}\">{{writer.username}}</a>\n        </li>\n      </ul>\n    </div>\n\n    <div class=\"col\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item active\">\n          Recent Posts\n        </li>\n        <li class=\"list-group-item\" *ngFor=\"let post of posts\">\n          <a routerLink=\"/viewPost/{{post._id}}\">{{post.postTitle}}</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n\n  <span class=\"mr-4\"><a routerLink=\"/login\">Login</a></span>\n  <span class=\"mr-4\"><a routerLink=\"/register\">Create New Account</a></span>\n  <span><a routerLink=\"/\">Course Home Page</a></span>\n\n</div>\n"
 
 /***/ }),
 
@@ -990,6 +1581,8 @@ module.exports = "<div class=\"container-fluid text-center\">\n  <h1>Welcome to 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectHomeComponent", function() { return ProjectHomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
+/* harmony import */ var _services_post_service_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/post.service.client */ "./src/app/services/post.service.client.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1000,8 +1593,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ProjectHomeComponent = /** @class */ (function () {
-    function ProjectHomeComponent() {
+    function ProjectHomeComponent(userService, postService) {
+        var _this = this;
+        this.userService = userService;
+        this.postService = postService;
+        this.blogWriters = [];
+        this.posts = [];
+        this.userService.findBlogWriters()
+            .then(function (blogWriters) { return _this.blogWriters = blogWriters; });
+        this.postService.findAllPosts()
+            .then(function (posts) { return _this.posts = posts; });
     }
     ProjectHomeComponent.prototype.ngOnInit = function () {
     };
@@ -1011,7 +1615,8 @@ var ProjectHomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./project-home.component.html */ "./src/app/project-home/project-home.component.html"),
             styles: [__webpack_require__(/*! ./project-home.component.css */ "./src/app/project-home/project-home.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_1__["UserServiceClient"],
+            _services_post_service_client__WEBPACK_IMPORTED_MODULE_2__["PostServiceClient"]])
     ], ProjectHomeComponent);
     return ProjectHomeComponent;
 }());
@@ -1121,6 +1726,92 @@ var RegisterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/search/search.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/search/search.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/search/search.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/search/search.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <h1>Search Blog Posts</h1>\n\n  <div class=\"form-group row\">\n    <label for=\"topic\" class=\"ml-2\">Topic Search: </label>\n    <select [(ngModel)]=\"topic\" name=\"topic\" id=\"topic\" class=\"ml-2 mr-2\">\n      <option [ngValue]=\"''\">Select One</option>\n      <option *ngFor=\"let topic of topicList\" [ngValue]=\"topic\">{{topic}}</option>\n    </select>\n    <label for=\"title\" class=\"ml-2\">Name of Post: </label>\n    <input [(ngModel)]=\"title\" name=\"title\" type=\"text\" class=\"ml-2 mr-2\" id=\"title\" aria-describedby=\"title\" placeholder=\"Post title\">\n    <label for=\"title\" class=\"ml-2\">Blogger: </label>\n    <input [(ngModel)]=\"username\" name=\"username\" type=\"text\" class=\"ml-2\" id=\"username\" aria-describedby=\"title\" placeholder=\"User\">\n    <button class=\"btn btn-primary ml-4\"(click)=\"executeSearch()\">Search</button>\n  </div>\n\n  <table class=\"table table-bordered table-striped\" *ngIf=\"posts.length > 0; else noResults\">\n    <tr>\n      <th>\n        Title\n      </th>\n      <th>\n        Written By\n      </th>\n      <th>\n        Topic\n      </th>\n      <th>\n        Published On\n      </th>\n    </tr>\n    <tr *ngFor=\"let post of posts\">\n      <td>\n        <a routerLink=\"/viewPost/{{post._id}}\">{{post.postTitle}}</a>\n      </td>\n      <td>\n        {{post.username}}\n      </td>\n      <td>\n        {{post.topic}}\n      </td>\n      <td>\n        {{post.datePublished | date: 'medium'}}\n      </td>\n    </tr>\n  </table>\n  <ng-template #noResults>\n    No results found.\n  </ng-template>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/search/search.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/search/search.component.ts ***!
+  \********************************************/
+/*! exports provided: SearchComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchComponent", function() { return SearchComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_post_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/post.service.client */ "./src/app/services/post.service.client.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SearchComponent = /** @class */ (function () {
+    function SearchComponent(service) {
+        this.service = service;
+        this.topic = '';
+        this.title = '';
+        this.username = '';
+        //list of acceptable topics
+        this.topicList = [
+            'Science',
+            'Sports',
+            'Politics',
+            'Nature',
+            'Shopping',
+            'Recipes',
+            'Travel',
+        ];
+        this.posts = [];
+    }
+    SearchComponent.prototype.ngOnInit = function () {
+    };
+    SearchComponent.prototype.executeSearch = function () {
+        var _this = this;
+        var query = { title: this.title, topic: this.topic, username: this.username };
+        this.service.searchPosts(query)
+            .then(function (posts) { return _this.posts = posts; });
+    };
+    SearchComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-search',
+            template: __webpack_require__(/*! ./search.component.html */ "./src/app/search/search.component.html"),
+            styles: [__webpack_require__(/*! ./search.component.css */ "./src/app/search/search.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_post_service_client__WEBPACK_IMPORTED_MODULE_1__["PostServiceClient"]])
+    ], SearchComponent);
+    return SearchComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/bloggerApi.service.client.ts":
 /*!*******************************************************!*\
   !*** ./src/app/services/bloggerApi.service.client.ts ***!
@@ -1147,6 +1838,60 @@ var BloggerApiServiceClient = /** @class */ (function () {
             .then(function (response) { return response.json(); });
     };
     return BloggerApiServiceClient;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/comment.service.client.ts":
+/*!****************************************************!*\
+  !*** ./src/app/services/comment.service.client.ts ***!
+  \****************************************************/
+/*! exports provided: CommentServiceClient */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentServiceClient", function() { return CommentServiceClient; });
+var CommentServiceClient = /** @class */ (function () {
+    function CommentServiceClient() {
+    }
+    CommentServiceClient.prototype.createComment = function (comment) {
+        return fetch('http://localhost:3000/api/comment', {
+            method: 'post',
+            body: JSON.stringify(comment),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) { return response.json(); });
+    };
+    CommentServiceClient.prototype.findCommentsByPost = function (postId) {
+        return fetch('http://localhost:3000/api/comment/post/' + postId)
+            .then(function (response) { return response.json(); });
+    };
+    CommentServiceClient.prototype.deleteComment = function (comment) {
+        return fetch('http://localhost:3000/api/comment', {
+            method: 'delete',
+            body: JSON.stringify(comment),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) { return response.json(); });
+    };
+    CommentServiceClient.prototype.editComment = function (comment) {
+        return fetch('http://localhost:3000/api/comment', {
+            method: 'put',
+            body: JSON.stringify(comment),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) { return response.json(); });
+    };
+    return CommentServiceClient;
 }());
 
 
@@ -1190,7 +1935,64 @@ var PostServiceClient = /** @class */ (function () {
         return fetch('http://localhost:3000/api/post/' + postId)
             .then(function (response) { return response.json(); });
     };
+    PostServiceClient.prototype.findPostsForUser = function (username) {
+        return fetch('http://localhost:3000/api/post/user/' + username)
+            .then(function (response) { return response.json(); });
+    };
+    PostServiceClient.prototype.findAllPosts = function () {
+        return fetch('http://localhost:3000/api/post')
+            .then(function (response) { return response.json(); });
+    };
+    PostServiceClient.prototype.searchPosts = function (query) {
+        return fetch('http://localhost:3000/api/post/search', {
+            method: 'post',
+            body: JSON.stringify(query),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) { return response.json(); });
+    };
+    PostServiceClient.prototype.updatePost = function (post) {
+        return fetch('http://localhost:3000/api/post', {
+            method: 'put',
+            credentials: 'include',
+            body: JSON.stringify(post),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) { return response.json(); });
+    };
     return PostServiceClient;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/share.service.client.ts":
+/*!**************************************************!*\
+  !*** ./src/app/services/share.service.client.ts ***!
+  \**************************************************/
+/*! exports provided: ShareServiceClient */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShareServiceClient", function() { return ShareServiceClient; });
+var ShareServiceClient = /** @class */ (function () {
+    function ShareServiceClient() {
+    }
+    ShareServiceClient.prototype.createShare = function (share) {
+        return fetch('http://localhost:3000/api/share', {
+            method: 'post',
+            body: JSON.stringify(share),
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) { return response.json(); });
+    };
+    return ShareServiceClient;
 }());
 
 
@@ -1283,6 +2085,16 @@ var UserServiceClient = /** @class */ (function () {
             return response.json();
         });
     };
+    UserServiceClient.prototype.findBlogWriters = function () {
+        return fetch('http://localhost:3000/api/blogWriter')
+            .then(function (response) { return response.json(); });
+    };
+    UserServiceClient.prototype.getCurrentUserSession = function () {
+        return fetch('http://localhost:3000/api/session/get/currentUser', {
+            credentials: 'include'
+        })
+            .then(function (response) { return response.json(); });
+    };
     return UserServiceClient;
 }());
 
@@ -1339,6 +2151,47 @@ if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].produc
 }
 Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
     .catch(function (err) { return console.log(err); });
+
+
+/***/ }),
+
+/***/ "./src/noSanitize.pipe.ts":
+/*!********************************!*\
+  !*** ./src/noSanitize.pipe.ts ***!
+  \********************************/
+/*! exports provided: NoSanitizePipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoSanitizePipe", function() { return NoSanitizePipe; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var NoSanitizePipe = /** @class */ (function () {
+    function NoSanitizePipe(domSanitizer) {
+        this.domSanitizer = domSanitizer;
+    }
+    NoSanitizePipe.prototype.transform = function (url) {
+        return this.domSanitizer.bypassSecurityTrustHtml(url);
+    };
+    NoSanitizePipe = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Pipe"])({ name: 'noSanitize' }),
+        __metadata("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["DomSanitizer"]])
+    ], NoSanitizePipe);
+    return NoSanitizePipe;
+}());
+
 
 
 /***/ }),
