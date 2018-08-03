@@ -3,4 +3,5 @@ export class Share {
   username: string;
   postId: number;
   dateShared: string;
+  author: string;
 }
