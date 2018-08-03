@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CommentServiceClient} from "../services/comment.service.client";
 import {ActivatedRoute} from "@angular/router";
+import {UserServiceClient} from "../services/user.service.client";
 
 @Component({
   selector: 'app-comments-list',
@@ -14,7 +15,8 @@ export class CommentsListComponent implements OnInit {
   edit = false;
 
   constructor(private service:CommentServiceClient,
-              private activatedRoute:ActivatedRoute) {
+              private activatedRoute:ActivatedRoute,
+              private userService:UserServiceClient) {
     this.activatedRoute.params.subscribe((params) => this.setParams(params));
   }
 
@@ -59,5 +61,4 @@ export class CommentsListComponent implements OnInit {
       .then((comments) => this.comments = comments);
 
   }
-
 }

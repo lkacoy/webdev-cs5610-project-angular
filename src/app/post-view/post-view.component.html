@@ -4,7 +4,7 @@
 
 
   <span>Published On: {{post.datePublished | date: 'medium'}}</span>
-  <span class="pull-right">
+  <span class="pull-right" [hidden]="!isPostWriter">
     <i class="fa fa-edit mr-2 ml-2 btn btn-primary" (click)="editPost()"></i>
     <i class="fa fa-trash btn btn-danger" (click)="deletePost()"></i>
   </span>
