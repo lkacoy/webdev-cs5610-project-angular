@@ -5,6 +5,7 @@ import {Post} from "../models/post.model";
 import {UserServiceClient} from "../services/user.service.client";
 import {User} from "../models/user.model";
 import {ShareServiceClient} from "../services/share.service.client";
+import {Share} from "../models/share.model";
 
 @Component({
   selector: 'app-post-view',
@@ -18,6 +19,7 @@ export class PostViewComponent implements OnInit {
   isPostWriter = false;
   isLoggedIn = false;
   user:User = new User();
+  share:Share = new Share();
 
   constructor(private service:PostServiceClient,
               private activatedRoute:ActivatedRoute,
@@ -76,6 +78,11 @@ export class PostViewComponent implements OnInit {
   }
 
   sharePost() {
+    this.share.username = this.user.username;
+    this.share.postId = this.postId;
+    this.share.author = this.post.username;
 
+    this.shareService.createShare(this.share)
+      .then( share => alert("You\'ve shared this post!"));
   }
 }
