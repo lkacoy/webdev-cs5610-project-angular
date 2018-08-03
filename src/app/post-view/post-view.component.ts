@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostServiceClient} from "../services/post.service.client";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Post} from "../models/post.model";
 import {UserServiceClient} from "../services/user.service.client";
 
@@ -17,7 +17,8 @@ export class PostViewComponent implements OnInit {
 
   constructor(private service:PostServiceClient,
               private activatedRoute:ActivatedRoute,
-              private userService:UserServiceClient) {
+              private userService:UserServiceClient,
+              private router:Router) {
     this.activatedRoute.params.subscribe((params) => this.setParams(params));
   }
 
@@ -35,12 +36,14 @@ export class PostViewComponent implements OnInit {
   }
 
   editPost() {
-
   }
 
   deletePost() {
     if (confirm('Are you sure you wish to delete this post?')) {
-
+      this.service.deletePost(this.post)
+        .then( response => {
+          this.router.navigateByUrl('/home');
+        })
     }
   }
 

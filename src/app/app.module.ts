@@ -23,6 +23,7 @@ import {CommentServiceClient} from "./services/comment.service.client";
 import { PostListComponent } from './post-list/post-list.component';
 import { SearchComponent } from './search/search.component';
 import {NoSanitizePipe} from "../noSanitize.pipe";
+import { PostEditComponent } from './post-edit/post-edit.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {NoSanitizePipe} from "../noSanitize.pipe";
     CommentsListComponent,
     PostListComponent,
     SearchComponent,
-    NoSanitizePipe
+    NoSanitizePipe,
+    PostEditComponent
   ],
   imports: [
     BrowserModule,
