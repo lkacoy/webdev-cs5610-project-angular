@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ShareServiceClient} from "../services/share.service.client";
 import {ActivatedRoute} from "@angular/router";
 import {Share} from "../models/share.model";
-import {PostServiceClient} from "../services/post.service.client";
 
 @Component({
   selector: 'app-share-history',
@@ -15,8 +14,7 @@ export class ShareHistoryComponent implements OnInit {
   shares:Share[] = [];
 
   constructor(private service:ShareServiceClient,
-              private activatedRoute:ActivatedRoute,
-              private postService:PostServiceClient) {
+              private activatedRoute:ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => this.setParams(params));
   }
 
@@ -29,13 +27,4 @@ export class ShareHistoryComponent implements OnInit {
       .then(shares => this.shares = shares);
   }
 
-  findPostName(postId) {
-    this.postService.findPostById(postId)
-      .then(post => {
-        console.log(post);
-        if (post.postTitle) {
-          return post.postTitle;
-        }
-      })
-  }
 }

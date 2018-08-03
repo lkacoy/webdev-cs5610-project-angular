@@ -4,7 +4,7 @@
   <table class="table table-striped" *ngIf="shares.length > 0; else noShares">
     <tr *ngFor="let share of shares">
       <td>
-
+        <a routerLink="/viewPost/{{share.postId}}">{{share.postName}}</a>
       </td>
       <td>
         {{share.author}}

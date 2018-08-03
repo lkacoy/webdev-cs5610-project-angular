@@ -81,6 +81,7 @@ export class PostViewComponent implements OnInit {
   sharePost() {
     this.share.username = this.user.username;
     this.share.postId = this.postId;
+    this.share.postName = this.post.postTitle;
     this.share.author = this.post.username;
 
     this.shareService.createShare(this.share)
