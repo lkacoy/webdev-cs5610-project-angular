@@ -1,5 +1,8 @@
 <div class="mt-4">
-  <span class="label-warning">Enter your comment here. Please note your comment may be removed for moderation purposes.</span>
+  <span class="label-warning">Enter your comment here. Please note your comment may be removed for moderation purposes.</span><br/>
+  <small id="notLoggedin" class="text-danger" [hidden]="this.isLoggedIn">
+    You must be logged into comment. Log in <a routerLink="/login">here</a>
+  </small>
   <textarea [disabled]="!isLoggedIn" class="form-control" rows="5" cols="50" [(ngModel)]="comment.comment"></textarea>
   <span class="row pull-right mt-3 mb-3">
     <button class="btn btn-danger mr-2" (click)="clearComment()" [disabled]="!isLoggedIn"><i class="fa fa-ban"></i></button>
