@@ -20,6 +20,7 @@ export class PostViewComponent implements OnInit {
   isLoggedIn = false;
   user:User = new User();
   share:Share = new Share();
+  shares:Share[] =  [];
 
   constructor(private service:PostServiceClient,
               private activatedRoute:ActivatedRoute,
@@ -39,7 +40,7 @@ export class PostViewComponent implements OnInit {
        this.post = post[0];
        this.verifyRole();
      });
-
+   this.retrieveSharesForPost();
   }
 
   editPost() {
@@ -84,5 +85,11 @@ export class PostViewComponent implements OnInit {
 
     this.shareService.createShare(this.share)
       .then( share => alert("You\'ve shared this post!"));
+  }
+
+  retrieveSharesForPost() {
+    this.shareService.findSharesForPost(this.postId)
+      .then(shares => this.shares = shares);
+
   }
 }
