@@ -36,7 +36,7 @@ export class PostEditComponent implements OnInit {
     this.postId = params['id'];
     this.service.findPostById(this.postId)
       .then(post =>
-        this.post = post
+        this.post = post[0]
       );
   }
 
@@ -48,7 +48,10 @@ export class PostEditComponent implements OnInit {
 
   updatePost() {
     if(confirm('Are you sure you want to update your post?')) {
-      this.router.navigateByUrl('/viewPost/' + this.postId);
+      this.service.updatePost(this.post)
+        .then( () => {
+          this.router.navigateByUrl('/viewPost/' + this.postId);
+        });
     }
   }
 }

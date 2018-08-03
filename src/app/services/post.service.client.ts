@@ -46,4 +46,15 @@ export class PostServiceClient {
       }
     }).then(response => response.json());
   }
+
+  updatePost(post) {
+    return fetch('http://localhost:3000/api/post', {
+      method: 'put',
+      credentials: 'include',
+      body: JSON.stringify(post),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
 }
