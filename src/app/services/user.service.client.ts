@@ -83,4 +83,11 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
+  getCurrentUserSession() {
+    return fetch('http://localhost:3000/api/session/get/currentUser', {
+      credentials: 'include'
+    })
+      .then(response => response.json());
+  }
+
 }
