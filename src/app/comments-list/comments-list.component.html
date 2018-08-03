@@ -10,7 +10,7 @@
       <td>
         {{comment.username}}
         <span>
-          <i class="fa fa-edit mr-2 ml-2" (click)="editComment(comment)"></i>
+          <i class="fa fa-edit mr-2 ml-2" (click)="editComment(comment)" [hidden]="viewEdit(comment)"></i>
           <i class="fa fa-trash" (click)="deleteComment(comment)"></i>
         </span>
       </td>

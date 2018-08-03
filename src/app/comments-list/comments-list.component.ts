@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CommentServiceClient} from "../services/comment.service.client";
 import {ActivatedRoute} from "@angular/router";
 import {UserServiceClient} from "../services/user.service.client";
+import {User} from "../models/user.model";
 
 @Component({
   selector: 'app-comments-list',
@@ -13,6 +14,7 @@ export class CommentsListComponent implements OnInit {
   comments = [];
   postId = '';
   edit = false;
+  user:User = new User();
 
   constructor(private service:CommentServiceClient,
               private activatedRoute:ActivatedRoute,
@@ -26,6 +28,7 @@ export class CommentsListComponent implements OnInit {
   setParams(params) {
     this.postId = params['id'];
     this.findCommentsByPostId();
+    this.getUserFromSession();
   }
 
   deleteComment(comment) {
@@ -60,5 +63,21 @@ export class CommentsListComponent implements OnInit {
     this.service.findCommentsByPost(this.postId)
       .then((comments) => this.comments = comments);
 
+  }
+
+  getUserFromSession() {
+    this.userService.getCurrentUserSession()
+      .then( user => {
+        this.user = user;
+      });
+  }
+
+  //if user created the comment, the user can edit it
+  viewEdit(comment) {
+    if (comment.username === this.user.username) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
