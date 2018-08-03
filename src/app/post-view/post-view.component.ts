@@ -85,7 +85,10 @@ export class PostViewComponent implements OnInit {
     this.share.author = this.post.username;
 
     this.shareService.createShare(this.share)
-      .then( share => alert("You\'ve shared this post!"));
+      .then( share => {
+        alert("You\'ve shared this post!");
+        window.location.reload();
+      });
   }
 
   retrieveSharesForPost() {
