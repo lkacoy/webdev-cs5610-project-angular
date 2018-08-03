@@ -4,6 +4,7 @@
 
 
   <span>Published On: {{post.datePublished | date: 'medium'}}</span>
+  <i class="fa fa-share-square-o btn btn-primary ml-4" (click)="sharePost()"></i>
   <span class="pull-right" [hidden]="!isPostWriter">
     <i class="fa fa-edit mr-2 ml-2 btn btn-primary" (click)="editPost()"></i>
     <i class="fa fa-trash btn btn-danger" (click)="deletePost()"></i>

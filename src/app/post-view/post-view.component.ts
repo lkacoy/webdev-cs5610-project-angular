@@ -14,6 +14,7 @@ export class PostViewComponent implements OnInit {
   postId;
   post = new Post();
   isPostWriter = false;
+  isLoggedIn = false;
 
   constructor(private service:PostServiceClient,
               private activatedRoute:ActivatedRoute,
@@ -52,8 +53,12 @@ export class PostViewComponent implements OnInit {
   verifyRole() {
     this.userService.getCurrentUserSession()
       .then(response => {
-        console.log(response);
-        console.log(this.post.username);
+
+        if (response.username) {
+          this.isLoggedIn = true;
+        } else {
+          this.isLoggedIn = false;
+        }
 
         if (response.username === this.post.username) {
 
@@ -65,4 +70,7 @@ export class PostViewComponent implements OnInit {
       })
   }
 
+  sharePost() {
+
+  }
 }
