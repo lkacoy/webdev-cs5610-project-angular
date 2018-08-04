@@ -1,10 +1,77 @@
 <div class="container">
-  <h1>About {{info.title}}</h1>
-  Written by: {{info.name}} <br/>
-  Description: {{info.description}} <br/>
-  Post Count: {{info.posts}} <br/>
-  Allows Questions?: {{info.ask}} <br/>
-  Allows Anonymous Questions?: {{info.ask_anon}} <br/>
-  Link to the Blog: <a href="{{info.url}}">{{info.url}}</a><br/>
+  <div class="row">
+    <img src="https://api.tumblr.com/v2/blog/{{info.name}}/avatar/128"/>
+    <h1 class="ml-5 text-center align-text-bottom">About {{info.title}}</h1>
+  </div>
+
+
+
+  <table class="table mt-5 mb-3">
+    <tr>
+      <td>
+        Description:
+      </td>
+      <td [innerHtml]="info.description | noSanitize"></td>
+    </tr>
+    <tr>
+      <td>
+        Post Count:
+      </td>
+      <td>
+        {{info.posts}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Allows Questions?
+      </td>
+      <td>
+        {{info.ask}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Allows Anonymous Questions?
+      </td>
+      <td>
+        {{info.ask_anon}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Link to the Blog:
+      </td>
+      <td>
+        <a href="{{info.url}}">{{info.url}}</a>
+      </td>
+    </tr>
+  </table>
+
+  <h3>Recent Posts</h3>
+  <table class="table">
+    <tr>
+      <th>
+        Summary
+      </th>
+      <th>
+        Link to Post
+      </th>
+      <th>
+        Type
+      </th>
+    </tr>
+    <tr *ngFor="let post of posts">
+      <td>
+        {{post.summary}}
+      </td>
+      <td>
+        <a href="{{post.post_url}}">{{post.post_url}}</a>
+      </td>
+      <td>
+        {{post.type}}
+      </td>
+    </tr>
+  </table>
+
   <button class="btn btn-info" (click)="goBack()">Go Back</button>
 </div>

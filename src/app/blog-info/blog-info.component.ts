@@ -10,21 +10,26 @@ import {BloggerApiServiceClient} from "../services/bloggerApi.service.client";
 export class BlogInfoComponent implements OnInit {
 
   info;
+  blogName;
+  posts = [];
+
   constructor(private router:ActivatedRoute,
               private blogService:BloggerApiServiceClient) { }
 
   ngOnInit() {
-    console.log(this.router.snapshot.params['id']);
-    console.log(this.router.snapshot.data);
     this.router.params.subscribe(params => this.getBlogInfo(params['id']));
   }
 
   getBlogInfo(id) {
+    this.blogName = id;
     this.blogService.findBlogInfo(id)
       .then(info => this.info = info.response.blog);
+    this.blogService.findRecentBlogPosts(this.blogName)
+      .then(posts => this.posts = posts.response.posts);
   }
 
   goBack() {
     parent.history.go(-1);
   }
+
 }
