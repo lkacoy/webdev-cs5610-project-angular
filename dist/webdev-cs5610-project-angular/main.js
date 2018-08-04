@@ -137,12 +137,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _noSanitize_pipe__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../noSanitize.pipe */ "./src/noSanitize.pipe.ts");
 /* harmony import */ var _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./post-edit/post-edit.component */ "./src/app/post-edit/post-edit.component.ts");
 /* harmony import */ var _services_share_service_client__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/share.service.client */ "./src/app/services/share.service.client.ts");
+/* harmony import */ var _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./share-history/share-history.component */ "./src/app/share-history/share-history.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -191,7 +193,8 @@ var AppModule = /** @class */ (function () {
                 _post_list_post_list_component__WEBPACK_IMPORTED_MODULE_21__["PostListComponent"],
                 _search_search_component__WEBPACK_IMPORTED_MODULE_22__["SearchComponent"],
                 _noSanitize_pipe__WEBPACK_IMPORTED_MODULE_23__["NoSanitizePipe"],
-                _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_24__["PostEditComponent"]
+                _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_24__["PostEditComponent"],
+                _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_26__["ShareHistoryComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -239,6 +242,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _post_list_post_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./post-list/post-list.component */ "./src/app/post-list/post-list.component.ts");
 /* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
 /* harmony import */ var _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./post-edit/post-edit.component */ "./src/app/post-edit/post-edit.component.ts");
+/* harmony import */ var _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./share-history/share-history.component */ "./src/app/share-history/share-history.component.ts");
+
 
 
 
@@ -266,7 +271,8 @@ var appRoutes = [
     { path: 'profile', component: _profile_profile_component__WEBPACK_IMPORTED_MODULE_3__["ProfileComponent"] },
     { path: 'blog-info/:id', component: _blog_info_blog_info_component__WEBPACK_IMPORTED_MODULE_6__["BlogInfoComponent"] },
     { path: 'viewPosts/:id', component: _post_list_post_list_component__WEBPACK_IMPORTED_MODULE_11__["PostListComponent"] },
-    { path: 'search', component: _search_search_component__WEBPACK_IMPORTED_MODULE_12__["SearchComponent"] }
+    { path: 'search', component: _search_search_component__WEBPACK_IMPORTED_MODULE_12__["SearchComponent"] },
+    { path: 'shares/:id', component: _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_14__["ShareHistoryComponent"] }
 ];
 var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(appRoutes);
 
@@ -291,7 +297,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h1>About {{info.title}}</h1>\n  Written by: {{info.name}} <br/>\n  Description: {{info.description}} <br/>\n  Post Count: {{info.posts}} <br/>\n  Allows Questions?: {{info.ask}} <br/>\n  Allows Anonymous Questions?: {{info.ask_anon}} <br/>\n  Link to the Blog: <a href=\"{{info.url}}\">{{info.url}}</a><br/>\n  <button class=\"btn btn-info\" (click)=\"goBack()\">Go Back</button>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <img src=\"https://api.tumblr.com/v2/blog/{{info.name}}/avatar/128\"/>\n    <h1 class=\"ml-5 text-center align-text-bottom\">About {{info.title}}</h1>\n  </div>\n\n\n\n  <table class=\"table mt-5 mb-3\">\n    <tr>\n      <td>\n        Description:\n      </td>\n      <td [innerHtml]=\"info.description | noSanitize\"></td>\n    </tr>\n    <tr>\n      <td>\n        Post Count:\n      </td>\n      <td>\n        {{info.posts}}\n      </td>\n    </tr>\n    <tr>\n      <td>\n        Allows Questions?\n      </td>\n      <td>\n        {{info.ask}}\n      </td>\n    </tr>\n    <tr>\n      <td>\n        Allows Anonymous Questions?\n      </td>\n      <td>\n        {{info.ask_anon}}\n      </td>\n    </tr>\n    <tr>\n      <td>\n        Link to the Blog:\n      </td>\n      <td>\n        <a href=\"{{info.url}}\">{{info.url}}</a>\n      </td>\n    </tr>\n  </table>\n\n  <h3>Recent Posts</h3>\n  <table class=\"table\">\n    <tr>\n      <th>\n        Summary\n      </th>\n      <th>\n        Link to Post\n      </th>\n      <th>\n        Type\n      </th>\n    </tr>\n    <tr *ngFor=\"let post of posts\">\n      <td>\n        {{post.summary}}\n      </td>\n      <td>\n        <a href=\"{{post.post_url}}\">{{post.post_url}}</a>\n      </td>\n      <td>\n        {{post.type}}\n      </td>\n    </tr>\n  </table>\n\n  <button class=\"btn btn-info\" (click)=\"goBack()\">Go Back</button>\n</div>\n"
 
 /***/ }),
 
@@ -324,17 +330,19 @@ var BlogInfoComponent = /** @class */ (function () {
     function BlogInfoComponent(router, blogService) {
         this.router = router;
         this.blogService = blogService;
+        this.posts = [];
     }
     BlogInfoComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log(this.router.snapshot.params['id']);
-        console.log(this.router.snapshot.data);
         this.router.params.subscribe(function (params) { return _this.getBlogInfo(params['id']); });
     };
     BlogInfoComponent.prototype.getBlogInfo = function (id) {
         var _this = this;
+        this.blogName = id;
         this.blogService.findBlogInfo(id)
             .then(function (info) { return _this.info = info.response.blog; });
+        this.blogService.findRecentBlogPosts(this.blogName)
+            .then(function (posts) { return _this.posts = posts.response.posts; });
     };
     BlogInfoComponent.prototype.goBack = function () {
         parent.history.go(-1);
@@ -436,7 +444,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form>\r\n  <div class=\"form-group row\">\r\n    <label for=\"topic\" class=\"col-sm-2 col-form-label\">Topic Search</label>\r\n    <input [(ngModel)]=\"keyword\" name=\"topic\" type=\"text\" class=\"form-control col-sm-5\" id=\"topic\" aria-describedby=\"topic\" placeholder=\"Search for something that interests you!\">\r\n    <label for=\"numResults\" class=\"col-sm-2 col-form-label\">Number Of Results</label>\r\n    <select [(ngModel)]=\"limit\" id=\"numResults\" name=\"numResults\" class=\"form-control col-sm-1 mr-2\">\r\n      <option value=\"1\">1</option>\r\n      <option value=\"2\">2</option>\r\n      <option value=\"3\">3</option>\r\n      <option value=\"4\">4</option>\r\n      <option value=\"5\">5</option>\r\n      <option value=\"6\">6</option>\r\n      <option value=\"7\">7</option>\r\n      <option value=\"8\">8</option>\r\n      <option value=\"9\">9</option>\r\n      <option value=\"10\">10</option>\r\n      <option value=\"11\">11</option>\r\n      <option value=\"12\">12</option>\r\n      <option value=\"13\">13</option>\r\n      <option value=\"14\">14</option>\r\n      <option value=\"15\">15</option>\r\n      <option value=\"16\">16</option>\r\n      <option value=\"17\">17</option>\r\n      <option value=\"18\">18</option>\r\n      <option value=\"19\">19</option>\r\n      <option value=\"20\">20</option>\r\n    </select>\r\n    <button type=\"submit\" (click)=\"searchPostsByTag(keyword, limit)\" class=\"btn btn-primary\">Search</button>\r\n  </div>\r\n</form>\r\n<h3>Blog Results ({{blogs.length}})</h3>\r\n<table class=\"table table-striped\">\r\n  <thead>\r\n  <tr>\r\n    <th scope=\"col\"></th>\r\n    <th scope=\"col\">Blog Name</th>\r\n    <th scope=\"col\">Summary</th>\r\n    <th scope=\"col\">Link to Tumblr</th>\r\n  </tr>\r\n  </thead>\r\n  <tr *ngFor=\"let blog of blogs\">\r\n    <td><button class=\"btn btn-info\" (click)=\"viewBlogInfo(blog.blog_name)\">View Blog Info</button></td>\r\n    <td>{{blog.blog_name}}</td>\r\n    <td>{{blog.summary}}</td>\r\n    <td><a href=\"{{blog.post_url}}\">{{blog.post_url}}</a></td>\r\n  </tr>\r\n</table>\r\n"
+module.exports = "<form>\r\n  <div class=\"form-group row\">\r\n    <label for=\"topic\" class=\"col-sm-2 col-form-label\">Topic Search</label>\r\n    <input [(ngModel)]=\"keyword\" name=\"topic\" type=\"text\" class=\"form-control col-sm-5\" id=\"topic\" aria-describedby=\"topic\" placeholder=\"Search for something that interests you!\">\r\n    <label for=\"numResults\" class=\"col-sm-2 col-form-label\">Number Of Results</label>\r\n    <select [(ngModel)]=\"limit\" id=\"numResults\" name=\"numResults\" class=\"form-control col-sm-1 mr-2\">\r\n      <option value=\"1\">1</option>\r\n      <option value=\"2\">2</option>\r\n      <option value=\"3\">3</option>\r\n      <option value=\"4\">4</option>\r\n      <option value=\"5\">5</option>\r\n      <option value=\"6\">6</option>\r\n      <option value=\"7\">7</option>\r\n      <option value=\"8\">8</option>\r\n      <option value=\"9\">9</option>\r\n      <option value=\"10\">10</option>\r\n      <option value=\"11\">11</option>\r\n      <option value=\"12\">12</option>\r\n      <option value=\"13\">13</option>\r\n      <option value=\"14\">14</option>\r\n      <option value=\"15\">15</option>\r\n      <option value=\"16\">16</option>\r\n      <option value=\"17\">17</option>\r\n      <option value=\"18\">18</option>\r\n      <option value=\"19\">19</option>\r\n      <option value=\"20\">20</option>\r\n    </select>\r\n    <button type=\"submit\" (click)=\"searchPostsByTag(keyword, limit)\" class=\"btn btn-primary\">Search</button>\r\n  </div>\r\n</form>\r\n<div *ngIf=\"blogs.length > 0; else noResults\">\r\n  <h3>Blog Results ({{blogs.length}})</h3>\r\n  <table class=\"table table-striped\">\r\n    <thead>\r\n    <tr>\r\n      <th scope=\"col\"></th>\r\n      <th scope=\"col\">Blog Name</th>\r\n      <th scope=\"col\">Summary</th>\r\n      <th scope=\"col\">Link to Tumblr</th>\r\n    </tr>\r\n    </thead>\r\n    <tr *ngFor=\"let blog of blogs\">\r\n      <td><button class=\"btn btn-info\" (click)=\"viewBlogInfo(blog.blog_name)\">View Blog Info</button></td>\r\n      <td>{{blog.blog_name}}</td>\r\n      <td>{{blog.summary}}</td>\r\n      <td><a href=\"{{blog.post_url}}\">{{blog.post_url}}</a></td>\r\n    </tr>\r\n  </table>\r\n</div>\r\n\r\n<ng-template #noResults>\r\n  No results found\r\n</ng-template>\r\n"
 
 /***/ }),
 
@@ -658,7 +666,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"mt-4\">\n  <span class=\"label-warning\">Enter your comment here. Please note your comment may be removed for moderation purposes.</span>\n  <textarea [disabled]=\"!isLoggedIn\" class=\"form-control\" rows=\"5\" cols=\"50\" [(ngModel)]=\"comment.comment\"></textarea>\n  <span class=\"row pull-right mt-3 mb-3\">\n    <button class=\"btn btn-danger mr-2\" (click)=\"clearComment()\" [disabled]=\"!isLoggedIn\"><i class=\"fa fa-ban\"></i></button>\n    <button class=\"btn btn-success mr-2\" (click)=\"addComment()\" [disabled]=\"!isLoggedIn\"><i class=\"fa fa-plus-circle\"></i></button>\n  </span><br/><br/>\n  <app-comments-list></app-comments-list>\n</div>\n"
+module.exports = "<div class=\"mt-4\">\n  <span class=\"label-warning\">Enter your comment here. Please note your comment may be removed for moderation purposes.</span><br/>\n  <small id=\"notLoggedin\" class=\"text-danger\" [hidden]=\"this.isLoggedIn\">\n    You must be logged into comment. Log in <a routerLink=\"/login\">here</a>\n  </small>\n  <textarea [disabled]=\"!isLoggedIn\" class=\"form-control\" rows=\"5\" cols=\"50\" [(ngModel)]=\"comment.comment\"></textarea>\n  <span class=\"row pull-right mt-3 mb-3\">\n    <button class=\"btn btn-danger mr-2\" (click)=\"clearComment()\" [disabled]=\"!isLoggedIn\"><i class=\"fa fa-ban\"></i></button>\n    <button class=\"btn btn-success mr-2\" (click)=\"addComment()\" [disabled]=\"!isLoggedIn\"><i class=\"fa fa-plus-circle\"></i></button>\n  </span><br/><br/>\n  <app-comments-list></app-comments-list>\n</div>\n"
 
 /***/ }),
 
@@ -1301,7 +1309,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>{{post.postTitle}}</h1>\n  <h4>Written by: {{post.username}}</h4>\n\n\n  <span>Published On: {{post.datePublished | date: 'medium'}}</span>\n  <i class=\"fa fa-share-square-o btn btn-primary ml-4\" (click)=\"sharePost()\"></i>\n  <span class=\"pull-right\" [hidden]=\"!isPostWriter\">\n    <i class=\"fa fa-edit mr-2 ml-2 btn btn-primary\" (click)=\"editPost()\"></i>\n    <i class=\"fa fa-trash btn btn-danger\" (click)=\"deletePost()\"></i>\n  </span>\n  <p class=\"mt-4\">{{post.postContent}}</p>\n\n  <p>Topic: {{post.topic}}</p>\n  <app-comments></app-comments>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>{{post.postTitle}}</h1>\n  <h4>Written by: {{post.username}}</h4>\n\n\n  <span class=\"font-weight-bold\">Published On:</span> {{post.datePublished | date: 'medium'}}\n  <span class=\"font-weight-bold\">Number Of Shares:</span> {{shares.length}}\n  <i class=\"fa fa-share-square-o btn btn-primary ml-4\" (click)=\"sharePost()\"></i>\n  <span class=\"pull-right\" [hidden]=\"!isPostWriter\">\n    <i class=\"fa fa-edit mr-2 ml-2 btn btn-primary\" (click)=\"editPost()\"></i>\n    <i class=\"fa fa-trash btn btn-danger\" (click)=\"deletePost()\"></i>\n  </span>\n  <p class=\"mt-4\">{{post.postContent}}</p>\n\n  <p>Topic: {{post.topic}}</p>\n  <app-comments></app-comments>\n</div>\n"
 
 /***/ }),
 
@@ -1353,6 +1361,7 @@ var PostViewComponent = /** @class */ (function () {
         this.isLoggedIn = false;
         this.user = new _models_user_model__WEBPACK_IMPORTED_MODULE_5__["User"]();
         this.share = new _models_share_model__WEBPACK_IMPORTED_MODULE_7__["Share"]();
+        this.shares = [];
         this.activatedRoute.params.subscribe(function (params) { return _this.setParams(params); });
     }
     PostViewComponent.prototype.ngOnInit = function () {
@@ -1365,6 +1374,7 @@ var PostViewComponent = /** @class */ (function () {
             _this.post = post[0];
             _this.verifyRole();
         });
+        this.retrieveSharesForPost();
     };
     PostViewComponent.prototype.editPost = function () {
         this.router.navigateByUrl('/editPost/' + this.postId);
@@ -1401,9 +1411,18 @@ var PostViewComponent = /** @class */ (function () {
     PostViewComponent.prototype.sharePost = function () {
         this.share.username = this.user.username;
         this.share.postId = this.postId;
+        this.share.postName = this.post.postTitle;
         this.share.author = this.post.username;
         this.shareService.createShare(this.share)
-            .then(function (share) { return alert("You\'ve shared this post!"); });
+            .then(function (share) {
+            alert("You\'ve shared this post!");
+            window.location.reload();
+        });
+    };
+    PostViewComponent.prototype.retrieveSharesForPost = function () {
+        var _this = this;
+        this.shareService.findSharesForPost(this.postId)
+            .then(function (shares) { return _this.shares = shares; });
     };
     PostViewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1442,7 +1461,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Profile</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"firstName\"\n         placeholder=\"first name\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"lastName\"\n         placeholder=\"lastName\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"email\"\n         placeholder=\"email\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"role\" class=\"form-control\" readonly=\"{{role==='admin'}}\"/>\n  <button (click)=\"update()\"\n          class=\"btn btn-primary btn-block\">\n    Update\n  </button>\n  <button (click)=\"delete()\"\n          class=\"btn btn-block btn-danger\">\n    Delete Account\n  </button>\n\n  <a (click)=\"logout()\">Logout</a>\n  <a routerLink=\"/home\" class=\"ml-2\">Home</a>\n  <a routerLink=\"/admin\" class=\"ml-2\" [hidden]=\"!this.isAdmin\">Admin</a>\n  <a routerLink=\"/createPost\" class=\"ml-2\" [hidden]=\"checkRole()\">Create Post</a>\n  <a routerLink=\"/viewPosts/{{username}}\" class=\"ml-2\" [hidden]=\"checkRole()\">View My Posts</a>\n\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Profile</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"firstName\"\n         placeholder=\"first name\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"lastName\"\n         placeholder=\"lastName\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"email\"\n         placeholder=\"email\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"role\" class=\"form-control\" readonly=\"{{role==='admin'}}\"/>\n  <button (click)=\"update()\"\n          class=\"btn btn-primary btn-block\">\n    Update\n  </button>\n  <button (click)=\"delete()\"\n          class=\"btn btn-block btn-danger\">\n    Delete Account\n  </button>\n\n  <a (click)=\"logout()\">Logout</a>\n  <a routerLink=\"/home\" class=\"ml-2\">Home</a>\n  <a routerLink=\"/createPost\" class=\"ml-2\" [hidden]=\"checkRole()\">Create Post</a>\n  <a routerLink=\"/viewPosts/{{username}}\" class=\"ml-2\" [hidden]=\"checkRole()\">View My Posts</a>\n  <a routerLink=\"/shares/{{username}}\" class=\"ml-2\" [hidden]=\"canSharePost()\">View Shared Posts</a>\n\n</div>\n"
 
 /***/ }),
 
@@ -1532,6 +1551,14 @@ var ProfileComponent = /** @class */ (function () {
             return false;
         }
     };
+    ProfileComponent.prototype.canSharePost = function () {
+        if (this.role !== 'blogWriter' && this.role !== 'blogFollower') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
     ProfileComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-profile',
@@ -1605,7 +1632,15 @@ var ProjectHomeComponent = /** @class */ (function () {
         this.userService.findBlogWriters()
             .then(function (blogWriters) { return _this.blogWriters = blogWriters; });
         this.postService.findAllPosts()
-            .then(function (posts) { return _this.posts = posts; });
+            .then(function (posts) {
+            if (posts.length > 0) {
+                posts.forEach(function (post) {
+                    if (post.published == true) {
+                        _this.posts.push(post);
+                    }
+                });
+            }
+        });
     }
     ProjectHomeComponent.prototype.ngOnInit = function () {
     };
@@ -1793,7 +1828,8 @@ var SearchComponent = /** @class */ (function () {
     };
     SearchComponent.prototype.executeSearch = function () {
         var _this = this;
-        var query = { title: this.title, topic: this.topic, username: this.username };
+        var query = { title: this.title, topic: this.topic, username: this.username, published: true };
+        console.log(query);
         this.service.searchPosts(query)
             .then(function (posts) { return _this.posts = posts; });
     };
@@ -1826,6 +1862,8 @@ var BloggerApiServiceClient = /** @class */ (function () {
     function BloggerApiServiceClient() {
         this.FIND_BY_TAG = 'https://api.tumblr.com/v2/tagged?tag=KEYWORD&limit=LIMIT&api_key=fe1SEpCDiutEE7EDxpcnSo3RhfLoUjUNq0d7mk2xbnW2q1uesn';
         this.FIND_BLOG_INFO = 'https://api.tumblr.com/v2/blog/KEYWORD/info?api_key=fe1SEpCDiutEE7EDxpcnSo3RhfLoUjUNq0d7mk2xbnW2q1uesn';
+        this.FIND_AVATAR = 'https://api.tumblr.com/v2/blog/BLOGNAME/avatar/96';
+        this.FIND_RECENT_POSTS = 'https://api.tumblr.com/v2/blog/BLOGNAME/posts?api_key=fe1SEpCDiutEE7EDxpcnSo3RhfLoUjUNq0d7mk2xbnW2q1uesn';
     }
     BloggerApiServiceClient.prototype.findPostsBySearchCriteria = function (keyword, limit) {
         var url = this.FIND_BY_TAG.replace('KEYWORD', keyword).replace('LIMIT', limit);
@@ -1834,6 +1872,16 @@ var BloggerApiServiceClient = /** @class */ (function () {
     };
     BloggerApiServiceClient.prototype.findBlogInfo = function (id) {
         var url = this.FIND_BLOG_INFO.replace('KEYWORD', id);
+        return fetch(url)
+            .then(function (response) { return response.json(); });
+    };
+    BloggerApiServiceClient.prototype.findBlogAvatar = function (blogName) {
+        var url = this.FIND_AVATAR.replace('BLOGNAME', blogName);
+        return fetch(url)
+            .then(function (response) { return response.json(); });
+    };
+    BloggerApiServiceClient.prototype.findRecentBlogPosts = function (blogName) {
+        var url = this.FIND_RECENT_POSTS.replace('BLOGNAME', blogName);
         return fetch(url)
             .then(function (response) { return response.json(); });
     };
@@ -1858,7 +1906,7 @@ var CommentServiceClient = /** @class */ (function () {
     function CommentServiceClient() {
     }
     CommentServiceClient.prototype.createComment = function (comment) {
-        return fetch('http://localhost:3000/api/comment', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/comment', {
             method: 'post',
             body: JSON.stringify(comment),
             credentials: 'include',
@@ -1868,11 +1916,11 @@ var CommentServiceClient = /** @class */ (function () {
         }).then(function (response) { return response.json(); });
     };
     CommentServiceClient.prototype.findCommentsByPost = function (postId) {
-        return fetch('http://localhost:3000/api/comment/post/' + postId)
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/comment/post/' + postId)
             .then(function (response) { return response.json(); });
     };
     CommentServiceClient.prototype.deleteComment = function (comment) {
-        return fetch('http://localhost:3000/api/comment', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/comment', {
             method: 'delete',
             body: JSON.stringify(comment),
             credentials: 'include',
@@ -1882,7 +1930,7 @@ var CommentServiceClient = /** @class */ (function () {
         }).then(function (response) { return response.json(); });
     };
     CommentServiceClient.prototype.editComment = function (comment) {
-        return fetch('http://localhost:3000/api/comment', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/comment', {
             method: 'put',
             body: JSON.stringify(comment),
             credentials: 'include',
@@ -1912,7 +1960,7 @@ var PostServiceClient = /** @class */ (function () {
     function PostServiceClient() {
     }
     PostServiceClient.prototype.createPost = function (post) {
-        return fetch('http://localhost:3000/api/post', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post', {
             method: 'post',
             body: JSON.stringify(post),
             credentials: 'include',
@@ -1922,7 +1970,7 @@ var PostServiceClient = /** @class */ (function () {
         }).then(function (response) { return response.json(); });
     };
     PostServiceClient.prototype.deletePost = function (post) {
-        return fetch('http://localhost:3000/api/post', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post', {
             method: 'delete',
             body: JSON.stringify(post),
             credentials: 'include',
@@ -1932,19 +1980,19 @@ var PostServiceClient = /** @class */ (function () {
         });
     };
     PostServiceClient.prototype.findPostById = function (postId) {
-        return fetch('http://localhost:3000/api/post/' + postId)
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post/' + postId)
             .then(function (response) { return response.json(); });
     };
     PostServiceClient.prototype.findPostsForUser = function (username) {
-        return fetch('http://localhost:3000/api/post/user/' + username)
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post/user/' + username)
             .then(function (response) { return response.json(); });
     };
     PostServiceClient.prototype.findAllPosts = function () {
-        return fetch('http://localhost:3000/api/post')
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post')
             .then(function (response) { return response.json(); });
     };
     PostServiceClient.prototype.searchPosts = function (query) {
-        return fetch('http://localhost:3000/api/post/search', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post/search', {
             method: 'post',
             body: JSON.stringify(query),
             headers: {
@@ -1953,7 +2001,7 @@ var PostServiceClient = /** @class */ (function () {
         }).then(function (response) { return response.json(); });
     };
     PostServiceClient.prototype.updatePost = function (post) {
-        return fetch('http://localhost:3000/api/post', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post', {
             method: 'put',
             credentials: 'include',
             body: JSON.stringify(post),
@@ -1983,7 +2031,7 @@ var ShareServiceClient = /** @class */ (function () {
     function ShareServiceClient() {
     }
     ShareServiceClient.prototype.createShare = function (share) {
-        return fetch('http://localhost:3000/api/share', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/share', {
             method: 'post',
             body: JSON.stringify(share),
             credentials: 'include',
@@ -1991,6 +2039,14 @@ var ShareServiceClient = /** @class */ (function () {
                 'content-type': 'application/json'
             }
         }).then(function (response) { return response.json(); });
+    };
+    ShareServiceClient.prototype.findSharesForPost = function (postId) {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/share/post/' + postId)
+            .then(function (response) { return response.json(); });
+    };
+    ShareServiceClient.prototype.findSharesForUser = function (username) {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/share/user/' + username)
+            .then(function (response) { return response.json(); });
     };
     return ShareServiceClient;
 }());
@@ -2017,7 +2073,7 @@ var UserServiceClient = /** @class */ (function () {
             username: username,
             password: password
         };
-        return fetch('http://localhost:3000/api/login', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/login', {
             method: 'post',
             body: JSON.stringify(credentials),
             credentials: 'include',
@@ -2034,19 +2090,19 @@ var UserServiceClient = /** @class */ (function () {
         });
     };
     UserServiceClient.prototype.logout = function () {
-        return fetch('http://localhost:3000/api/logout', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/logout', {
             method: 'post',
             credentials: 'include'
         });
     };
     UserServiceClient.prototype.profile = function () {
-        return fetch('http://localhost:3000/api/profile', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
             credentials: 'include',
         })
             .then(function (response) { return response.json(); });
     };
     UserServiceClient.prototype.createUser = function (user) {
-        return fetch('http://localhost:3000/api/register', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/register', {
             body: JSON.stringify(user),
             credentials: 'include',
             method: 'post',
@@ -2063,7 +2119,7 @@ var UserServiceClient = /** @class */ (function () {
         });
     };
     UserServiceClient.prototype.updateUser = function (user) {
-        return fetch('http://localhost:3000/api/profile', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
             body: JSON.stringify(user),
             credentials: 'include',
             method: 'put',
@@ -2075,7 +2131,7 @@ var UserServiceClient = /** @class */ (function () {
         });
     };
     UserServiceClient.prototype.deleteUser = function (username) {
-        return fetch('http://localhost:3000/api/profile', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
             credentials: 'include',
             method: 'delete',
             headers: {
@@ -2086,16 +2142,95 @@ var UserServiceClient = /** @class */ (function () {
         });
     };
     UserServiceClient.prototype.findBlogWriters = function () {
-        return fetch('http://localhost:3000/api/blogWriter')
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/blogWriter')
             .then(function (response) { return response.json(); });
     };
     UserServiceClient.prototype.getCurrentUserSession = function () {
-        return fetch('http://localhost:3000/api/session/get/currentUser', {
+        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/session/get/currentUser', {
             credentials: 'include'
         })
             .then(function (response) { return response.json(); });
     };
     return UserServiceClient;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/share-history/share-history.component.css":
+/*!***********************************************************!*\
+  !*** ./src/app/share-history/share-history.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/share-history/share-history.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/share-history/share-history.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\r\n  <h1>{{username}}'s Favorite Posts</h1>\r\n\r\n  <table class=\"table table-striped\" *ngIf=\"shares.length > 0; else noShares\">\r\n    <tr *ngFor=\"let share of shares\">\r\n      <td>\r\n        <a routerLink=\"/viewPost/{{share.postId}}\">{{share.postName}}</a>\r\n      </td>\r\n      <td>\r\n        {{share.author}}\r\n      </td>\r\n      <td>\r\n        {{share.dateShared | date: 'medium'}}\r\n      </td>\r\n    </tr>\r\n  </table>\r\n  <ng-template #noShares>\r\n    {{username}} has not shared any posts yet.\r\n  </ng-template>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/share-history/share-history.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/share-history/share-history.component.ts ***!
+  \**********************************************************/
+/*! exports provided: ShareHistoryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShareHistoryComponent", function() { return ShareHistoryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_share_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/share.service.client */ "./src/app/services/share.service.client.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ShareHistoryComponent = /** @class */ (function () {
+    function ShareHistoryComponent(service, activatedRoute) {
+        var _this = this;
+        this.service = service;
+        this.activatedRoute = activatedRoute;
+        this.shares = [];
+        this.activatedRoute.params.subscribe(function (params) { return _this.setParams(params); });
+    }
+    ShareHistoryComponent.prototype.ngOnInit = function () {
+    };
+    ShareHistoryComponent.prototype.setParams = function (params) {
+        var _this = this;
+        this.username = params['id'];
+        this.service.findSharesForUser(this.username)
+            .then(function (shares) { return _this.shares = shares; });
+    };
+    ShareHistoryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-share-history',
+            template: __webpack_require__(/*! ./share-history.component.html */ "./src/app/share-history/share-history.component.html"),
+            styles: [__webpack_require__(/*! ./share-history.component.css */ "./src/app/share-history/share-history.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_share_service_client__WEBPACK_IMPORTED_MODULE_1__["ShareServiceClient"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+    ], ShareHistoryComponent);
+    return ShareHistoryComponent;
 }());
 
 
