@@ -1,7 +1,7 @@
 export class PostServiceClient {
 
   createPost(post) {
-    return fetch('http://localhost:3000/api/post', {
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post', {
       method: 'post',
       body: JSON.stringify(post),
       credentials: 'include',
@@ -12,7 +12,7 @@ export class PostServiceClient {
   }
 
   deletePost(post) {
-    return fetch('http://localhost:3000/api/post', {
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post', {
       method:'delete',
       body: JSON.stringify(post),
       credentials: 'include',
@@ -23,22 +23,22 @@ export class PostServiceClient {
   }
 
   findPostById(postId) {
-    return fetch('http://localhost:3000/api/post/'+postId)
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post/'+postId)
       .then(response => response.json());
   }
 
   findPostsForUser(username) {
-    return fetch('http://localhost:3000/api/post/user/' + username)
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post/user/' + username)
       .then(response => response.json());
   }
 
   findAllPosts() {
-    return fetch('http://localhost:3000/api/post')
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post')
       .then(response => response.json());
   }
 
   searchPosts(query) {
-    return fetch('http://localhost:3000/api/post/search', {
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post/search', {
       method: 'post',
       body: JSON.stringify(query),
       headers: {
@@ -48,7 +48,7 @@ export class PostServiceClient {
   }
 
   updatePost(post) {
-    return fetch('http://localhost:3000/api/post', {
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/post', {
       method: 'put',
       credentials: 'include',
       body: JSON.stringify(post),

@@ -1,7 +1,7 @@
 export class ShareServiceClient {
 
   createShare(share) {
-    return fetch('http://localhost:3000/api/share', {
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/share', {
       method: 'post',
       body: JSON.stringify(share),
       credentials: 'include',
@@ -12,13 +12,13 @@ export class ShareServiceClient {
   }
 
   findSharesForPost(postId) {
-    return fetch('http://localhost:3000/api/share/post/' + postId)
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/share/post/' + postId)
       .then(response => response.json());
 
   }
 
   findSharesForUser(username) {
-    return fetch('http://localhost:3000/api/share/user/' + username)
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/share/user/' + username)
       .then(response => response.json());
   }
 }

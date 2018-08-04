@@ -2,7 +2,7 @@ export class CommentServiceClient {
 
 
   createComment(comment) {
-    return fetch('http://localhost:3000/api/comment', {
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/comment', {
       method: 'post',
       body: JSON.stringify(comment),
       credentials: 'include',
@@ -13,12 +13,12 @@ export class CommentServiceClient {
   }
 
   findCommentsByPost(postId) {
-    return fetch('http://localhost:3000/api/comment/post/' + postId)
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/comment/post/' + postId)
       .then(response => response.json());
   }
 
   deleteComment(comment) {
-    return fetch('http://localhost:3000/api/comment', {
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/comment', {
       method: 'delete',
       body: JSON.stringify(comment),
       credentials: 'include',
@@ -29,7 +29,7 @@ export class CommentServiceClient {
   }
 
   editComment(comment) {
-    return fetch('http://localhost:3000/api/comment', {
+    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/comment', {
       method: 'put',
       body: JSON.stringify(comment),
       credentials: 'include',
