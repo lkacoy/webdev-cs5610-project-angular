@@ -918,7 +918,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var HomeComponent = /** @class */ (function () {
     function HomeComponent(_sanitizer) {
         this._sanitizer = _sanitizer;
-        var url = 'https://www.youtube.com/embed/DV_3qx-oBms';
+        var url = 'https://www.youtube.com/embed/4_lWYK-7wjs';
         this.safeUrl = this._sanitizer.bypassSecurityTrustResourceUrl(url);
     }
     HomeComponent.prototype.ngOnInit = function () {
@@ -1311,7 +1311,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>{{post.postTitle}}</h1>\n  <h4>Written by: {{post.username}}</h4>\n\n\n  <span class=\"font-weight-bold\">Published On:</span> {{post.datePublished | date: 'medium'}}\n  <span class=\"font-weight-bold\">Number Of Shares:</span> {{shares.length}}\n  <i class=\"fa fa-share-square-o btn btn-primary ml-4\" (click)=\"sharePost()\"></i>\n  <span class=\"pull-right\" [hidden]=\"!isPostWriter || !isAdmin\">\n    <i class=\"fa fa-edit mr-2 ml-2 btn btn-primary\" (click)=\"editPost()\"></i>\n  </span>\n  <span class=\"pull-right\" [hidden]=\"!isPostWriter\">\n    <i class=\"fa fa-trash btn btn-danger\" (click)=\"deletePost()\"></i>\n  </span>\n  <p class=\"mt-4\">{{post.postContent}}</p>\n\n  <p>Topic: {{post.topic}}</p>\n  <app-comments></app-comments>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>{{post.postTitle}}</h1>\n  <h4>Written by: {{post.username}}</h4>\n\n\n  <span class=\"font-weight-bold\">Published On:</span> {{post.datePublished | date: 'medium'}}\n  <span class=\"font-weight-bold\">Number Of Shares:</span> {{shares.length}}\n  <i class=\"fa fa-share-square-o btn btn-primary ml-4\" (click)=\"sharePost()\"></i>\n  <span class=\"pull-right\" [hidden]=\"!isPostWriter\">\n    <i class=\"fa fa-edit mr-2 ml-2 btn btn-primary\" (click)=\"editPost()\"></i>\n  </span>\n  <span class=\"pull-right\" [hidden]=\"!isWriterOrAdmin()\">\n    <i class=\"fa fa-trash btn btn-danger\" (click)=\"deletePost()\"></i>\n  </span>\n  <p class=\"mt-4\">{{post.postContent}}</p>\n\n  <p>Topic: {{post.topic}}</p>\n  <app-comments></app-comments>\n</div>\n"
 
 /***/ }),
 
@@ -1390,6 +1390,12 @@ var PostViewComponent = /** @class */ (function () {
                 _this.router.navigateByUrl('/home');
             });
         }
+    };
+    PostViewComponent.prototype.isWriterOrAdmin = function () {
+        if (this.isAdmin) {
+            return true;
+        }
+        this.verifyRole();
     };
     // post can only be edited and deleted by the writer
     PostViewComponent.prototype.verifyRole = function () {

@@ -57,6 +57,14 @@ export class PostViewComponent implements OnInit {
     }
   }
 
+  isWriterOrAdmin() {
+    if (this.isAdmin) {
+      return true;
+    }
+
+    this.verifyRole();
+  }
+
   // post can only be edited and deleted by the writer
   verifyRole() {
     this.userService.getCurrentUserSession()
