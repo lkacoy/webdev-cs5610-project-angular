@@ -13,6 +13,7 @@ import {PostListComponent} from "./post-list/post-list.component";
 import {SearchComponent} from "./search/search.component";
 import {PostEditComponent} from "./post-edit/post-edit.component";
 import {ShareHistoryComponent} from "./share-history/share-history.component";
+import {AdminComponent} from "./admin/admin.component";
 const appRoutes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'home', component: ProjectHomeComponent},
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   {path: 'blog-info/:id', component: BlogInfoComponent},
   {path: 'viewPosts/:id', component: PostListComponent},
   {path: 'search', component: SearchComponent},
-  {path: 'shares/:id', component: ShareHistoryComponent}
+  {path: 'shares/:id', component: ShareHistoryComponent},
+  {path: 'admin', component: AdminComponent}
 ];
 export const routing = RouterModule.forRoot(appRoutes);
