@@ -1311,7 +1311,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>{{post.postTitle}}</h1>\n  <h4>Written by: {{post.username}}</h4>\n\n\n  <span class=\"font-weight-bold\">Published On:</span> {{post.datePublished | date: 'medium'}}\n  <span class=\"font-weight-bold\">Number Of Shares:</span> {{shares.length}}\n  <i class=\"fa fa-share-square-o btn btn-primary ml-4\" (click)=\"sharePost()\"></i>\n  <span class=\"pull-right\" [hidden]=\"!isPostWriter\">\n    <i class=\"fa fa-edit mr-2 ml-2 btn btn-primary\" (click)=\"editPost()\"></i>\n    <i class=\"fa fa-trash btn btn-danger\" (click)=\"deletePost()\"></i>\n  </span>\n  <p class=\"mt-4\">{{post.postContent}}</p>\n\n  <p>Topic: {{post.topic}}</p>\n  <app-comments></app-comments>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>{{post.postTitle}}</h1>\n  <h4>Written by: {{post.username}}</h4>\n\n\n  <span class=\"font-weight-bold\">Published On:</span> {{post.datePublished | date: 'medium'}}\n  <span class=\"font-weight-bold\">Number Of Shares:</span> {{shares.length}}\n  <i class=\"fa fa-share-square-o btn btn-primary ml-4\" (click)=\"sharePost()\"></i>\n  <span class=\"pull-right\" [hidden]=\"!isPostWriter || !isAdmin\">\n    <i class=\"fa fa-edit mr-2 ml-2 btn btn-primary\" (click)=\"editPost()\"></i>\n  </span>\n  <span class=\"pull-right\" [hidden]=\"!isPostWriter\">\n    <i class=\"fa fa-trash btn btn-danger\" (click)=\"deletePost()\"></i>\n  </span>\n  <p class=\"mt-4\">{{post.postContent}}</p>\n\n  <p>Topic: {{post.topic}}</p>\n  <app-comments></app-comments>\n</div>\n"
 
 /***/ }),
 
@@ -1360,6 +1360,7 @@ var PostViewComponent = /** @class */ (function () {
         this.router = router;
         this.post = new _models_post_model__WEBPACK_IMPORTED_MODULE_3__["Post"]();
         this.isPostWriter = false;
+        this.isAdmin = false;
         this.isLoggedIn = false;
         this.user = new _models_user_model__WEBPACK_IMPORTED_MODULE_5__["User"]();
         this.share = new _models_share_model__WEBPACK_IMPORTED_MODULE_7__["Share"]();
@@ -1407,6 +1408,12 @@ var PostViewComponent = /** @class */ (function () {
             }
             else {
                 _this.isPostWriter = false;
+            }
+            if (response.role === "admin") {
+                _this.isAdmin = true;
+            }
+            else {
+                _this.isAdmin = false;
             }
         });
     };
