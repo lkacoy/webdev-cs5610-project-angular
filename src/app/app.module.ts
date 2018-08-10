@@ -26,6 +26,7 @@ import {NoSanitizePipe} from "../noSanitize.pipe";
 import { PostEditComponent } from './post-edit/post-edit.component';
 import {ShareServiceClient} from "./services/share.service.client";
 import { ShareHistoryComponent } from './share-history/share-history.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ShareHistoryComponent } from './share-history/share-history.component';
     SearchComponent,
     NoSanitizePipe,
     PostEditComponent,
-    ShareHistoryComponent
+    ShareHistoryComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
