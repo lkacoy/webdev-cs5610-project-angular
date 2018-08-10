@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <h1>Admin Console</h1>
 
-  <div *ngIf="users && users.length > 0; else noResults">
+  <div *ngIf="users && users.length > 0; else noResults" class="mt-4">
     <h3>Users Registered ({{users.length}})</h3>
     <table class="table table-striped">
       <thead>
-      <tr>
+      <tr class="text-center">
         <th>Username</th>
         <th>First Name</th>
         <th>Last Name</th>
@@ -14,6 +14,17 @@
         <th>Actions</th>
       </tr>
       </thead>
+      <tr *ngFor="let user of users" class="text-center">
+        <td>{{user.username}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.role}}</td>
+        <td>
+          <button class="btn btn-success">Edit</button>
+          <button class="btn btn-danger ml-2" (click)="deleteUser(user._id, user.username)">Delete</button>
+        </td>
+      </tr>
     </table>
   </div>
   <ng-template #noResults>

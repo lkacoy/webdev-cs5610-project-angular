@@ -69,7 +69,7 @@ export class UserServiceClient {
     });
   }
 
-  deleteUser(username) {
+  deleteUser() {
     return fetch(this.USER_API + 'profile', {
       credentials: 'include',
       method: 'delete',
@@ -96,6 +96,15 @@ export class UserServiceClient {
   findAllUsers() {
     return fetch(this.USER_API + 'user')
       .then(response => response.json());
+  }
+
+  adminDeleteUser(userId) {
+    return fetch(this.USER_API + 'profile/admin/' + userId, {
+      method: 'delete',
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
   }
 
 }
