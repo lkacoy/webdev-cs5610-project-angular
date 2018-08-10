@@ -11,6 +11,13 @@ export class AdminComponent implements OnInit {
 
   users:User[] = [];
 
+  userRoles = [
+    'admin',
+    'blogFollower',
+    'blogWriter'
+  ];
+
+
   constructor(private userService:UserServiceClient) {
     this.findAllUsers();
   }
