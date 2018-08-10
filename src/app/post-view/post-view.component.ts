@@ -17,6 +17,7 @@ export class PostViewComponent implements OnInit {
   postId;
   post = new Post();
   isPostWriter = false;
+  isAdmin = false;
   isLoggedIn = false;
   user:User = new User();
   share:Share = new Share();
@@ -74,6 +75,12 @@ export class PostViewComponent implements OnInit {
         }
         else {
           this.isPostWriter = false;
+        }
+
+        if (response.role === "admin") {
+          this.isAdmin = true;
+        } else {
+          this.isAdmin = false;
         }
       })
   }

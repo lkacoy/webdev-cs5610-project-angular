@@ -6,8 +6,10 @@
   <span class="font-weight-bold">Published On:</span> {{post.datePublished | date: 'medium'}}
   <span class="font-weight-bold">Number Of Shares:</span> {{shares.length}}
   <i class="fa fa-share-square-o btn btn-primary ml-4" (click)="sharePost()"></i>
-  <span class="pull-right" [hidden]="!isPostWriter">
+  <span class="pull-right" [hidden]="!isPostWriter || !isAdmin">
     <i class="fa fa-edit mr-2 ml-2 btn btn-primary" (click)="editPost()"></i>
+  </span>
+  <span class="pull-right" [hidden]="!isPostWriter">
     <i class="fa fa-trash btn btn-danger" (click)="deletePost()"></i>
   </span>
   <p class="mt-4">{{post.postContent}}</p>
