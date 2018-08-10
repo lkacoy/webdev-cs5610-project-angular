@@ -1392,10 +1392,10 @@ var PostViewComponent = /** @class */ (function () {
         }
     };
     PostViewComponent.prototype.isWriterOrAdmin = function () {
-        if (this.isAdmin) {
+        if (this.isAdmin || this.isPostWriter) {
             return true;
         }
-        this.verifyRole();
+        return false;
     };
     // post can only be edited and deleted by the writer
     PostViewComponent.prototype.verifyRole = function () {
