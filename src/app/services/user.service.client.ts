@@ -93,4 +93,9 @@ export class UserServiceClient {
       .then(response => response.json());
   }
 
+  findAllUsers() {
+    return fetch(this.USER_API + 'user')
+      .then(response => response.json());
+  }
+
 }
