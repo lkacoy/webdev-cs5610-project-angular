@@ -8,7 +8,8 @@
     <li *ngFor="let post of posts" class="list-group-item wbdv">
       <a routerLink="/viewPost/{{post._id}}">
         {{post.postTitle}}</a>
-      <span class="pull-right">Published: {{post.datePublished | date: 'short'}}</span>
+      <span class="pull-right" *ngIf="post.published">Published: {{post.datePublished | date: 'short'}}</span>
+      <span class="pull-right" *ngIf="!post.published">Draft Saved: {{post.datePublished | date: 'short'}}</span>
     </li>
   </ul>
 
