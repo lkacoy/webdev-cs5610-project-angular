@@ -28,5 +28,6 @@
   <a routerLink="/createPost" class="ml-2" [hidden]="checkRole()">Create Post</a>
   <a routerLink="/viewPosts/{{username}}" class="ml-2" [hidden]="checkRole()">View My Posts</a>
   <a routerLink="/shares/{{username}}" class="ml-2" [hidden]="canSharePost()">View Shared Posts</a>
+  <a routerLink="/admin" class="ml-2" [hidden]="canViewAdmin()">Admin</a>
 
 </div>

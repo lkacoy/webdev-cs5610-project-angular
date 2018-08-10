@@ -1,11 +1,14 @@
 export class UserServiceClient {
 
+  USER_API = "http://localhost:3000/api/";
+  //USER_API = "https://cs5610project-node-lexi.herokuapp.com/api/";
+
   login(username, password) {
     const credentials = {
       username: username,
       password: password
     };
-    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/login', {
+    return fetch(this.USER_API + 'login', {
       method: 'post',
       body: JSON.stringify(credentials),
       credentials: 'include',
@@ -22,14 +25,14 @@ export class UserServiceClient {
   }
 
   logout() {
-    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/logout', {
+    return fetch(this.USER_API + 'logout', {
       method: 'post',
       credentials: 'include'
     });
   }
 
   profile() {
-    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile',
+    return fetch(this.USER_API + 'profile',
       {
         credentials: 'include', // include, same-origin, *omit
       })
@@ -37,7 +40,7 @@ export class UserServiceClient {
   }
 
   createUser(user) {
-    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/register', {
+    return fetch(this.USER_API + 'register', {
       body: JSON.stringify(user),
       credentials: 'include', // include, same-origin, *omit
       method: 'post',
@@ -54,7 +57,7 @@ export class UserServiceClient {
   }
 
   updateUser(user) {
-    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
+    return fetch( this.USER_API + 'profile', {
       body: JSON.stringify(user),
       credentials: 'include',
       method: 'put',
@@ -67,7 +70,7 @@ export class UserServiceClient {
   }
 
   deleteUser(username) {
-    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
+    return fetch(this.USER_API + 'profile', {
       credentials: 'include',
       method: 'delete',
       headers:{
@@ -79,12 +82,12 @@ export class UserServiceClient {
   }
 
   findBlogWriters() {
-    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/blogWriter')
+    return fetch(this.USER_API + 'blogWriter')
       .then(response => response.json());
   }
 
   getCurrentUserSession() {
-    return fetch('https://cs5610project-node-lexi.herokuapp.com/api/session/get/currentUser', {
+    return fetch(this.USER_API + 'session/get/currentUser', {
       credentials: 'include'
     })
       .then(response => response.json());

@@ -82,4 +82,12 @@ export class ProfileComponent implements OnInit {
       return false;
     }
   }
+
+  canViewAdmin() {
+    if (this.role !== 'admin') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
