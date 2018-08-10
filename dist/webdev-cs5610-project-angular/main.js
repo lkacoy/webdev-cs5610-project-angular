@@ -814,6 +814,7 @@ var CreatePostComponent = /** @class */ (function () {
             'Shopping',
             'Recipes',
             'Travel',
+            'Other'
         ];
     }
     CreatePostComponent.prototype.ngOnInit = function () {
@@ -955,7 +956,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Login</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control mb-2 mt-4\"/>\n  <input [(ngModel)]=\"password\"\n         placeholder=\"password\"\n         type=\"password\"\n         class=\"form-control mb-2\"/>\n  <small id=\"forgotPassword\" class=\"form-text text-muted\">Forgot Password?</small>\n  <small id=\"loginError\" class=\"text-danger\" [hidden]=\"!this.loginError\">\n    Login was unsuccessful. Please try again.\n  </small>\n  <button (click)=\"login(username, password)\"\n          class=\"btn btn-primary btn-block mt-4\">\n    Login\n  </button>\n\n  <small id=\"register\" class=\"form-text text-muted\">\n    Don't have an account? <a routerLink=\"/register\">Register New User</a>\n  </small>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Login</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control mb-2 mt-4\"/>\n  <input [(ngModel)]=\"password\"\n         placeholder=\"password\"\n         type=\"password\"\n         class=\"form-control mb-2\"/>\n  <small id=\"loginError\" class=\"text-danger\" [hidden]=\"!this.loginError\">\n    Login was unsuccessful. Please try again.\n  </small>\n  <button (click)=\"login(username, password)\"\n          class=\"btn btn-primary btn-block mt-4\">\n    Login\n  </button>\n\n  <small id=\"register\" class=\"form-text text-muted\">\n    Don't have an account? <a routerLink=\"/register\">Register New User</a>\n  </small>\n</div>\n"
 
 /***/ }),
 
@@ -1168,6 +1169,7 @@ var PostEditComponent = /** @class */ (function () {
             'Shopping',
             'Recipes',
             'Travel',
+            'Other'
         ];
         this.activatedRoute.params.subscribe(function (params) { return _this.setParams(params); });
     }
@@ -1230,7 +1232,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Posts By {{username}}</h1>\n\n  <p>Total Posts Created: {{posts.length}}</p>\n\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">Posts</li>\n    <li *ngFor=\"let post of posts\" class=\"list-group-item wbdv\">\n      <a routerLink=\"/viewPost/{{post._id}}\">\n        {{post.postTitle}}</a>\n      <span class=\"pull-right\">Published: {{post.datePublished | date: 'short'}}</span>\n    </li>\n  </ul>\n\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Posts By {{username}}</h1>\n\n  <p>Total Posts Created: {{posts.length}}</p>\n\n  <ul class=\"list-group\">\n    <li class=\"list-group-item active\">Posts</li>\n    <li *ngFor=\"let post of posts\" class=\"list-group-item wbdv\">\n      <a routerLink=\"/viewPost/{{post._id}}\">\n        {{post.postTitle}}</a>\n      <span class=\"pull-right\" *ngIf=\"post.published == true\">Published: {{post.datePublished | date: 'short'}}</span>\n      <span class=\"pull-right\" *ngIf=\"post.published == false\">Draft Saved: {{post.datePublished | date: 'short'}}</span>\n    </li>\n  </ul>\n\n</div>\n"
 
 /***/ }),
 
@@ -1821,6 +1823,7 @@ var SearchComponent = /** @class */ (function () {
             'Shopping',
             'Recipes',
             'Travel',
+            'Other'
         ];
         this.posts = [];
     }

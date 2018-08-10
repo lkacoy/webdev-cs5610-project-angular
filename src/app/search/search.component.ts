@@ -20,6 +20,7 @@ export class SearchComponent implements OnInit {
     'Shopping',
     'Recipes',
     'Travel',
+    'Other'
   ];
   posts = [];
 

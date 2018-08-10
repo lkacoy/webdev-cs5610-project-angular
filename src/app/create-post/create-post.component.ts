@@ -21,6 +21,7 @@ export class CreatePostComponent implements OnInit {
     'Shopping',
     'Recipes',
     'Travel',
+    'Other'
   ];
   constructor(private service:PostServiceClient,
               private router:Router) { }

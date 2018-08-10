@@ -21,6 +21,7 @@ export class PostEditComponent implements OnInit {
     'Shopping',
     'Recipes',
     'Travel',
+    'Other'
   ];
 
   constructor(private service:PostServiceClient,
