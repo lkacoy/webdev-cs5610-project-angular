@@ -39,7 +39,16 @@ export class AdminComponent implements OnInit {
           window.location.reload();
         });
     }
+  }
 
+  updateUser(user) {
+    if (confirm('You are about to update ' + user.username + '. Are you sure you wish to continue?')) {
+      this.userService.adminUpdateUser(user)
+        .then(response => {
+          alert('User ' + user.username + ' updated!');
+          window.location.reload();
+        });
+    }
   }
 
 }

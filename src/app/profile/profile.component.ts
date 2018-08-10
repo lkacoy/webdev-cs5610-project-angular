@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit {
 
   delete() {
     if (confirm('Continuing will delete your account permanently. Are you sure you wish to continue?')) {
-      this.service.deleteUser(this.username).then( () =>
+      this.service.deleteUser().then( () =>
         this.router.navigateByUrl('/login')
       );
     }

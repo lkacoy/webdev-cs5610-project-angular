@@ -33,7 +33,7 @@
           </select>
         </td>
         <td>
-          <button class="btn btn-success">Edit</button>
+          <button class="btn btn-success" (click)="updateUser(user)">Edit</button>
           <button class="btn btn-danger ml-2" (click)="deleteUser(user._id, user.username)">Delete</button>
         </td>
       </tr>

@@ -107,4 +107,14 @@ export class UserServiceClient {
     });
   }
 
+  adminUpdateUser(user) {
+    return fetch( this.USER_API + 'profile/admin', {
+      method: 'put',
+      body: JSON.stringify(user),
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+  }
+
 }
