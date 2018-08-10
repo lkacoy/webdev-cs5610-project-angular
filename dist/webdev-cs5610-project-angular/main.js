@@ -43,6 +43,103 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/admin/admin.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/admin/admin.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/admin/admin.component.html":
+/*!********************************************!*\
+  !*** ./src/app/admin/admin.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <h1>Admin Console</h1>\n\n  <div *ngIf=\"users && users.length > 0; else noResults\" class=\"mt-4 mb-4\">\n    <h3>Users Registered ({{users.length}})</h3>\n    <table class=\"table table-striped\">\n      <thead>\n      <tr class=\"text-center\">\n        <th>Username</th>\n        <th>First Name</th>\n        <th>Last Name</th>\n        <th>Email</th>\n        <th>Role</th>\n        <th>Actions</th>\n      </tr>\n      </thead>\n      <tr *ngFor=\"let user of users\" class=\"text-center\">\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.username\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.firstName\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.lastName\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.email\"/>\n        </td>\n        <td>\n          <select [(ngModel)]=\"user.role\" class=\"form-control-sm\">\n            <option *ngFor=\"let role of userRoles\" [ngValue]=\"role\">{{role}}</option>\n          </select>\n        </td>\n        <td>\n          <button class=\"btn btn-success\" (click)=\"updateUser(user)\">Edit</button>\n          <button class=\"btn btn-danger ml-2\" (click)=\"deleteUser(user._id, user.username)\">Delete</button>\n        </td>\n      </tr>\n    </table>\n  </div>\n  <ng-template #noResults>\n    No users exist!\n  </ng-template>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/admin/admin.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/admin/admin.component.ts ***!
+  \******************************************/
+/*! exports provided: AdminComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AdminComponent = /** @class */ (function () {
+    function AdminComponent(userService) {
+        this.userService = userService;
+        this.users = [];
+        this.userRoles = [
+            'admin',
+            'blogFollower',
+            'blogWriter'
+        ];
+        this.findAllUsers();
+    }
+    AdminComponent.prototype.ngOnInit = function () {
+    };
+    AdminComponent.prototype.findAllUsers = function () {
+        var _this = this;
+        this.userService.findAllUsers()
+            .then(function (users) { return _this.users = users; });
+    };
+    AdminComponent.prototype.deleteUser = function (userId, username) {
+        console.log(userId);
+        if (confirm('Are you sure you wish to delete ' + username + '?')) {
+            this.userService.adminDeleteUser(userId)
+                .then(function (response) {
+                alert('You have successfully deleted user ' + username);
+                window.location.reload();
+            });
+        }
+    };
+    AdminComponent.prototype.updateUser = function (user) {
+        if (confirm('You are about to update ' + user.username + '. Are you sure you wish to continue?')) {
+            this.userService.adminUpdateUser(user)
+                .then(function (response) {
+                alert('User ' + user.username + ' updated!');
+                window.location.reload();
+            });
+        }
+    };
+    AdminComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-admin',
+            template: __webpack_require__(/*! ./admin.component.html */ "./src/app/admin/admin.component.html"),
+            styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin/admin.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_user_service_client__WEBPACK_IMPORTED_MODULE_1__["UserServiceClient"]])
+    ], AdminComponent);
+    return AdminComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /*!***********************************!*\
   !*** ./src/app/app.component.css ***!
@@ -138,12 +235,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./post-edit/post-edit.component */ "./src/app/post-edit/post-edit.component.ts");
 /* harmony import */ var _services_share_service_client__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./services/share.service.client */ "./src/app/services/share.service.client.ts");
 /* harmony import */ var _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./share-history/share-history.component */ "./src/app/share-history/share-history.component.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -194,7 +293,8 @@ var AppModule = /** @class */ (function () {
                 _search_search_component__WEBPACK_IMPORTED_MODULE_22__["SearchComponent"],
                 _noSanitize_pipe__WEBPACK_IMPORTED_MODULE_23__["NoSanitizePipe"],
                 _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_24__["PostEditComponent"],
-                _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_26__["ShareHistoryComponent"]
+                _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_26__["ShareHistoryComponent"],
+                _admin_admin_component__WEBPACK_IMPORTED_MODULE_27__["AdminComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -243,6 +343,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./search/search.component */ "./src/app/search/search.component.ts");
 /* harmony import */ var _post_edit_post_edit_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./post-edit/post-edit.component */ "./src/app/post-edit/post-edit.component.ts");
 /* harmony import */ var _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./share-history/share-history.component */ "./src/app/share-history/share-history.component.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
+
 
 
 
@@ -272,7 +374,8 @@ var appRoutes = [
     { path: 'blog-info/:id', component: _blog_info_blog_info_component__WEBPACK_IMPORTED_MODULE_6__["BlogInfoComponent"] },
     { path: 'viewPosts/:id', component: _post_list_post_list_component__WEBPACK_IMPORTED_MODULE_11__["PostListComponent"] },
     { path: 'search', component: _search_search_component__WEBPACK_IMPORTED_MODULE_12__["SearchComponent"] },
-    { path: 'shares/:id', component: _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_14__["ShareHistoryComponent"] }
+    { path: 'shares/:id', component: _share_history_share_history_component__WEBPACK_IMPORTED_MODULE_14__["ShareHistoryComponent"] },
+    { path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_15__["AdminComponent"] }
 ];
 var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(appRoutes);
 
@@ -1476,7 +1579,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Profile</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"firstName\"\n         placeholder=\"first name\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"lastName\"\n         placeholder=\"lastName\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"email\"\n         placeholder=\"email\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"role\" class=\"form-control\" readonly=\"{{role==='admin'}}\"/>\n  <button (click)=\"update()\"\n          class=\"btn btn-primary btn-block\">\n    Update\n  </button>\n  <button (click)=\"delete()\"\n          class=\"btn btn-block btn-danger\">\n    Delete Account\n  </button>\n\n  <a (click)=\"logout()\">Logout</a>\n  <a routerLink=\"/home\" class=\"ml-2\">Home</a>\n  <a routerLink=\"/createPost\" class=\"ml-2\" [hidden]=\"checkRole()\">Create Post</a>\n  <a routerLink=\"/viewPosts/{{username}}\" class=\"ml-2\" [hidden]=\"checkRole()\">View My Posts</a>\n  <a routerLink=\"/shares/{{username}}\" class=\"ml-2\" [hidden]=\"canSharePost()\">View Shared Posts</a>\n\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Profile</h1>\n\n  <input [(ngModel)]=\"username\"\n         placeholder=\"username\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"firstName\"\n         placeholder=\"first name\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"lastName\"\n         placeholder=\"lastName\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"email\"\n         placeholder=\"email\"\n         class=\"form-control\"/>\n  <input [(ngModel)]=\"role\" class=\"form-control\" readonly=\"{{role==='admin'}}\"/>\n  <button (click)=\"update()\"\n          class=\"btn btn-primary btn-block\">\n    Update\n  </button>\n  <button (click)=\"delete()\"\n          class=\"btn btn-block btn-danger\">\n    Delete Account\n  </button>\n\n  <a (click)=\"logout()\">Logout</a>\n  <a routerLink=\"/home\" class=\"ml-2\">Home</a>\n  <a routerLink=\"/createPost\" class=\"ml-2\" [hidden]=\"checkRole()\">Create Post</a>\n  <a routerLink=\"/viewPosts/{{username}}\" class=\"ml-2\" [hidden]=\"checkRole()\">View My Posts</a>\n  <a routerLink=\"/shares/{{username}}\" class=\"ml-2\" [hidden]=\"canSharePost()\">View Shared Posts</a>\n  <a routerLink=\"/admin\" class=\"ml-2\" [hidden]=\"canViewAdmin()\">Admin</a>\n\n</div>\n"
 
 /***/ }),
 
@@ -1553,7 +1656,7 @@ var ProfileComponent = /** @class */ (function () {
     ProfileComponent.prototype.delete = function () {
         var _this = this;
         if (confirm('Continuing will delete your account permanently. Are you sure you wish to continue?')) {
-            this.service.deleteUser(this.username).then(function () {
+            this.service.deleteUser().then(function () {
                 return _this.router.navigateByUrl('/login');
             });
         }
@@ -1568,6 +1671,14 @@ var ProfileComponent = /** @class */ (function () {
     };
     ProfileComponent.prototype.canSharePost = function () {
         if (this.role !== 'blogWriter' && this.role !== 'blogFollower') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    ProfileComponent.prototype.canViewAdmin = function () {
+        if (this.role !== 'admin') {
             return true;
         }
         else {
@@ -2083,13 +2194,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserServiceClient", function() { return UserServiceClient; });
 var UserServiceClient = /** @class */ (function () {
     function UserServiceClient() {
+        this.USER_API = "http://localhost:3000/api/";
     }
+    //USER_API = "https://cs5610project-node-lexi.herokuapp.com/api/";
     UserServiceClient.prototype.login = function (username, password) {
         var credentials = {
             username: username,
             password: password
         };
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/login', {
+        return fetch(this.USER_API + 'login', {
             method: 'post',
             body: JSON.stringify(credentials),
             credentials: 'include',
@@ -2106,19 +2219,19 @@ var UserServiceClient = /** @class */ (function () {
         });
     };
     UserServiceClient.prototype.logout = function () {
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/logout', {
+        return fetch(this.USER_API + 'logout', {
             method: 'post',
             credentials: 'include'
         });
     };
     UserServiceClient.prototype.profile = function () {
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
+        return fetch(this.USER_API + 'profile', {
             credentials: 'include',
         })
             .then(function (response) { return response.json(); });
     };
     UserServiceClient.prototype.createUser = function (user) {
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/register', {
+        return fetch(this.USER_API + 'register', {
             body: JSON.stringify(user),
             credentials: 'include',
             method: 'post',
@@ -2135,7 +2248,7 @@ var UserServiceClient = /** @class */ (function () {
         });
     };
     UserServiceClient.prototype.updateUser = function (user) {
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
+        return fetch(this.USER_API + 'profile', {
             body: JSON.stringify(user),
             credentials: 'include',
             method: 'put',
@@ -2146,8 +2259,8 @@ var UserServiceClient = /** @class */ (function () {
             return response.json();
         });
     };
-    UserServiceClient.prototype.deleteUser = function (username) {
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/profile', {
+    UserServiceClient.prototype.deleteUser = function () {
+        return fetch(this.USER_API + 'profile', {
             credentials: 'include',
             method: 'delete',
             headers: {
@@ -2158,14 +2271,35 @@ var UserServiceClient = /** @class */ (function () {
         });
     };
     UserServiceClient.prototype.findBlogWriters = function () {
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/blogWriter')
+        return fetch(this.USER_API + 'blogWriter')
             .then(function (response) { return response.json(); });
     };
     UserServiceClient.prototype.getCurrentUserSession = function () {
-        return fetch('https://cs5610project-node-lexi.herokuapp.com/api/session/get/currentUser', {
+        return fetch(this.USER_API + 'session/get/currentUser', {
             credentials: 'include'
         })
             .then(function (response) { return response.json(); });
+    };
+    UserServiceClient.prototype.findAllUsers = function () {
+        return fetch(this.USER_API + 'user')
+            .then(function (response) { return response.json(); });
+    };
+    UserServiceClient.prototype.adminDeleteUser = function (userId) {
+        return fetch(this.USER_API + 'profile/admin/' + userId, {
+            method: 'delete',
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
+    };
+    UserServiceClient.prototype.adminUpdateUser = function (user) {
+        return fetch(this.USER_API + 'profile/admin', {
+            method: 'put',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            }
+        });
     };
     return UserServiceClient;
 }());
