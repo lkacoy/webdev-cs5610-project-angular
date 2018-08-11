@@ -61,7 +61,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <h1>Admin Console</h1>\n\n  <div *ngIf=\"users && users.length > 0; else noResults\" class=\"mt-4 mb-4\">\n    <h3>Users Registered ({{users.length}})</h3>\n    <table class=\"table table-striped\">\n      <thead>\n      <tr class=\"text-center\">\n        <th>Username</th>\n        <th>First Name</th>\n        <th>Last Name</th>\n        <th>Email</th>\n        <th>Role</th>\n        <th>Actions</th>\n      </tr>\n      </thead>\n      <tr *ngFor=\"let user of users\" class=\"text-center\">\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.username\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.firstName\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.lastName\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.email\"/>\n        </td>\n        <td>\n          <select [(ngModel)]=\"user.role\" class=\"form-control-sm\">\n            <option *ngFor=\"let role of userRoles\" [ngValue]=\"role\">{{role}}</option>\n          </select>\n        </td>\n        <td>\n          <button class=\"btn btn-success\" (click)=\"updateUser(user)\">Edit</button>\n          <button class=\"btn btn-danger ml-2\" (click)=\"deleteUser(user._id, user.username)\">Delete</button>\n        </td>\n      </tr>\n    </table>\n  </div>\n  <ng-template #noResults>\n    No users exist!\n  </ng-template>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <h1>Admin Console</h1>\n\n  <div *ngIf=\"users && users.length > 0; else noResults\" class=\"mt-4 mb-4\">\n    <h3>Users Registered ({{users.length}})</h3>\n    <table class=\"table table-striped\">\n      <thead>\n      <tr class=\"text-center\">\n        <th>Username</th>\n        <th>Password</th>\n        <th>First Name</th>\n        <th>Last Name</th>\n        <th>Email</th>\n        <th>Role</th>\n        <th>Actions</th>\n      </tr>\n      </thead>\n      <tr class=\"text-center\">\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"newUser.username\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" type=\"password\" [(ngModel)]=\"newUser.password\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"newUser.firstName\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"newUser.lastName\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"newUser.email\"/>\n        </td>\n        <td>\n          <select [(ngModel)]=\"newUser.role\" class=\"form-control-sm\">\n            <option *ngFor=\"let role of userRoles\" [ngValue]=\"role\">{{role}}</option>\n          </select>\n        </td>\n        <td>\n          <button class=\"btn btn-success\" (click)=\"addUser(newUser)\">Create User</button>\n        </td>\n      </tr>\n      <tr *ngFor=\"let user of users\" class=\"text-center\">\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.username\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.password\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.firstName\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.lastName\"/>\n        </td>\n        <td>\n          <input class=\"form-control-sm\" [(ngModel)]=\"user.email\"/>\n        </td>\n        <td>\n          <select [(ngModel)]=\"user.role\" class=\"form-control-sm\">\n            <option *ngFor=\"let role of userRoles\" [ngValue]=\"role\">{{role}}</option>\n          </select>\n        </td>\n        <td>\n          <button class=\"btn btn-success\" (click)=\"updateUser(user)\">Edit</button>\n          <button class=\"btn btn-danger ml-2\" (click)=\"deleteUser(user._id, user.username)\">Delete</button>\n        </td>\n      </tr>\n    </table>\n  </div>\n  <ng-template #noResults>\n    No users exist!\n  </ng-template>\n</div>\n"
 
 /***/ }),
 
@@ -77,6 +77,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_user_service_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/user.service.client */ "./src/app/services/user.service.client.ts");
+/* harmony import */ var _webdev_summer2018_angular_src_app_models_user_model_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../webdev-summer2018-angular/src/app/models/user.model.client */ "../webdev-summer2018-angular/src/app/models/user.model.client.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -88,10 +89,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var AdminComponent = /** @class */ (function () {
     function AdminComponent(userService) {
         this.userService = userService;
         this.users = [];
+        this.newUser = new _webdev_summer2018_angular_src_app_models_user_model_client__WEBPACK_IMPORTED_MODULE_2__["User"]();
         this.userRoles = [
             'admin',
             'blogFollower',
@@ -124,6 +127,17 @@ var AdminComponent = /** @class */ (function () {
                 window.location.reload();
             });
         }
+    };
+    AdminComponent.prototype.addUser = function (user) {
+        this.userService.adminAddUser(user)
+            .then(function (response) {
+            if (response.username) {
+                window.location.reload();
+            }
+            else {
+                alert(response.error);
+            }
+        });
     };
     AdminComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2299,6 +2313,15 @@ var UserServiceClient = /** @class */ (function () {
                 'content-type': 'application/json'
             }
         });
+    };
+    UserServiceClient.prototype.adminAddUser = function (user) {
+        return fetch(this.USER_API + 'admin', {
+            method: 'post',
+            body: JSON.stringify(user),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function (response) { return response.json(); });
     };
     return UserServiceClient;
 }());
