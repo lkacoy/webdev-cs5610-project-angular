@@ -116,4 +116,14 @@ export class UserServiceClient {
     });
   }
 
+  adminAddUser(user) {
+    return fetch( this.USER_API + 'admin', {
+      method: 'post',
+      body: JSON.stringify(user),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then (response => response.json());
+  }
+
 }

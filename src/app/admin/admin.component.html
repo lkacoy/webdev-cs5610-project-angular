@@ -7,6 +7,7 @@
       <thead>
       <tr class="text-center">
         <th>Username</th>
+        <th>Password</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
@@ -14,9 +15,37 @@
         <th>Actions</th>
       </tr>
       </thead>
+      <tr class="text-center">
+        <td>
+          <input class="form-control-sm" [(ngModel)]="newUser.username"/>
+        </td>
+        <td>
+          <input class="form-control-sm" type="password" [(ngModel)]="newUser.password"/>
+        </td>
+        <td>
+          <input class="form-control-sm" [(ngModel)]="newUser.firstName"/>
+        </td>
+        <td>
+          <input class="form-control-sm" [(ngModel)]="newUser.lastName"/>
+        </td>
+        <td>
+          <input class="form-control-sm" [(ngModel)]="newUser.email"/>
+        </td>
+        <td>
+          <select [(ngModel)]="newUser.role" class="form-control-sm">
+            <option *ngFor="let role of userRoles" [ngValue]="role">{{role}}</option>
+          </select>
+        </td>
+        <td>
+          <button class="btn btn-success" (click)="addUser(newUser)">Create User</button>
+        </td>
+      </tr>
       <tr *ngFor="let user of users" class="text-center">
         <td>
           <input class="form-control-sm" [(ngModel)]="user.username"/>
+        </td>
+        <td>
+          <input class="form-control-sm" [(ngModel)]="user.password"/>
         </td>
         <td>
           <input class="form-control-sm" [(ngModel)]="user.firstName"/>

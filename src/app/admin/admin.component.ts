@@ -10,6 +10,7 @@ import {User} from "../../../../webdev-summer2018-angular/src/app/models/user.mo
 export class AdminComponent implements OnInit {
 
   users:User[] = [];
+  newUser:User = new User();
 
   userRoles = [
     'admin',
@@ -49,6 +50,18 @@ export class AdminComponent implements OnInit {
           window.location.reload();
         });
     }
+  }
+
+  addUser(user) {
+    this.userService.adminAddUser(user)
+      .then(response => {
+        if (response.username) {
+          window.location.reload();
+        } else {
+          alert(response.error);
+        }
+      })
+
   }
 
 }
