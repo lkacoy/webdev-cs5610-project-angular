@@ -1,7 +1,6 @@
 export class UserServiceClient {
 
-  USER_API = "http://localhost:3000/api/";
-  //USER_API = "https://cs5610project-node-lexi.herokuapp.com/api/";
+  USER_API = "https://cs5610project-node-lexi.herokuapp.com/api/";
 
   login(username, password) {
     const credentials = {
